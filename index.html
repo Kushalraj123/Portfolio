@@ -716,7 +716,206 @@
             transform: none
         }
 
+        /* EXPERIENCE & EDUCATION */
+        #experience {
+            background: var(--bg2);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .experience-list,
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .experience-card,
+        .education-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.75rem;
+            transition: border-color .25s, transform .25s;
+        }
+
+        .experience-card:hover,
+        .education-card:hover {
+            border-color: rgba(0, 201, 167, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .exp-header,
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .exp-title,
+        .edu-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .exp-company,
+        .edu-school {
+            font-size: 0.9rem;
+            color: var(--teal);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .exp-date,
+        .edu-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .exp-bullets li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            position: relative;
+            padding-left: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .exp-bullets li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+        }
+
+        .edu-details {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        /* CERTIFICATIONS & ACHIEVEMENTS */
+        #certifications {
+            background: var(--bg);
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            margin-top: 3rem;
+        }
+
+        .certs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            transition: border-color .2s;
+        }
+
+        .cert-item:hover {
+            border-color: rgba(0, 201, 167, 0.25);
+        }
+
+        .cert-icon {
+            font-size: 1.5rem;
+        }
+
+        .cert-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .cert-issuer {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+
+        .achievement-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--teal);
+        }
+
+        .ach-badge {
+            display: inline-block;
+            background: rgba(0, 201, 167, 0.08);
+            border: 1px solid rgba(0, 201, 167, 0.2);
+            border-radius: 2rem;
+            padding: 0.25rem 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        .ach-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .ach-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
         /* RESPONSIVE */
+        @media(max-width:992px) {
+
+            .experience-grid,
+            .certs-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
         @media(max-width:768px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -731,6 +930,117 @@
                 display: none
             }
         }
+
+        /* Scroll Snapping & Slide indicator CSS */
+        .slide-nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 99;
+        }
+
+        .slide-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .slide-dot::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 1px solid var(--teal);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-dot.active {
+            background: var(--teal);
+            transform: scale(1.2);
+        }
+
+        .slide-dot.active::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Slide controls panel */
+        .slide-controls {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+
+        .control-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(15, 24, 36, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .control-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 201, 167, 0.2);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        @media(min-width: 1024px) {
+            html {
+                scroll-snap-type: y mandatory;
+                scroll-behavior: smooth;
+            }
+
+            .slide-nav {
+                display: flex;
+            }
+
+            .slide-controls {
+                display: flex;
+            }
+
+            section {
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+                height: 100vh;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 6rem 6vw 4rem 6vw;
+                box-sizing: border-box;
+                overflow-y: auto;
+            }
+        }
     </style>
 </head>
 
@@ -742,10 +1052,29 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
+    <!-- Slide Navigation (Dots) -->
+    <div class="slide-nav">
+        <a href="#hero" class="slide-dot active" data-section="hero" aria-label="Hero slide"></a>
+        <a href="#about" class="slide-dot" data-section="about" aria-label="About slide"></a>
+        <a href="#projects" class="slide-dot" data-section="projects" aria-label="Projects slide"></a>
+        <a href="#experience" class="slide-dot" data-section="experience" aria-label="Experience slide"></a>
+        <a href="#certifications" class="slide-dot" data-section="certifications" aria-label="Certifications slide"></a>
+        <a href="#skills" class="slide-dot" data-section="skills" aria-label="Skills slide"></a>
+        <a href="#contact" class="slide-dot" data-section="contact" aria-label="Contact slide"></a>
+    </div>
+
+    <!-- Slide Navigation Controls (Prev/Next Page) -->
+    <div class="slide-controls">
+        <button id="prev-slide" class="control-btn" aria-label="Previous slide">↑</button>
+        <button id="next-slide" class="control-btn" aria-label="Next slide">↓</button>
+    </div>
 
     <!-- HERO -->
     <section id="hero">
@@ -762,8 +1091,8 @@
             </h1>
             <p class="hero-sub">
                 ML Engineer &amp; Data Scientist passionate about computer vision,
-                explainable AI, and deploying models that solve real-world problems
-                — from roads to faces to finance.
+                explainable AI, and deploying intelligent systems — from computer vision models to full-stack real-time
+                platforms.
             </p>
             <div class="hero-btns">
                 <a href="#projects" class="btn btn-primary">View Projects ↓</a>
@@ -784,11 +1113,13 @@
                 <h2 class="section-title">ML student,<br />problem solver.</h2>
                 <p>I'm <strong>Kushal</strong>, a Computer Science student at Navkis College of Engineering, Hassan,
                     specialising in machine learning and data science.</p>
-                <p>I build end-to-end ML pipelines — from raw data to deployed, interactive applications. My work spans
-                    <strong>computer vision</strong>, tabular ML, and civic tech.
+                <p>I build end-to-end applications — from machine learning pipelines to collaborative systems. My work
+                    spans
+                    <strong>computer vision</strong>, real-time collaboration, and full-stack development.
                 </p>
-                <p>I'm driven by projects that have a tangible impact: detecting road damage for better infrastructure,
-                    uncovering deepfakes, and flagging financial fraud.</p>
+                <p>I'm driven by projects that solve practical challenges: detecting road damage for better
+                    infrastructure,
+                    uncovering deepfakes, and building high-performance, real-time web applications.</p>
                 <div class="about-stats">
                     <div class="stat-card">
                         <div class="stat-num">4+</div>
@@ -810,7 +1141,7 @@
             </div>
             <div class="about-image-wrap reveal" style="transition-delay:.15s">
                 <div class="profile-card">
-                    <img src="profile.jpg" alt="Kushal - ML Engineer" class="profile-img" />
+                    <img src="My photo.jpeg" alt="Kushal - ML Engineer" class="profile-img" />
                     <div class="profile-badge">// kushal · ml engineer</div>
                 </div>
             </div>
@@ -864,48 +1195,188 @@
                 </div>
             </a>
 
-            <a href="#" class="project-card reveal" style="transition-delay:.2s">
-                <div class="project-icon" style="background:rgba(139,92,246,0.1)">💳</div>
+            <a href="https://github.com/Kushalraj123/DevSync-Collaborative-IDE" target="_blank"
+                class="project-card reveal" style="transition-delay:.2s">
+                <div class="project-icon" style="background:rgba(99,102,241,0.1)">💻</div>
                 <div class="project-tag-row">
-                    <span class="project-tag">XGBoost</span>
-                    <span class="project-tag">SHAP</span>
-                    <span class="project-tag">SMOTE</span>
-                    <span class="project-tag amber">Tabular ML</span>
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">Yjs CRDTs</span>
+                    <span class="project-tag">Socket.IO</span>
+                    <span class="project-tag">Judge0 API</span>
+                    <span class="project-tag amber">Collaborative IDE</span>
                 </div>
-                <h3 class="project-title">Credit Card Fraud Detection</h3>
-                <p class="project-desc">End-to-end fraud detection pipeline using XGBoost with SMOTE for class
-                    imbalance. SHAP explainability panel shows feature contributions per transaction. Deployed on
-                    Streamlit &amp; HF Spaces.</p>
+                <h3 class="project-title">DevSync — Real-Time Collaborative IDE</h3>
+                <p class="project-desc">A browser-based collaborative IDE supporting 10+ simultaneous users per session
+                    with real-time, low-latency synchronization using Yjs CRDTs, achieving sub-100ms update propagation.
+                    Integrates Judge0 API for secure, sandboxed code execution across 5+ languages.</p>
                 <div class="project-footer">
                     <div class="project-status">
                         <div class="status-dot live"></div>
-                        <span>Deployed</span>
+                        <span>GitHub Repo</span>
                     </div>
                     <span class="project-arrow">→</span>
                 </div>
             </a>
 
-            <a href="#" class="project-card reveal" style="transition-delay:.3s">
-                <div class="project-icon" style="background:rgba(59,130,246,0.1)">🏙️</div>
+            <a href="https://github.com/Kushalraj123/E-Commerce-Web-Application" target="_blank"
+                class="project-card reveal" style="transition-delay:.3s">
+                <div class="project-icon" style="background:rgba(16,185,129,0.1)">🛒</div>
                 <div class="project-tag-row">
                     <span class="project-tag">React</span>
-                    <span class="project-tag">Claude API</span>
-                    <span class="project-tag">Recharts</span>
-                    <span class="project-tag amber">Civic Tech</span>
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">Prisma</span>
+                    <span class="project-tag">SQLite</span>
+                    <span class="project-tag amber">Full-Stack App</span>
                 </div>
-                <h3 class="project-title">CityWatch — Civic Issue Reporter</h3>
-                <p class="project-desc">Full-stack civic tech app for reporting urban issues. Integrates Claude API for
-                    AI-powered issue classification and severity assessment. Features real-time dashboards and community
-                    upvoting.</p>
+                <h3 class="project-title">E-Commerce Web Application</h3>
+                <p class="project-desc">A full-stack e-commerce application featuring an optimized database seeding
+                    pipeline using Prisma's batch insertion. Generates 1,000+ realistic product records, cutting query
+                    execution times by ~40% and reducing setup time from minutes to seconds.</p>
                 <div class="project-footer">
                     <div class="project-status">
-                        <div class="status-dot build"></div>
-                        <span>In Progress</span>
+                        <div class="status-dot live"></div>
+                        <span>GitHub Repo</span>
                     </div>
                     <span class="project-arrow">→</span>
                 </div>
             </a>
 
+        </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION -->
+    <section id="experience">
+        <div class="experience-grid">
+            <div class="experience-list reveal">
+                <p class="section-label">// Experience</p>
+                <h2 class="section-title">Internships &amp; Training.</h2>
+
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3 class="exp-title">Trainee Software Engineer</h3>
+                            <p class="exp-company">Inventeron Technologies and Business Solutions LLP</p>
+                        </div>
+                        <span class="exp-date">Feb 2026 – May 2026</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Completed an industry internship, developing 8+ responsive UI modules for client-facing web
+                            applications using React and REST APIs.</li>
+                        <li>Debugged and resolved 20+ front-end issues, improving application cross-browser
+                            compatibility and layout consistency.</li>
+                        <li>Collaborated with a cross-functional team in Agile/Scrum sprints, delivering 100% of
+                            assigned software features ahead of schedule.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3 class="exp-title">Data Science Intern</h3>
+                            <p class="exp-company">Codec Technologies Pvt. Ltd.</p>
+                        </div>
+                        <span class="exp-date">Jan 2026 – Feb 2026</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Completed an AICTE and ICAC-approved Data Science internship, analyzing 5+ real-world
+                            datasets and building end-to-end Python machine learning pipelines.</li>
+                        <li>Engineered predictive models using Python, scikit-learn, and Pandas, achieving over 90%
+                            accuracy on evaluation data.</li>
+                        <li>Collaborated in a 4-member team to deliver comprehensive data insight reports to senior
+                            stakeholders on schedule.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="education-list reveal" style="transition-delay:.15s">
+                <p class="section-label">// Academic Path</p>
+                <h2 class="section-title">Education.</h2>
+
+                <div class="education-card">
+                    <div class="edu-header">
+                        <div>
+                            <h3 class="edu-title">B.E. — Computer Science</h3>
+                            <p class="edu-school">Navkis College of Engineering, VTU</p>
+                        </div>
+                        <span class="edu-date">2023 – 2027</span>
+                    </div>
+                    <p class="edu-details">CGPA: <strong>7.50 / 10</strong></p>
+                </div>
+
+                <div class="education-card">
+                    <div class="edu-header">
+                        <div>
+                            <h3 class="edu-title">Class XII (PUC)</h3>
+                            <p class="edu-school">Masters PU College, Hassan</p>
+                        </div>
+                        <span class="edu-date">2021 – 2023</span>
+                    </div>
+                    <p class="edu-details">Score: <strong>82%</strong></p>
+                </div>
+
+                <div class="education-card">
+                    <div class="edu-header">
+                        <div>
+                            <h3 class="edu-title">Class X (SSLC)</h3>
+                            <p class="edu-school">United Academy, Hassan</p>
+                        </div>
+                        <span class="edu-date">2021</span>
+                    </div>
+                    <p class="edu-details">Score: <strong>85%</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+    <section id="certifications">
+        <div class="certs-grid">
+            <div class="certs-col reveal">
+                <p class="section-label">// Qualifications</p>
+                <h2 class="section-title">Certifications.</h2>
+                <div class="certs-list">
+                    <div class="cert-item">
+                        <div class="cert-icon">🏆</div>
+                        <div>
+                            <h4 class="cert-name">Getting Started with Artificial Intelligence</h4>
+                            <p class="cert-issuer">IBM · 2026</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">💻</div>
+                        <div>
+                            <h4 class="cert-name">Introduction to Front-End Development</h4>
+                            <p class="cert-issuer">Simplilearn SkillUp · 2025</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">📜</div>
+                        <div>
+                            <h4 class="cert-name">JavaScript Training</h4>
+                            <p class="cert-issuer">Spoken Tutorial, IIT Bombay · 2025</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">🐍</div>
+                        <div>
+                            <h4 class="cert-name">Data Structures and Algorithms in Python</h4>
+                            <p class="cert-issuer">Infosys Springboard · 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievements-col reveal" style="transition-delay:.15s">
+                <p class="section-label">// Recognition</p>
+                <h2 class="section-title">Achievements.</h2>
+                <div class="achievement-card">
+                    <div class="ach-badge">🥈 2nd Place</div>
+                    <h3 class="ach-title">University Hackathon Winner</h3>
+                    <p class="ach-desc">Secured 2nd place among 50 competing teams for the development of
+                        <strong>DevSync Real-Time Collaborative IDE</strong>.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -916,46 +1387,60 @@
         <div class="skills-content reveal">
 
             <div class="skill-group">
-                <div class="skill-group-label">Machine Learning</div>
+                <div class="skill-group-label">Languages</div>
                 <div class="skill-pills">
                     <div class="pill"><span class="pill-dot"></span>Python</div>
+                    <div class="pill"><span class="pill-dot"></span>Java</div>
+                    <div class="pill"><span class="pill-dot"></span>C</div>
+                    <div class="pill"><span class="pill-dot"></span>SQL</div>
+                    <div class="pill"><span class="pill-dot"></span>HTML / CSS</div>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-label">Frameworks &amp; Libraries</div>
+                <div class="skill-pills">
                     <div class="pill"><span class="pill-dot"></span>PyTorch</div>
-                    <div class="pill"><span class="pill-dot"></span>TensorFlow / Keras</div>
-                    <div class="pill"><span class="pill-dot"></span>Scikit-learn</div>
-                    <div class="pill"><span class="pill-dot"></span>XGBoost</div>
-                    <div class="pill"><span class="pill-dot"></span>YOLOv8 / Ultralytics</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-label">Computer Vision &amp; Explainability</div>
-                <div class="skill-pills">
                     <div class="pill"><span class="pill-dot"></span>OpenCV</div>
-                    <div class="pill"><span class="pill-dot"></span>Grad-CAM</div>
-                    <div class="pill"><span class="pill-dot"></span>SHAP</div>
-                    <div class="pill"><span class="pill-dot"></span>Albumentations</div>
-                    <div class="pill"><span class="pill-dot"></span>Roboflow</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-label">Data &amp; Deployment</div>
-                <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>Pandas / NumPy</div>
+                    <div class="pill"><span class="pill-dot"></span>React</div>
+                    <div class="pill"><span class="pill-dot"></span>Flask</div>
                     <div class="pill"><span class="pill-dot"></span>Streamlit</div>
-                    <div class="pill"><span class="pill-dot"></span>Hugging Face Spaces</div>
-                    <div class="pill"><span class="pill-dot"></span>Folium</div>
-                    <div class="pill"><span class="pill-dot"></span>Git / GitHub</div>
                 </div>
             </div>
 
             <div class="skill-group">
-                <div class="skill-group-label">Frontend</div>
+                <div class="skill-group-label">Tools &amp; Platforms</div>
                 <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>React.js</div>
-                    <div class="pill"><span class="pill-dot"></span>HTML / CSS / JS</div>
-                    <div class="pill"><span class="pill-dot"></span>Recharts</div>
-                    <div class="pill"><span class="pill-dot"></span>Tailwind CSS</div>
+                    <div class="pill"><span class="pill-dot"></span>Git</div>
+                    <div class="pill"><span class="pill-dot"></span>Docker</div>
+                    <div class="pill"><span class="pill-dot"></span>VS Code</div>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-label">Concepts</div>
+                <div class="skill-pills">
+                    <div class="pill"><span class="pill-dot"></span>Machine Learning</div>
+                    <div class="pill"><span class="pill-dot"></span>Data Structures &amp; Algorithms</div>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-label">Soft Skills</div>
+                <div class="skill-pills">
+                    <div class="pill"><span class="pill-dot"></span>Communication</div>
+                    <div class="pill"><span class="pill-dot"></span>Teamwork</div>
+                    <div class="pill"><span class="pill-dot"></span>Time Management</div>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-label">Familiar With</div>
+                <div class="skill-pills">
+                    <div class="pill"><span class="pill-dot"></span>REST APIs</div>
+                    <div class="pill"><span class="pill-dot"></span>Git / Version Control</div>
+                    <div class="pill"><span class="pill-dot"></span>Debugging</div>
+                    <div class="pill"><span class="pill-dot"></span>Agile Basics</div>
                 </div>
             </div>
 
@@ -987,7 +1472,7 @@
                     </svg>
                     GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/kushal-raj-m-814151287/" target="_blank" class="contact-link">
+                <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank" class="contact-link">
                     <svg viewBox="0 0 24 24">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                         <rect x="2" y="9" width="4" height="12" />
@@ -1010,7 +1495,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 <span>Kushal</span> · Navkis College of Engineering, Hassan</p>
+        <p>© 2026 <span>Kushal Raj</span> · Navkis College of Engineering, Hassan</p>
         <p>Built with <span>HTML · CSS · JS</span></p>
     </footer>
 
@@ -1025,6 +1510,68 @@
             });
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
+
+        // Slide Dot Active State Synchronization & Navigation
+        const sections = document.querySelectorAll('section');
+        const dots = document.querySelectorAll('.slide-dot');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        const sectionList = Array.from(sections);
+
+        function getActiveIndex() {
+            let activeIdx = 0;
+            let minDistance = Infinity;
+            sectionList.forEach((sec, idx) => {
+                const distance = Math.abs(sec.getBoundingClientRect().top);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    activeIdx = idx;
+                }
+            });
+            return activeIdx;
+        }
+
+        function updateControlButtons(activeIdx) {
+            if (prevBtn && nextBtn) {
+                prevBtn.disabled = activeIdx === 0;
+                nextBtn.disabled = activeIdx === sectionList.length - 1;
+            }
+        }
+
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => {
+                const currentIdx = getActiveIndex();
+                if (currentIdx < sectionList.length - 1) {
+                    sectionList[currentIdx + 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const currentIdx = getActiveIndex();
+                if (currentIdx > 0) {
+                    sectionList[currentIdx - 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        const activeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.getAttribute('id');
+                    dots.forEach(dot => {
+                        if (dot.getAttribute('data-section') === activeId) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+
+                    const activeIdx = sectionList.findIndex(sec => sec.getAttribute('id') === activeId);
+                    updateControlButtons(activeIdx);
+                }
+            });
+        }, { threshold: 0.5 });
+        sections.forEach(section => activeObserver.observe(section));
     </script>
 </body>
 
