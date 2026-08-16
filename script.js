@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
        2. LENIS SMOOTH SCROLLER INITIALIZATION
        ========================================== */
     const lenis = new Lenis({
-        duration: 1.2,
+        duration: 0.8,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // standard expo easing
         smoothWheel: true,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
+        wheelMultiplier: 1.5,
+        touchMultiplier: 2.5,
         infinite: false
     });
 
