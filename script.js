@@ -51,7 +51,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================
-       2. LENIS SMOOTH SCROLLER INITIALIZATION
+       2. HAMBURGER MOBILE MENU
+       ========================================== */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu   = document.getElementById('mobile-menu');
+    const hamLine1     = document.getElementById('ham-line1');
+    const hamLine2     = document.getElementById('ham-line2');
+    const hamLine3     = document.getElementById('ham-line3');
+    let menuOpen = false;
+
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            hamLine1.style.transform = 'translateY(6px) rotate(45deg)';
+            hamLine2.style.opacity   = '0';
+            hamLine3.style.transform = 'translateY(-6px) rotate(-45deg)';
+        } else {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('translate-x-0');
+            hamLine1.style.transform = '';
+            hamLine2.style.opacity   = '1';
+            hamLine3.style.transform = '';
+        }
+    }
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', toggleMenu);
+    }
+
+    document.querySelectorAll('.mobile-nav-link, #mobile-lets-talk').forEach(link => {
+        link.addEventListener('click', () => { if (menuOpen) toggleMenu(); });
+    });
+
+    /* ==========================================
+       3. LENIS SMOOTH SCROLLER INITIALIZATION
        ========================================== */
     const lenis = new Lenis({
         duration: 0.8,

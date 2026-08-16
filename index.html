@@ -113,14 +113,39 @@
             </a>
         </nav>
 
-        <!-- Right Action Button -->
+        <!-- Right Action Button (desktop only) -->
         <a href="#contact"
-            class="group flex items-center space-x-2 text-[11px] tracking-[0.24em] font-light uppercase py-2.5 px-5 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300 backdrop-blur-sm">
+            class="hidden md:flex group items-center space-x-2 text-[11px] tracking-[0.24em] font-light uppercase py-2.5 px-5 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300 backdrop-blur-sm">
             <span>LET'S TALK</span>
             <span
                 class="transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-xs">↗</span>
         </a>
+
+        <!-- Hamburger Button (mobile only) -->
+        <button id="hamburger-btn" class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 z-50 relative" aria-label="Toggle menu">
+            <span id="ham-line1" class="block w-6 h-[1.5px] bg-[#EAD8C7] transition-all duration-300 origin-center"></span>
+            <span id="ham-line2" class="block w-6 h-[1.5px] bg-[#EAD8C7] transition-all duration-300"></span>
+            <span id="ham-line3" class="block w-6 h-[1.5px] bg-[#EAD8C7] transition-all duration-300 origin-center"></span>
+        </button>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-30 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <nav class="flex flex-col items-center gap-8 text-[13px] tracking-[0.35em] font-light uppercase text-[#C4B5A5]">
+            <a href="#about"   class="mobile-nav-link hover:text-[#F7E7C4] transition-colors duration-200">ABOUT</a>
+            <a href="#projects" class="mobile-nav-link hover:text-[#F7E7C4] transition-colors duration-200">PROJECTS</a>
+            <a href="#skills"  class="mobile-nav-link hover:text-[#F7E7C4] transition-colors duration-200">SKILLS</a>
+            <a href="#experience" class="mobile-nav-link hover:text-[#F7E7C4] transition-colors duration-200">EXPERIENCE</a>
+            <a href="#education" class="mobile-nav-link hover:text-[#F7E7C4] transition-colors duration-200">EDUCATION</a>
+            <a href="#certifications" class="mobile-nav-link hover:text-[#F7E7C4] transition-colors duration-200">CERTIFIED</a>
+            <a href="#contact" class="mobile-nav-link hover:text-[#F7E7C4] transition-colors duration-200">CONTACT</a>
+        </nav>
+        <a href="#contact" id="mobile-lets-talk"
+            class="mt-10 text-[11px] tracking-[0.24em] font-light uppercase py-3 px-8 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300">
+            LET'S TALK ↗
+        </a>
+    </div>
 
     <!-- ==========================================
          HERO SECTION
