@@ -224,23 +224,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================
-       5. EXPERIENCE TIMELINE PROGRESS LINE
+       5. EXPERIENCE & EDUCATION TIMELINE PROGRESS LINE
        ========================================== */
     const timeline = document.getElementById('experience-timeline');
     const progressBar = document.getElementById('timeline-progress-bar');
+    const eduTimeline = document.getElementById('education-timeline');
+    const eduProgressBar = document.getElementById('education-progress-bar');
 
     function updateTimelineProgress() {
-        if (!timeline || !progressBar) return;
+        // Experience timeline
+        if (timeline && progressBar) {
+            const rect = timeline.getBoundingClientRect();
+            const startOffset = rect.top + window.scrollY - window.innerHeight * 0.7;
+            const endOffset = rect.bottom + window.scrollY - window.innerHeight * 0.9;
+            const scrollTop = window.scrollY;
+            let progress = (scrollTop - startOffset) / (endOffset - startOffset);
+            progress = Math.max(0, Math.min(1, progress));
+            progressBar.style.height = `${progress * 100}%`;
+        }
 
-        const rect = timeline.getBoundingClientRect();
-        const startOffset = rect.top + window.scrollY - window.innerHeight * 0.7;
-        const endOffset = rect.bottom + window.scrollY - window.innerHeight * 0.9;
-        const scrollTop = window.scrollY;
-
-        let progress = (scrollTop - startOffset) / (endOffset - startOffset);
-        progress = Math.max(0, Math.min(1, progress));
-
-        progressBar.style.height = `${progress * 100}%`;
+        // Education timeline
+        if (eduTimeline && eduProgressBar) {
+            const rect = eduTimeline.getBoundingClientRect();
+            const startOffset = rect.top + window.scrollY - window.innerHeight * 0.7;
+            const endOffset = rect.bottom + window.scrollY - window.innerHeight * 0.9;
+            const scrollTop = window.scrollY;
+            let progress = (scrollTop - startOffset) / (endOffset - startOffset);
+            progress = Math.max(0, Math.min(1, progress));
+            eduProgressBar.style.height = `${progress * 100}%`;
+        }
     }
 
     lenis.on('scroll', () => {
