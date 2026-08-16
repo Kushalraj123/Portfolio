@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kushal Raj — Cinematic Portfolio</title>
-    <meta name="description" content="Precision in Darkness — Computer vision, explainable AI, and full-stack systems by Kushal Raj." />
+    <meta name="description"
+        content="Precision in Darkness — Computer vision, explainable AI, and full-stack systems by Kushal Raj." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Herr+Von+Muellerhoff&family=Allura&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Herr+Von+Muellerhoff&family=Allura&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS CDN for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,7 +40,7 @@
 
     <!-- Icons -->
     <link rel="icon" href="logo.png">
-    
+
     <script>
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -48,7 +52,9 @@
         });
     </script>
 </head>
-<body class="bg-black text-[#E8DFD8] selection:bg-[#cbb59d] selection:text-black min-h-screen overflow-x-hidden" style="cursor: none;">
+
+<body class="bg-black text-[#E8DFD8] selection:bg-[#cbb59d] selection:text-black min-h-screen overflow-x-hidden"
+    style="cursor: none;">
 
     <!-- ==========================================
          CUSTOM CURSOR
@@ -58,60 +64,81 @@
     <!-- ==========================================
          NAVIGATION / HEADER
          ========================================== -->
-    <header class="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 sm:px-12 lg:px-16 py-6 transition-all duration-300">
-        <a href="#" class="logo text-xs sm:text-sm font-semibold tracking-[0.35em] uppercase text-[#EAD8C7] hover:opacity-75 transition-opacity">
+    <header
+        class="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 sm:px-12 lg:px-16 py-6 transition-all duration-300">
+        <a href="#"
+            class="logo text-xs sm:text-sm font-semibold tracking-[0.35em] uppercase text-[#EAD8C7] hover:opacity-75 transition-opacity">
             KUSHAL.
         </a>
 
         <!-- Desktop Nav Links -->
-        <nav class="hidden md:flex items-center space-x-8 lg:space-x-10 text-[11px] tracking-[0.28em] font-light uppercase text-[#C4B5A5]">
+        <nav
+            class="hidden md:flex items-center space-x-8 lg:space-x-10 text-[11px] tracking-[0.28em] font-light uppercase text-[#C4B5A5]">
             <a href="#about" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
                 ABOUT
-                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#projects" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
+            <a href="#projects"
+                class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
                 PROJECTS
-                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a href="#skills" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
                 SKILLS
-                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#experience" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
+            <a href="#experience"
+                class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
                 EXPERIENCE
-                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a href="#contact" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
                 CONTACT
-                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
             </a>
         </nav>
 
         <!-- Right Action Button -->
-        <a href="#contact" class="group flex items-center space-x-2 text-[11px] tracking-[0.24em] font-light uppercase py-2.5 px-5 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300 backdrop-blur-sm">
+        <a href="#contact"
+            class="group flex items-center space-x-2 text-[11px] tracking-[0.24em] font-light uppercase py-2.5 px-5 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300 backdrop-blur-sm">
             <span>LET'S TALK</span>
-            <span class="transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-xs">↗</span>
+            <span
+                class="transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-xs">↗</span>
         </a>
     </header>
 
     <!-- ==========================================
          HERO SECTION
          ========================================== -->
-    <section id="hero" class="relative w-screen h-screen overflow-hidden flex flex-col justify-between px-6 sm:px-12 lg:px-16 pt-32 pb-12">
+    <section id="hero"
+        class="relative w-screen h-screen overflow-hidden flex flex-col justify-between px-6 sm:px-12 lg:px-16 pt-32 pb-12">
         <!-- FIXED VIDEO / GRADIENT LAYER -->
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-black flex items-center justify-end">
             <!-- Subtle dark nodes/network cinematic video background -->
-            <video autoPlay muted loop playsInline class="h-full w-full object-cover opacity-35 filter brightness-50 contrast-125">
-                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054273b18570685d513e9a544c7b823&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+            <video autoPlay muted loop playsInline
+                class="h-full w-full object-cover opacity-35 filter brightness-50 contrast-125">
+                <source
+                    src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054273b18570685d513e9a544c7b823&profile_id=139&oauth2_token_id=57447761"
+                    type="video/mp4" />
             </video>
             <!-- Left Gradient Overlay Blend -->
-            <div class="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none"></div>
+            <div
+                class="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none">
+            </div>
             <!-- Bottom Dark Blend -->
-            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+            <div
+                class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent pointer-events-none">
+            </div>
         </div>
 
         <!-- ROTATING INSIGNIA / WATERMARK EMBLEM (Center-right floating badge) -->
-        <div class="absolute bottom-12 right-12 lg:bottom-20 lg:right-20 pointer-events-none flex items-center justify-center z-10">
+        <div
+            class="absolute bottom-12 right-12 lg:bottom-20 lg:right-20 pointer-events-none flex items-center justify-center z-10">
             <div class="relative flex items-center justify-center logo-emblem">
                 <div class="absolute w-44 h-44 bg-black/80 rounded-full blur-xl"></div>
                 <div class="insignia-ring relative flex items-center justify-center w-36 h-36">
@@ -119,11 +146,13 @@
                     <svg class="w-full h-full text-[#D4AF37]/20 absolute animate-spin-slow" viewBox="0 0 100 100">
                         <path id="textPath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
                         <text class="text-[7.5px] tracking-[0.24em] font-mono fill-[#D4AF37]">
-                            <textPath href="#textPath" startOffset="0%">• KUSHAL RAJ • SYSTEMS & DATA INTELLIGENCE </textPath>
+                            <textPath href="#textPath" startOffset="0%">• KUSHAL RAJ • SYSTEMS & DATA INTELLIGENCE
+                            </textPath>
                         </text>
                     </svg>
                     <!-- Center Logo letter -->
-                    <div class="text-3xl font-light text-[#D4AF37] z-20 drop-shadow-[0_0_12px_rgba(212,175,55,0.4)]">Ø</div>
+                    <div class="text-3xl font-light text-[#D4AF37] z-20 drop-shadow-[0_0_12px_rgba(212,175,55,0.4)]">Ø
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,32 +162,45 @@
             <!-- Left Side: Condensed Headline & Details -->
             <div class="max-w-lg lg:max-w-2xl text-left hero-text-block">
                 <div class="hero-eyebrow mb-4 opacity-0">
-                    <span class="text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-[#D4AF37]">ML ENGINEER • DATA SCIENTIST</span>
+                    <span class="text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-[#D4AF37]">ML
+                        ENGINEER • DATA SCIENTIST</span>
                 </div>
-                <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.83] mb-6 hero-title select-none font-bebas">
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">I DESIGN</span>
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">INTELLIGENT</span>
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#DFBE8A] via-[#9B7640] to-[#342410] drop-shadow-[0_10px_30px_rgba(155,118,64,0.4)]">SYSTEMS</span>
+                <h1
+                    class="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.83] mb-6 hero-title select-none font-bebas">
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">I
+                        DESIGN</span>
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">INTELLIGENT</span>
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#DFBE8A] via-[#9B7640] to-[#342410] drop-shadow-[0_10px_30px_rgba(155,118,64,0.4)]">SYSTEMS</span>
                 </h1>
-                
-                <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#A8988B] leading-[1.8] tracking-wide max-w-lg mb-8 hero-desc">
-                    I turn complex datasets into real-time visual intelligence and high-performance full-stack architectures. Where computer vision meets predictive models, and clean engineering drives impact.
+
+                <p
+                    class="text-xs sm:text-sm md:text-[14px] font-light text-[#A8988B] leading-[1.8] tracking-wide max-w-lg mb-8 hero-desc">
+                    I turn complex datasets into real-time visual intelligence and high-performance full-stack
+                    architectures. Where computer vision meets predictive models, and clean engineering drives impact.
                 </p>
 
                 <!-- Status indicator -->
                 <div class="flex items-center space-x-3 mb-8 hero-status">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse shadow-[0_0_8px_#D4AF37]"></span>
-                    <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-[#C4B29E]">STATUS // ● OPEN TO INTERNSHIPS</span>
+                    <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-[#C4B29E]">STATUS // ● OPEN TO
+                        INTERNSHIPS</span>
                 </div>
 
                 <!-- CTA buttons -->
                 <div class="flex flex-row items-center gap-4 sm:gap-6 hero-ctas">
-                    <a href="#projects" class="relative inline-flex items-center space-x-3 px-6 sm:px-7 py-3.5 border border-[#8C6D4F] bg-[#120F0C]/80 hover:border-[#D4AF37] text-[#EAD8C7] hover:text-[#FFF5EB] text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.18)]">
-                        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#E8D7C5]/40 to-transparent pointer-events-none"></div>
+                    <a href="#projects"
+                        class="relative inline-flex items-center space-x-3 px-6 sm:px-7 py-3.5 border border-[#8C6D4F] bg-[#120F0C]/80 hover:border-[#D4AF37] text-[#EAD8C7] hover:text-[#FFF5EB] text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.18)]">
+                        <div
+                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#E8D7C5]/40 to-transparent pointer-events-none">
+                        </div>
                         <span>EXPLORE MY WORK</span>
                         <span class="text-xs">↗</span>
                     </a>
-                    <a href="#" class="relative inline-flex items-center space-x-2 px-6 sm:px-7 py-3.5 border border-[#8C6D4F]/40 hover:border-[#8C6D4F] text-[#BFA895] hover:text-[#EAD8C7] text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300">
+                    <a href="#"
+                        class="relative inline-flex items-center space-x-2 px-6 sm:px-7 py-3.5 border border-[#8C6D4F]/40 hover:border-[#8C6D4F] text-[#BFA895] hover:text-[#EAD8C7] text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300">
                         <span>DOWNLOAD RESUME</span>
                         <span class="text-xs">↓</span>
                     </a>
@@ -172,7 +214,9 @@
                     <p>CODE IS MY CRAFT.</p>
                     <p>IMPACT IS MY GOAL.</p>
                 </div>
-                <div class="w-28 h-[1px] bg-gradient-to-r from-[#D4AF37] via-[#E8D7C5]/70 to-transparent shadow-[0_0_8px_rgba(212,175,55,0.4)] mb-2"></div>
+                <div
+                    class="w-28 h-[1px] bg-gradient-to-r from-[#D4AF37] via-[#E8D7C5]/70 to-transparent shadow-[0_0_8px_rgba(212,175,55,0.4)] mb-2">
+                </div>
                 <div class="text-[2.2rem] text-[#D8AB64] leading-none -ml-0.5 font-signature">
                     Kushal Raj
                 </div>
@@ -189,10 +233,15 @@
     <!-- ==========================================
          ABOUT ME SECTION
          ========================================== -->
-    <section id="about" class="relative w-screen min-h-screen py-24 lg:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden flex items-center">
+    <section id="about"
+        class="relative w-screen min-h-screen py-24 lg:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden flex items-center">
         <!-- Ambient glows -->
-        <div class="absolute top-1/4 left-10 w-[32rem] h-[32rem] bg-[#D4AF37]/5 rounded-full blur-[160px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[#8C6D4F]/5 rounded-full blur-[170px] pointer-events-none"></div>
+        <div
+            class="absolute top-1/4 left-10 w-[32rem] h-[32rem] bg-[#D4AF37]/5 rounded-full blur-[160px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[#8C6D4F]/5 rounded-full blur-[170px] pointer-events-none">
+        </div>
 
         <div class="max-w-7xl mx-auto w-full relative z-10">
             <!-- Eyebrow Header -->
@@ -205,32 +254,52 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 <!-- Left Bio Description (7 Cols) -->
                 <div class="lg:col-span-7 flex flex-col justify-center text-left about-content-block">
-                    <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] tracking-tight uppercase leading-[0.88] mb-6 select-none font-bebas">
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_10px_rgba(0,0,0,0.85)]">I DON'T JUST RUN MODELS.</span>
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.3)]">I ARCHITECT THE FUTURE.</span>
+                    <h2
+                        class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] tracking-tight uppercase leading-[0.88] mb-6 select-none font-bebas">
+                        <span
+                            class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_10px_rgba(0,0,0,0.85)]">I
+                            DON'T JUST RUN MODELS.</span>
+                        <span
+                            class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.3)]">I
+                            ARCHITECT THE FUTURE.</span>
                     </h2>
-                    
-                    <p class="text-xs sm:text-sm md:text-[14.5px] font-light text-[#B3A497] leading-[1.85] tracking-wide mb-10 max-w-xl">
-                        I'm <span class="text-[#F3DBB3] font-medium">Kushal Raj</span>, a Computer Science & Engineering student specializing in Computer Vision, Explainable AI workflows, and scalable full-stack software architectures. With a strong engineering focus, I build real-time vision pipelines and secure IDE integrations that turn mathematical designs into concrete value.
+
+                    <p
+                        class="text-xs sm:text-sm md:text-[14.5px] font-light text-[#B3A497] leading-[1.85] tracking-wide mb-10 max-w-xl">
+                        I'm <span class="text-[#F3DBB3] font-medium">Kushal Raj</span>, a Computer Science & Engineering
+                        student specializing in Computer Vision, Explainable AI workflows, and scalable full-stack
+                        software architectures. With a strong engineering focus, I build real-time vision pipelines and
+                        secure IDE integrations that turn mathematical designs into concrete value.
                     </p>
 
                     <!-- Achievements Metrics Grid -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 pb-2 border-t border-[#8C6D4F]/25">
                         <div class="flex flex-col">
-                            <span class="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bebas">8+ Deployed</span>
-                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">UI Systems</span>
+                            <span class="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bebas">8+
+                                Deployed</span>
+                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">UI
+                                Systems</span>
                         </div>
                         <div class="flex flex-col">
-                            <span class="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bebas">90%+ Acc.</span>
-                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Model Testing</span>
+                            <span class="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bebas">90%+
+                                Acc.</span>
+                            <span
+                                class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Model
+                                Testing</span>
                         </div>
                         <div class="flex flex-col">
-                            <span class="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bebas">100% On-Time</span>
-                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Sprint Cycles</span>
+                            <span class="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bebas">100%
+                                On-Time</span>
+                            <span
+                                class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Sprint
+                                Cycles</span>
                         </div>
                         <div class="flex flex-col">
-                            <span class="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bebas">2nd Place</span>
-                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Hackathon Win</span>
+                            <span class="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bebas">2nd
+                                Place</span>
+                            <span
+                                class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Hackathon
+                                Win</span>
                         </div>
                     </div>
                 </div>
@@ -238,32 +307,49 @@
                 <!-- Right 3D Portrait Frame (5 Cols) -->
                 <div class="lg:col-span-5 flex items-center justify-center relative card-3d-perspective-container">
                     <!-- Subtle Glow Ring Behind Frame -->
-                    <div class="absolute -inset-6 bg-[conic-gradient(from_0deg,#D4AF37_0%,#8C6D4F_30%,transparent_60%,#D4AF37_100%)] blur-2xl rounded-3xl opacity-15 pointer-events-none glow-ring"></div>
+                    <div
+                        class="absolute -inset-6 bg-[conic-gradient(from_0deg,#D4AF37_0%,#8C6D4F_30%,transparent_60%,#D4AF37_100%)] blur-2xl rounded-3xl opacity-15 pointer-events-none glow-ring">
+                    </div>
 
                     <!-- Holographic 3D Portrait Card -->
-                    <div id="portrait-3d-card" class="relative p-3.5 border border-[#8C6D4F]/40 rounded-sm bg-[#120F0C]/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] cursor-pointer transition-colors duration-500 hover:border-[#D4AF37]/80 group">
-                        
+                    <div id="portrait-3d-card"
+                        class="relative p-3.5 border border-[#8C6D4F]/40 rounded-sm bg-[#120F0C]/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] cursor-pointer transition-colors duration-500 hover:border-[#D4AF37]/80 group">
+
                         <!-- Laser sweep reflect border light -->
                         <div class="absolute inset-0 rounded-sm pointer-events-none overflow-hidden laser-sweep-box">
-                            <div class="w-1/2 h-full bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent skew-x-12 absolute -left-full transition-all duration-[2.2s] ease-in-out laser-sweep"></div>
+                            <div
+                                class="w-1/2 h-full bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent skew-x-12 absolute -left-full transition-all duration-[2.2s] ease-in-out laser-sweep">
+                            </div>
                         </div>
 
                         <!-- Golden Corner Accents -->
                         <div class="pointer-events-none">
-                            <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#D4AF37] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
-                            <div class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#D4AF37] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
-                            <div class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#D4AF37] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
-                            <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#D4AF37] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
+                            <div
+                                class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#D4AF37] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]">
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#D4AF37] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#D4AF37] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]">
+                            </div>
+                            <div
+                                class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#D4AF37] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]">
+                            </div>
                         </div>
 
                         <!-- Canvas Image -->
                         <div class="relative overflow-hidden w-full max-w-[390px] aspect-[4/5] bg-black rounded-sm">
-                            <img src="formal photo.jpeg" alt="Kushal Raj portrait" class="w-full h-full object-cover filter brightness-[0.92] contrast-[1.06] saturate-[1.02] group-hover:brightness-[1.02] group-hover:contrast-[1.12] transition-all duration-700 ease-out" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
-                            
+                            <img src="formal photo.jpeg" alt="Kushal Raj portrait"
+                                class="w-full h-full object-cover filter brightness-[0.92] contrast-[1.06] saturate-[1.02] group-hover:brightness-[1.02] group-hover:contrast-[1.12] transition-all duration-700 ease-out" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none">
+                            </div>
+
                             <!-- Signature floating monogram inside image -->
                             <div class="absolute bottom-4 right-4 z-20 select-none">
-                                <span class="text-3xl text-[#F2D8A7] drop-shadow-[0_0_12px_rgba(242,216,167,0.5)] transition-colors duration-300 group-hover:text-white font-signature">
+                                <span
+                                    class="text-3xl text-[#F2D8A7] drop-shadow-[0_0_12px_rgba(242,216,167,0.5)] transition-colors duration-300 group-hover:text-white font-signature">
                                     Kushal
                                 </span>
                             </div>
@@ -279,44 +365,67 @@
          ========================================== -->
     <section id="projects" class="relative w-full bg-black py-20 pb-32 px-6 sm:px-12 lg:px-20">
         <!-- Ambient glow maps -->
-        <div class="absolute top-1/4 left-1/3 w-[36rem] h-[36rem] bg-[#D4AF37]/5 rounded-full blur-[180px] pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-[#8C6D4F]/5 rounded-full blur-[170px] pointer-events-none"></div>
+        <div
+            class="absolute top-1/4 left-1/3 w-[36rem] h-[36rem] bg-[#D4AF37]/5 rounded-full blur-[180px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-[#8C6D4F]/5 rounded-full blur-[170px] pointer-events-none">
+        </div>
 
         <div class="max-w-7xl mx-auto w-full relative z-10">
             <!-- Eyebrow Header -->
             <div class="flex items-center space-x-4 mb-5 section-eyebrow-block">
-                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">02 / FEATURED WORK</span>
+                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">02 / FEATURED
+                    WORK</span>
                 <div class="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
             </div>
 
             <!-- Section Headline -->
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 header-desc-block">
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">SELECTED WORKS.</span>
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">ENGINEERED VALUE.</span>
+                <h2
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">SELECTED
+                        WORKS.</span>
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">ENGINEERED
+                        VALUE.</span>
                 </h2>
                 <p class="text-xs sm:text-sm font-light text-[#A8988B] max-w-sm mt-4 md:mt-0 leading-relaxed">
-                    Scroll down to unfold the system architecture cards. Each platform was built to solve complex operational challenges.
+                    Scroll down to unfold the system architecture cards. Each platform was built to solve complex
+                    operational challenges.
                 </p>
             </div>
 
             <!-- Stacking Deck Scroller Container -->
             <div class="scroll-stack-scroller">
                 <div class="scroll-stack-inner">
-                    
+
                     <!-- CARD 1: Road Damage Detection System -->
                     <div class="scroll-stack-card">
-                        <div class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
-                            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
-                            
+                        <div
+                            class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
+                            <div
+                                class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent">
+                            </div>
+
                             <!-- Card bracket corners -->
-                            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div
+                                class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
 
                             <!-- Large watermark background number -->
-                            <span class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">01</span>
+                            <span
+                                class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">01</span>
 
                             <!-- Grid contents -->
                             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 text-left">
@@ -325,42 +434,65 @@
                                     <div>
                                         <div class="flex items-center space-x-3 mb-4">
                                             <span class="text-xs font-mono font-bold text-[#D4AF37]">01 //</span>
-                                            <span class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">COMPUTER VISION / ML PIPELINE</span>
+                                            <span
+                                                class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">COMPUTER
+                                                VISION / ML PIPELINE</span>
                                         </div>
-                                        <h3 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
+                                        <h3
+                                            class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
                                             Road Damage Detection System
                                         </h3>
-                                        <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
-                                            Fine-tuned YOLOv8 neural network architectures on the RDD2022 dataset to detect and categorize road anomalies. Implemented custom spatial mapping outputs using Folium for real-time infrastructure maintenance dashboard alerts.
+                                        <p
+                                            class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
+                                            Fine-tuned YOLOv8 neural network architectures on the RDD2022 dataset to
+                                            detect and categorize road anomalies. Implemented custom spatial mapping
+                                            outputs using Folium for real-time infrastructure maintenance dashboard
+                                            alerts.
                                         </p>
                                     </div>
                                     <div class="flex flex-wrap gap-2 pt-6 border-t border-[#8C6D4F]/25">
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">YOLOv8</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Python</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">PyTorch</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Streamlit</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Folium</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">OpenCV</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">YOLOv8</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Python</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">PyTorch</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Streamlit</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Folium</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">OpenCV</span>
                                     </div>
                                 </div>
                                 <!-- Right Section: Metrics & Action link -->
-                                <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
+                                <div
+                                    class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
                                     <div class="space-y-3 w-full">
-                                        <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">// CORE DEPLOYED SPEC</span>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <span
+                                            class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">//
+                                            CORE DEPLOYED SPEC</span>
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">NEURAL NETWORK</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">YOLOv8 Classifiers</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">YOLOv8
+                                                Classifiers</span>
                                         </div>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">GEOMAPPING</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Folium Maps</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Folium
+                                                Maps</span>
                                         </div>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">FRONTEND</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Streamlit Dashboard</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Streamlit
+                                                Dashboard</span>
                                         </div>
                                     </div>
-                                    <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank" class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
+                                    <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank"
+                                        class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
                                         <span>VIEW ON GITHUB</span>
                                         <span class="text-xs">↗</span>
                                     </a>
@@ -371,17 +503,29 @@
 
                     <!-- CARD 2: DevSync - Collaborative IDE -->
                     <div class="scroll-stack-card">
-                        <div class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
-                            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
-                            
+                        <div
+                            class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
+                            <div
+                                class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent">
+                            </div>
+
                             <!-- Card bracket corners -->
-                            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div
+                                class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
 
                             <!-- Large watermark background number -->
-                            <span class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">02</span>
+                            <span
+                                class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">02</span>
 
                             <!-- Grid contents -->
                             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 text-left">
@@ -390,41 +534,64 @@
                                     <div>
                                         <div class="flex items-center space-x-3 mb-4">
                                             <span class="text-xs font-mono font-bold text-[#D4AF37]">02 //</span>
-                                            <span class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">REAL-TIME UTILITY / SYNCHRONIZATION</span>
+                                            <span
+                                                class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">REAL-TIME
+                                                UTILITY / SYNCHRONIZATION</span>
                                         </div>
-                                        <h3 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
+                                        <h3
+                                            class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
                                             DevSync Collaborative IDE
                                         </h3>
-                                        <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
-                                            A browser collaborative code editor supporting multiple concurrent developer connections. Features sub-100ms CRDT document sync and sandboxed remote code compile environments using Judge0 REST API endpoints.
+                                        <p
+                                            class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
+                                            A browser collaborative code editor supporting multiple concurrent developer
+                                            connections. Features sub-100ms CRDT document sync and sandboxed remote code
+                                            compile environments using Judge0 REST API endpoints.
                                         </p>
                                     </div>
                                     <div class="flex flex-wrap gap-2 pt-6 border-t border-[#8C6D4F]/25">
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">React</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Yjs CRDTs</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Socket.IO</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Node.js</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Prisma ORM</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">React</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Yjs
+                                            CRDTs</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Socket.IO</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Node.js</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Prisma
+                                            ORM</span>
                                     </div>
                                 </div>
                                 <!-- Right Section: Metrics & Action link -->
-                                <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
+                                <div
+                                    class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
                                     <div class="space-y-3 w-full">
-                                        <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">// CORE DEPLOYED SPEC</span>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <span
+                                            class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">//
+                                            CORE DEPLOYED SPEC</span>
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">LATENCY</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">&lt; 100ms sync</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">&lt; 100ms
+                                                sync</span>
                                         </div>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">COMPILER</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Judge0 REST sandbox</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Judge0 REST
+                                                sandbox</span>
                                         </div>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">RECOGNITION</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">2nd Place Hackathon</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">2nd Place
+                                                Hackathon</span>
                                         </div>
                                     </div>
-                                    <a href="https://github.com/Kushalraj123/DevSync-Collaborative-IDE" target="_blank" class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
+                                    <a href="https://github.com/Kushalraj123/DevSync-Collaborative-IDE" target="_blank"
+                                        class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
                                         <span>VIEW ON GITHUB</span>
                                         <span class="text-xs">↗</span>
                                     </a>
@@ -435,17 +602,29 @@
 
                     <!-- CARD 3: E-Commerce Web Application -->
                     <div class="scroll-stack-card">
-                        <div class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
-                            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
-                            
+                        <div
+                            class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
+                            <div
+                                class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent">
+                            </div>
+
                             <!-- Card bracket corners -->
-                            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
-                            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div
+                                class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+                            </div>
 
                             <!-- Large watermark background number -->
-                            <span class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">03</span>
+                            <span
+                                class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">03</span>
 
                             <!-- Grid contents -->
                             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 text-left">
@@ -454,41 +633,64 @@
                                     <div>
                                         <div class="flex items-center space-x-3 mb-4">
                                             <span class="text-xs font-mono font-bold text-[#D4AF37]">03 //</span>
-                                            <span class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">FULL-STACK PLATFORM / ORM OPTIMIZATION</span>
+                                            <span
+                                                class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">FULL-STACK
+                                                PLATFORM / ORM OPTIMIZATION</span>
                                         </div>
-                                        <h3 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
+                                        <h3
+                                            class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
                                             E-Commerce Web Application
                                         </h3>
-                                        <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
-                                            High-performance server stack featuring optimized Prisma database seed scripts for batch records. Instantly seeds 1,000+ relational model entries, reducing query execution lookup times by 40% and local setup time by 90%.
+                                        <p
+                                            class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
+                                            High-performance server stack featuring optimized Prisma database seed
+                                            scripts for batch records. Instantly seeds 1,000+ relational model entries,
+                                            reducing query execution lookup times by 40% and local setup time by 90%.
                                         </p>
                                     </div>
                                     <div class="flex flex-wrap gap-2 pt-6 border-t border-[#8C6D4F]/25">
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">React</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Node.js</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Prisma ORM</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">SQLite</span>
-                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">REST APIs</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">React</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Node.js</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Prisma
+                                            ORM</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">SQLite</span>
+                                        <span
+                                            class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">REST
+                                            APIs</span>
                                     </div>
                                 </div>
                                 <!-- Right Section: Metrics & Action link -->
-                                <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
+                                <div
+                                    class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
                                     <div class="space-y-3 w-full">
-                                        <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">// CORE DEPLOYED SPEC</span>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <span
+                                            class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">//
+                                            CORE DEPLOYED SPEC</span>
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">SEEDED RECORDS</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">1,000+ relational</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">1,000+
+                                                relational</span>
                                         </div>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">LOCAL SETUP TIME</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">-90% reduced</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">-90%
+                                                reduced</span>
                                         </div>
-                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                        <div
+                                            class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
                                             <span class="text-[10px] font-mono text-[#A8988B]">QUERY OPTIMIZATION</span>
-                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">-40% latency</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">-40%
+                                                latency</span>
                                         </div>
                                     </div>
-                                    <a href="https://github.com/Kushalraj123/E-Commerce-Web-Application" target="_blank" class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
+                                    <a href="https://github.com/Kushalraj123/E-Commerce-Web-Application" target="_blank"
+                                        class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
                                         <span>VIEW ON GITHUB</span>
                                         <span class="text-xs">↗</span>
                                     </a>
@@ -508,8 +710,12 @@
          SKILLS SECTION (Bento Grid)
          ========================================== -->
     <section id="skills" class="relative w-screen bg-black pt-8 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden">
-        <div class="absolute top-1/3 left-1/4 w-[34rem] h-[34rem] bg-[#D4AF37]/5 rounded-full blur-[170px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-1/4 w-[28rem] h-[28rem] bg-[#8C6D4F]/5 rounded-full blur-[160px] pointer-events-none"></div>
+        <div
+            class="absolute top-1/3 left-1/4 w-[34rem] h-[34rem] bg-[#D4AF37]/5 rounded-full blur-[170px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-10 right-1/4 w-[28rem] h-[28rem] bg-[#8C6D4F]/5 rounded-full blur-[160px] pointer-events-none">
+        </div>
 
         <div class="max-w-7xl mx-auto w-full relative z-10">
             <!-- Eyebrow Header -->
@@ -520,101 +726,180 @@
 
             <!-- Section Header -->
             <div class="mb-12 header-desc-block">
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">ARCHITECTURAL MASTERY.</span>
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">PRECISION APPLIED.</span>
+                <h2
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">ARCHITECTURAL
+                        MASTERY.</span>
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">PRECISION
+                        APPLIED.</span>
                 </h2>
             </div>
 
             <!-- Bento Grid Wrapper -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bento-grid">
                 <!-- Box 1 (7 Cols) -->
-                <div class="lg:col-span-7 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
-                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
-                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                <div
+                    class="lg:col-span-7 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div
+                        class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
 
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">LANGUAGES MATRIX</span>
-                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">5+ CORE</span>
+                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">LANGUAGES
+                            MATRIX</span>
+                        <span
+                            class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">5+
+                            CORE</span>
                     </div>
-                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">SOFTWARE DIALECTS</h3>
+                    <h3
+                        class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">
+                        SOFTWARE DIALECTS</h3>
                     <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7 max-w-xl">
-                        Fluency across procedural, object-oriented, and relational data structures. Implemented algorithms and system pipelines using optimal mathematical dialects.
+                        Fluency across procedural, object-oriented, and relational data structures. Implemented
+                        algorithms and system pipelines using optimal mathematical dialects.
                     </p>
                     <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Python</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Java</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">C</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">SQL</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">HTML5 / CSS3</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Python</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Java</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">C</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">SQL</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">HTML5
+                            / CSS3</span>
                     </div>
                 </div>
 
                 <!-- Box 2 (5 Cols) -->
-                <div class="lg:col-span-5 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
-                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
-                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                <div
+                    class="lg:col-span-5 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div
+                        class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
 
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">FRAMEWORKS</span>
-                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">HIGH PERF</span>
+                        <span
+                            class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">HIGH
+                            PERF</span>
                     </div>
-                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">LIBRARIES & DEPLOYMENT</h3>
+                    <h3
+                        class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">
+                        LIBRARIES & DEPLOYMENT</h3>
                     <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7">
-                        Constructing real-time models and dynamic reactive user layouts. Specialized in computer vision tracking and client dashboards.
+                        Constructing real-time models and dynamic reactive user layouts. Specialized in computer vision
+                        tracking and client dashboards.
                     </p>
                     <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">PyTorch</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">OpenCV</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">React</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Flask</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Streamlit</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">PyTorch</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">OpenCV</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">React</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Flask</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Streamlit</span>
                     </div>
                 </div>
 
                 <!-- Box 3 (5 Cols) -->
-                <div class="lg:col-span-5 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
-                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
-                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                <div
+                    class="lg:col-span-5 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div
+                        class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
 
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">INFRASTRUCTURE</span>
-                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">SANDBOX</span>
+                        <span
+                            class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">INFRASTRUCTURE</span>
+                        <span
+                            class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">SANDBOX</span>
                     </div>
-                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">TOOLS & PLATFORMS</h3>
+                    <h3
+                        class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">
+                        TOOLS & PLATFORMS</h3>
                     <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7">
-                        Automating environments and code delivery channels. Experience configuring distributed files and container networks.
+                        Automating environments and code delivery channels. Experience configuring distributed files and
+                        container networks.
                     </p>
                     <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Git</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Docker</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">VS Code</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Git</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Docker</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">VS
+                            Code</span>
                     </div>
                 </div>
 
                 <!-- Box 4 (7 Cols) -->
-                <div class="lg:col-span-7 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
-                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
-                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                <div
+                    class="lg:col-span-7 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div
+                        class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors">
+                    </div>
 
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">ENGINEERING CONCEPTS</span>
-                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">RESEARCH SPECIALIZATION</span>
+                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">ENGINEERING
+                            CONCEPTS</span>
+                        <span
+                            class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">RESEARCH
+                            SPECIALIZATION</span>
                     </div>
-                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">DATA INTELLIGENCE & DESIGN</h3>
+                    <h3
+                        class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">
+                        DATA INTELLIGENCE & DESIGN</h3>
                     <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7 max-w-xl">
-                        Strong mathematical foundation in data processing systems, neural configurations, explainable algorithms, REST integrations, and clean code optimization workflows.
+                        Strong mathematical foundation in data processing systems, neural configurations, explainable
+                        algorithms, REST integrations, and clean code optimization workflows.
                     </p>
                     <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Machine Learning</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Explainable AI</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">DSA</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">REST APIs</span>
-                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">System Debugging</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Machine
+                            Learning</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Explainable
+                            AI</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">DSA</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">REST
+                            APIs</span>
+                        <span
+                            class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">System
+                            Debugging</span>
                     </div>
                 </div>
             </div>
@@ -625,27 +910,37 @@
          GITHUB STATS BANNER
          ========================================== -->
     <section class="py-12 px-6 sm:px-12 lg:px-20 reveal">
-        <div class="max-w-7xl mx-auto w-full relative z-10 border border-[#8C6D4F]/30 bg-[#070605] p-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
+        <div
+            class="max-w-7xl mx-auto w-full relative z-10 border border-[#8C6D4F]/30 bg-[#070605] p-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
             <div class="absolute top-0 left-0 w-8 h-px bg-[#D4AF37]"></div>
             <div class="absolute top-0 left-0 w-px h-8 bg-[#D4AF37]"></div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between border-b border-[#8C6D4F]/15 pb-6 mb-8 text-left">
+            <div
+                class="flex flex-col md:flex-row items-center justify-between border-b border-[#8C6D4F]/15 pb-6 mb-8 text-left">
                 <div>
-                    <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">// COMMIT METRICS</span>
-                    <h2 class="text-3xl text-white font-bebas leading-none mt-2 uppercase">GitHub Development Stacks</h2>
+                    <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">// COMMIT
+                        METRICS</span>
+                    <h2 class="text-3xl text-white font-bebas leading-none mt-2 uppercase">GitHub Development Stacks
+                    </h2>
                 </div>
                 <span class="text-[10px] font-mono text-[#8C6D4F] mt-2 md:mt-0">github.com/Kushalraj123</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                 <div class="bg-black/50 p-4 border border-[#8C6D4F]/15 flex justify-center items-center">
-                    <img class="max-w-full" src="https://github-readme-stats.shion.dev/api?username=Kushalraj123&show_icons=true&theme=dark&title_color=D4AF37&icon_color=D4AF37&text_color=E8DFD8&bg_color=000000&hide_border=true" alt="GitHub Stats">
+                    <img class="max-w-full"
+                        src="https://github-readme-stats.shion.dev/api?username=Kushalraj123&show_icons=true&theme=dark&title_color=D4AF37&icon_color=D4AF37&text_color=E8DFD8&bg_color=000000&hide_border=true"
+                        alt="GitHub Stats">
                 </div>
                 <div class="bg-black/50 p-4 border border-[#8C6D4F]/15 flex justify-center items-center">
-                    <img class="max-w-full" src="https://streak-stats.demolab.com/?user=Kushalraj123&theme=dark&currStreakNum=D4AF37&fire=D4AF37&sideNums=E8DFD8&sideLabels=E8DFD8&dates=E8DFD8&background=000000&hide_border=true" alt="Contribution Streak">
+                    <img class="max-w-full"
+                        src="https://streak-stats.demolab.com/?user=Kushalraj123&theme=dark&currStreakNum=D4AF37&fire=D4AF37&sideNums=E8DFD8&sideLabels=E8DFD8&dates=E8DFD8&background=000000&hide_border=true"
+                        alt="Contribution Streak">
                 </div>
                 <div class="bg-black/50 p-4 border border-[#8C6D4F]/15 flex justify-center items-center">
-                    <img class="max-w-full" src="https://github-readme-stats.shion.dev/api/top-langs/?username=Kushalraj123&layout=compact&theme=dark&title_color=D4AF37&text_color=E8DFD8&bg_color=000000&hide_border=true" alt="Language Matrix">
+                    <img class="max-w-full"
+                        src="https://github-readme-stats.shion.dev/api/top-langs/?username=Kushalraj123&layout=compact&theme=dark&title_color=D4AF37&text_color=E8DFD8&bg_color=000000&hide_border=true"
+                        alt="Language Matrix">
                 </div>
             </div>
         </div>
@@ -655,7 +950,9 @@
          EXPERIENCE SECTION (Vertical Timeline)
          ========================================== -->
     <section id="experience" class="relative w-full bg-black pt-4 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-[#D4AF37]/[0.02] rounded-full blur-[150px] pointer-events-none"></div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-[#D4AF37]/[0.02] rounded-full blur-[150px] pointer-events-none">
+        </div>
 
         <div class="max-w-4xl mx-auto w-full relative z-10">
             <!-- Eyebrow Header -->
@@ -666,9 +963,13 @@
 
             <!-- Section Headline -->
             <div class="mb-16 text-left">
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">EXPERIENCE &</span>
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">PATHWAY.</span>
+                <h2
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">EXPERIENCE
+                        &</span>
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">PATHWAY.</span>
                 </h2>
             </div>
 
@@ -677,28 +978,46 @@
                 <!-- Background static track line -->
                 <div class="absolute left-[19px] md:left-[140px] top-4 bottom-8 w-[1px] bg-[#8C6D4F]/20"></div>
                 <!-- Animated gold scroll-progress track line -->
-                <div id="timeline-progress-bar" class="absolute left-[19px] md:left-[140px] top-4 w-[2px] bg-gradient-to-b from-[#D4AF37] via-[#C99E5D] to-[#8C6D4F]/10 shadow-[0_0_10px_#D4AF37] origin-top h-0"></div>
+                <div id="timeline-progress-bar"
+                    class="absolute left-[19px] md:left-[140px] top-4 w-[2px] bg-gradient-to-b from-[#D4AF37] via-[#C99E5D] to-[#8C6D4F]/10 shadow-[0_0_10px_#D4AF37] origin-top h-0">
+                </div>
 
                 <div class="space-y-12">
                     <!-- Stop 1 -->
                     <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
                         <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">Feb - May 2026</span>
+                            <span
+                                class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">Feb
+                                - May 2026</span>
                         </div>
-                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
-                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        <div
+                            class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div
+                                class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node">
+                            </div>
+                            <div
+                                class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node">
+                            </div>
                         </div>
                         <div class="ml-14 md:ml-12 pl-2">
                             <div class="md:hidden mb-1.5">
-                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">Feb - May 2026</span>
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">Feb - May
+                                    2026</span>
                             </div>
-                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Trainee Software Engineer</h3>
-                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Inventeron Technologies LLP</span>
-                            <ul class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg space-y-1 list-disc pl-4">
-                                <li>Developed 8+ responsive UI functional units utilizing React and REST integrations.</li>
-                                <li>Diagnosed and patched 20+ interface issues, enhancing cross-browser client alignment.</li>
-                                <li>Participated in sprint deliverables, executing 100% of tasks ahead of target cycles.</li>
+                            <h3
+                                class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">
+                                Trainee Software Engineer</h3>
+                            <span
+                                class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Inventeron
+                                Technologies LLP</span>
+                            <ul
+                                class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg space-y-1 list-disc pl-4">
+                                <li>Developed 8+ responsive UI functional units utilizing React and REST integrations.
+                                </li>
+                                <li>Diagnosed and patched 20+ interface issues, enhancing cross-browser client
+                                    alignment.</li>
+                                <li>Participated in sprint deliverables, executing 100% of tasks ahead of target cycles.
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -706,21 +1025,36 @@
                     <!-- Stop 2 -->
                     <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
                         <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">Jan - Feb 2026</span>
+                            <span
+                                class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">Jan
+                                - Feb 2026</span>
                         </div>
-                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
-                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        <div
+                            class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div
+                                class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node">
+                            </div>
+                            <div
+                                class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node">
+                            </div>
                         </div>
                         <div class="ml-14 md:ml-12 pl-2">
                             <div class="md:hidden mb-1.5">
-                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">Jan - Feb 2026</span>
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">Jan - Feb
+                                    2026</span>
                             </div>
-                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Data Science Intern</h3>
-                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Codec Technologies Pvt. Ltd.</span>
-                            <ul class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg space-y-1 list-disc pl-4">
-                                <li>Completed an AICTE and ICAC-certified Data internship, building Python predictive ML pipelines.</li>
-                                <li>Configured model frameworks with Pandas and scikit-learn, yielding over 90% test accuracy.</li>
+                            <h3
+                                class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">
+                                Data Science Intern</h3>
+                            <span
+                                class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Codec
+                                Technologies Pvt. Ltd.</span>
+                            <ul
+                                class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg space-y-1 list-disc pl-4">
+                                <li>Completed an AICTE and ICAC-certified Data internship, building Python predictive ML
+                                    pipelines.</li>
+                                <li>Configured model frameworks with Pandas and scikit-learn, yielding over 90% test
+                                    accuracy.</li>
                                 <li>Collaborated inside a 4-person unit compiling technical insight summaries.</li>
                             </ul>
                         </div>
@@ -729,20 +1063,32 @@
                     <!-- Stop 3 -->
                     <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
                         <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2023 - 2027</span>
+                            <span
+                                class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2023
+                                - 2027</span>
                         </div>
-                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
-                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        <div
+                            class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div
+                                class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node">
+                            </div>
+                            <div
+                                class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node">
+                            </div>
                         </div>
                         <div class="ml-14 md:ml-12 pl-2">
                             <div class="md:hidden mb-1.5">
                                 <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">2023 - 2027</span>
                             </div>
-                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">B.E. — Computer Science</h3>
-                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Navkis College of Engineering, VTU</span>
+                            <h3
+                                class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">
+                                B.E. — Computer Science</h3>
+                            <span
+                                class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Navkis
+                                College of Engineering, VTU</span>
                             <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg mb-2">
-                                Specializing in machine learning and data pipelines. Maintained VtU department aggregate standard excellence.
+                                Specializing in machine learning and data pipelines. Maintained VtU department aggregate
+                                standard excellence.
                             </p>
                             <span class="text-xs font-mono font-medium text-[#F7E7C4]">CGPA Status: 7.50 / 10</span>
                         </div>
@@ -751,20 +1097,32 @@
                     <!-- Stop 4 -->
                     <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
                         <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2021 - 2023</span>
+                            <span
+                                class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2021
+                                - 2023</span>
                         </div>
-                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
-                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        <div
+                            class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div
+                                class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node">
+                            </div>
+                            <div
+                                class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node">
+                            </div>
                         </div>
                         <div class="ml-14 md:ml-12 pl-2">
                             <div class="md:hidden mb-1.5">
                                 <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">2021 - 2023</span>
                             </div>
-                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Class XII (PUC)</h3>
-                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Masters PU College, Hassan</span>
+                            <h3
+                                class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">
+                                Class XII (PUC)</h3>
+                            <span
+                                class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Masters
+                                PU College, Hassan</span>
                             <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg mb-2">
-                                Completed specialized pre-university coursework in Mathematics, Physics, and Chemistry (MPC).
+                                Completed specialized pre-university coursework in Mathematics, Physics, and Chemistry
+                                (MPC).
                             </p>
                             <span class="text-xs font-mono font-medium text-[#F7E7C4]">Assessment Score: 82%</span>
                         </div>
@@ -773,18 +1131,30 @@
                     <!-- Stop 5 -->
                     <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
                         <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2021 Completion</span>
+                            <span
+                                class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2021
+                                Completion</span>
                         </div>
-                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
-                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        <div
+                            class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div
+                                class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node">
+                            </div>
+                            <div
+                                class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node">
+                            </div>
                         </div>
                         <div class="ml-14 md:ml-12 pl-2">
                             <div class="md:hidden mb-1.5">
-                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">2021 Completion</span>
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">2021
+                                    Completion</span>
                             </div>
-                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Class X (SSLC)</h3>
-                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">United Academy, Hassan</span>
+                            <h3
+                                class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">
+                                Class X (SSLC)</h3>
+                            <span
+                                class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">United
+                                Academy, Hassan</span>
                             <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg mb-2">
                                 Completed general secondary education coursework.
                             </p>
@@ -803,54 +1173,75 @@
         <div class="max-w-7xl mx-auto w-full relative z-10">
             <!-- Eyebrow Header -->
             <div class="flex items-center space-x-4 mb-7 section-eyebrow-block">
-                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">05 / CREDENTIAL_EVIDENCE</span>
+                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">05 /
+                    CREDENTIAL_EVIDENCE</span>
                 <div class="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
             </div>
 
             <!-- Section Headline -->
             <div class="mb-12 text-left">
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">QUALIFICATIONS &</span>
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">MERIT.</span>
+                <h2
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">QUALIFICATIONS
+                        &</span>
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">MERIT.</span>
                 </h2>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left">
                 <!-- Column 1: Certifications (7 Cols) -->
                 <div class="lg:col-span-7 space-y-4">
-                    <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-4">// PROFESSIONAL ACCREDITATIONS</span>
-                    
+                    <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-4">//
+                        PROFESSIONAL ACCREDITATIONS</span>
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <!-- Cert 1 -->
-                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                        <div
+                            class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
                             <span class="text-2xl text-[#D4AF37]">🏆</span>
                             <div>
-                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">Getting Started with Artificial Intelligence</h4>
+                                <h4
+                                    class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">
+                                    Getting Started with Artificial Intelligence</h4>
                                 <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">IBM • 2026</span>
                             </div>
                         </div>
                         <!-- Cert 2 -->
-                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                        <div
+                            class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
                             <span class="text-2xl text-[#D4AF37]">💻</span>
                             <div>
-                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">Introduction to Front-End Development</h4>
-                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Simplilearn SkillUp • 2025</span>
+                                <h4
+                                    class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">
+                                    Introduction to Front-End Development</h4>
+                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Simplilearn SkillUp •
+                                    2025</span>
                             </div>
                         </div>
                         <!-- Cert 3 -->
-                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                        <div
+                            class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
                             <span class="text-2xl text-[#D4AF37]">📜</span>
                             <div>
-                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">JavaScript Training Cert</h4>
-                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Spoken Tutorial, IIT Bombay • 2025</span>
+                                <h4
+                                    class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">
+                                    JavaScript Training Cert</h4>
+                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Spoken Tutorial, IIT
+                                    Bombay • 2025</span>
                             </div>
                         </div>
                         <!-- Cert 4 -->
-                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                        <div
+                            class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
                             <span class="text-2xl text-[#D4AF37]">🐍</span>
                             <div>
-                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">DSA in Python</h4>
-                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Infosys Springboard • 2024</span>
+                                <h4
+                                    class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">
+                                    DSA in Python</h4>
+                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Infosys Springboard •
+                                    2024</span>
                             </div>
                         </div>
                     </div>
@@ -858,18 +1249,28 @@
 
                 <!-- Column 2: Hackathon Award (5 Cols) -->
                 <div class="lg:col-span-5 flex flex-col justify-center">
-                    <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-4">// DISTINGUISHED AWARDS</span>
-                    
-                    <div class="relative p-8 rounded-sm border border-[#D4AF37]/60 bg-[#120F0C]/80 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden text-center group">
-                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
+                    <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-4">//
+                        DISTINGUISHED AWARDS</span>
+
+                    <div
+                        class="relative p-8 rounded-sm border border-[#D4AF37]/60 bg-[#120F0C]/80 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden text-center group">
+                        <div
+                            class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent">
+                        </div>
                         <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]"></div>
                         <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]"></div>
 
                         <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-500">🥈</div>
-                        <span class="inline-block px-3 py-1 text-[9px] font-mono tracking-widest uppercase border border-[#D4AF37]/50 text-[#D4AF37] mb-4">2ND PLACE WINNER</span>
-                        <h3 class="text-2xl text-white font-bebas uppercase leading-tight group-hover:text-[#F7E7C4] transition-colors">University Hackathon Champion</h3>
+                        <span
+                            class="inline-block px-3 py-1 text-[9px] font-mono tracking-widest uppercase border border-[#D4AF37]/50 text-[#D4AF37] mb-4">2ND
+                            PLACE WINNER</span>
+                        <h3
+                            class="text-2xl text-white font-bebas uppercase leading-tight group-hover:text-[#F7E7C4] transition-colors">
+                            University Hackathon Champion</h3>
                         <p class="text-xs text-[#A8988B] font-light leading-relaxed mt-4 max-w-sm mx-auto">
-                            Secured the second place ranking among 50 competing technical developer units for constructing the <strong>DevSync Real-Time Collaborative IDE</strong>, showing advanced architectural synchronization.
+                            Secured the second place ranking among 50 competing technical developer units for
+                            constructing the <strong>DevSync Real-Time Collaborative IDE</strong>, showing advanced
+                            architectural synchronization.
                         </p>
                     </div>
                 </div>
@@ -882,7 +1283,7 @@
          ========================================== -->
     <footer id="contact" class="relative w-full bg-black pt-16 pb-16 px-6 sm:px-12 lg:px-20 overflow-hidden">
         <div class="max-w-7xl mx-auto w-full relative z-10">
-            
+
             <!-- Split Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start text-left">
                 <!-- Left Details (5 Cols) -->
@@ -890,24 +1291,33 @@
                     <div>
                         <!-- Eyebrow Header -->
                         <div class="flex items-center space-x-4 mb-5 section-eyebrow-block">
-                            <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">06 / CONTACT</span>
-                            <div class="w-16 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
+                            <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">06 /
+                                CONTACT</span>
+                            <div
+                                class="w-16 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent">
+                            </div>
                         </div>
 
                         <!-- Headline -->
                         <div class="mb-8">
-                            <h2 class="text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase leading-[0.85] select-none font-bebas">
-                                <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">INITIALIZE</span>
-                                <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">TRANSMISSION.</span>
+                            <h2
+                                class="text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                                <span
+                                    class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">INITIALIZE</span>
+                                <span
+                                    class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">TRANSMISSION.</span>
                             </h2>
                         </div>
                         <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-relaxed max-w-md">
-                            Seeking internship positions in Machine Learning, computer vision, data analysis, or full-stack software development. Open to project partnerships and research endeavors. Get in touch!
+                            Seeking internship positions in Machine Learning, computer vision, data analysis, or
+                            full-stack software development. Open to project partnerships and research endeavors. Get in
+                            touch!
                         </p>
 
                         <!-- Contact quick items -->
                         <div class="mt-8 space-y-4">
-                            <a href="mailto:kushalrajm856@email.com" class="flex items-center space-x-3 text-xs tracking-wider text-[#EAD8C7] hover:text-[#D4AF37] transition-colors font-mono">
+                            <a href="mailto:kushalrajm856@email.com"
+                                class="flex items-center space-x-3 text-xs tracking-wider text-[#EAD8C7] hover:text-[#D4AF37] transition-colors font-mono">
                                 <span class="text-[#D4AF37]">EMAIL:</span>
                                 <span>kushalrajm856@email.com</span>
                             </a>
@@ -916,9 +1326,12 @@
                 </div>
 
                 <!-- Right Monolith Terminal Form (7 Cols) -->
-                <div class="lg:col-span-7 relative w-full rounded-sm border border-[#8C6D4F]/40 bg-[#0A0806] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent"></div>
-                    
+                <div
+                    class="lg:col-span-7 relative w-full rounded-sm border border-[#8C6D4F]/40 bg-[#0A0806] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent">
+                    </div>
+
                     <!-- Corner Brackets -->
                     <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/60"></div>
                     <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#D4AF37]/60"></div>
@@ -929,25 +1342,36 @@
                     <form id="terminal-contact-form" class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div>
-                                <span class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">// SENDER IDENTITY</span>
-                                <input type="text" id="contact-name" required placeholder="Enter name" class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 px-4 py-3 outline-none rounded-sm transition-colors font-mono" />
+                                <span
+                                    class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">//
+                                    SENDER IDENTITY</span>
+                                <input type="text" id="contact-name" required placeholder="Enter name"
+                                    class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 px-4 py-3 outline-none rounded-sm transition-colors font-mono" />
                             </div>
                             <div>
-                                <span class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">// TRANSMISSION CHANNEL</span>
-                                <input type="email" id="contact-email" required placeholder="Enter email" class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 px-4 py-3 outline-none rounded-sm transition-colors font-mono" />
+                                <span
+                                    class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">//
+                                    TRANSMISSION CHANNEL</span>
+                                <input type="email" id="contact-email" required placeholder="Enter email"
+                                    class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 px-4 py-3 outline-none rounded-sm transition-colors font-mono" />
                             </div>
                         </div>
                         <div>
-                            <span class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">// DATA ENCRYPTED PAYLOAD</span>
-                            <textarea id="contact-message" required rows="4" placeholder="Enter transmission message details..." class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 p-4 outline-none rounded-sm transition-colors resize-none font-mono"></textarea>
+                            <span class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">//
+                                DATA ENCRYPTED PAYLOAD</span>
+                            <textarea id="contact-message" required rows="4"
+                                placeholder="Enter transmission message details..."
+                                class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 p-4 outline-none rounded-sm transition-colors resize-none font-mono"></textarea>
                         </div>
-                        
+
                         <!-- Terminal Dispatch Simulated Logger Box -->
-                        <div id="terminal-logger" class="hidden border border-[#8C6D4F]/20 bg-[#050403] p-4 font-mono text-[10px] text-[#A8988B] space-y-1 text-left rounded-sm max-h-40 overflow-y-auto">
+                        <div id="terminal-logger"
+                            class="hidden border border-[#8C6D4F]/20 bg-[#050403] p-4 font-mono text-[10px] text-[#A8988B] space-y-1 text-left rounded-sm max-h-40 overflow-y-auto">
                             <!-- Lines will be written here via javascript dynamically -->
                         </div>
 
-                        <button type="submit" id="dispatch-btn" class="w-full py-3.5 border border-[#8C6D4F]/50 bg-[#14100D] hover:border-[#D4AF37] hover:bg-[#1A1510] text-[#E8DFD8] hover:text-[#F7E7C4] text-xs font-medium tracking-[0.25em] uppercase transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] font-mono">
+                        <button type="submit" id="dispatch-btn"
+                            class="w-full py-3.5 border border-[#8C6D4F]/50 bg-[#14100D] hover:border-[#D4AF37] hover:bg-[#1A1510] text-[#E8DFD8] hover:text-[#F7E7C4] text-xs font-medium tracking-[0.25em] uppercase transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] font-mono">
                             EXECUTE DISPATCH ↗
                         </button>
                     </form>
@@ -956,23 +1380,29 @@
 
             <!-- Social Links Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-[#8C6D4F]/15">
-                <a href="mailto:kushalrajm856@email.com" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                <a href="mailto:kushalrajm856@email.com"
+                    class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
                     <span>EMAIL DIRECT ↗</span>
                 </a>
-                <a href="https://github.com/Kushalraj123" target="_blank" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                <a href="https://github.com/Kushalraj123" target="_blank"
+                    class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
                     <span>GITHUB PRO ↗</span>
                 </a>
-                <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank"
+                    class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
                     <span>LINKEDIN NET ↗</span>
                 </a>
-                <a href="#" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                <a href="https://huggingface.co/Kushalraj123" target="_blank"
+                    class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
                     <span>HUGGING FACE ↗</span>
                 </a>
             </div>
 
             <!-- Footer Details -->
-            <div class="mt-16 pt-8 border-t border-[#8C6D4F]/10 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4">
-                <span class="text-[10px] font-mono tracking-widest text-[#8C6D4F] uppercase">PORTFOLIO // EDITION 2026</span>
+            <div
+                class="mt-16 pt-8 border-t border-[#8C6D4F]/10 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4">
+                <span class="text-[10px] font-mono tracking-widest text-[#8C6D4F] uppercase">PORTFOLIO // EDITION
+                    2026</span>
                 <span class="text-[10px] font-mono text-[#8C6D4F]">
                     © 2026 KUSHAL RAJ • NAVKIS COLLEGE OF ENGINEERING • HASSAN
                 </span>
@@ -995,4 +1425,5 @@
     </script>
     <script src="script.js"></script>
 </body>
+
 </html>
