@@ -248,22 +248,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     window.addEventListener('resize', updateTimelineProgress);
     updateTimelineProgress();
-
-
-    /* ==========================================
-       6. SIMULATED RETRO-TERMINAL CONTACT SENDER
-       ========================================== */
     const contactForm = document.getElementById('terminal-contact-form');
     const loggerBox = document.getElementById('terminal-logger');
     const dispatchBtn = document.getElementById('dispatch-btn');
 
     if (contactForm && loggerBox && dispatchBtn) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const message = document.getElementById('contact-message').value;
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
 
             // Make logger visible and clear previous text
             loggerBox.classList.remove('hidden');
@@ -274,14 +269,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const logSequence = [
                 { text: "INITIALIZING TRANSMISSION PROTOCOL...", color: "text-muted" },
                 { text: "SECURE SOCKET CREATED [PORT 443] -> SSH CONNECTION INITIATED.", color: "text-secondary" },
-                { text: "SENDER IDENTIFIER RESOLVED: name='" + name + "'", color: "text-secondary" },
-                { text: "TUNNELLING CHANNEL ESTABLISHED: source='" + email + "'", color: "text-secondary" },
+                { text: "SENDER IDENTIFIER RESOLVED: name='" + object.name + "'", color: "text-secondary" },
+                { text: "TUNNELLING CHANNEL ESTABLISHED: source='" + object.email + "'", color: "text-secondary" },
                 { text: "ENCRYPTING DATA CORRIDOR [AES-256 BIT KEY GENERATED]...", color: "text-muted" },
-                { text: "PACKET SIZE CALCULATION: " + Math.ceil(message.length * 1.25) + " Bytes payload.", color: "text-secondary" },
+                { text: "PACKET SIZE CALCULATION: " + Math.ceil(object.message.length * 1.25) + " Bytes payload.", color: "text-secondary" },
                 { text: "DISPATCHING ENCRYPTED STRINGS...", color: "text-muted" },
-                { text: "LOG: transmitting envelope payload data segment blocks...", color: "text-muted" },
-                { text: "SUCCESS // PACKET TRANSMITTED AND REGISTERED TO DESTINATION ENDPOINT.", color: "text-gold" },
-                { text: "TERMINAL CONNECTION DISCHARGED SECURELY. CLOSED.", color: "text-gold" }
+                { text: "LOG: transmitting envelope payload data segment blocks...", color: "text-muted" }
             ];
 
             let lineIndex = 0;
@@ -293,26 +286,62 @@ document.addEventListener('DOMContentLoaded', () => {
                     p.className = `logger-line ${lineData.color}`;
                     p.textContent = `Ø kushalraj@ide:~# ${lineData.text}`;
                     loggerBox.appendChild(p);
-
-                    // Auto scroll logger box to bottom
                     loggerBox.scrollTop = loggerBox.scrollHeight;
-
                     lineIndex++;
-                    setTimeout(printNextLine, 500); // 500ms delay per console line
+                    setTimeout(printNextLine, 500);
                 } else {
-                    // Sequence done, show final successful block
-                    setTimeout(() => {
-                        const formContainer = contactForm.parentElement;
-                        formContainer.innerHTML = `
-                            <div class="py-16 text-center space-y-4">
-                                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37] text-[#D4AF37] text-lg mb-4" style="box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);">✓</div>
-                                <h3 class="text-3xl text-white font-normal uppercase font-bebas">PACKET DISPATCH SUCCESS</h3>
-                                <p class="text-xs text-[#A8988B] font-light font-body tracking-wider mt-2">
-                                    Transmission registered successfully. Kushal Raj will respond to your channel soon.
-                                </p>
-                            </div>
-                        `;
-                    }, 400);
+                    finishTransmission();
+                }
+            }
+
+            async function finishTransmission() {
+                try {
+                    const response = await fetch("https://api.web3forms.com/submit", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: json
+                    });
+                    
+                    const result = await response.json();
+                    
+                    const finalMsg = result.success 
+                        ? { text: "SUCCESS // PACKET TRANSMITTED AND REGISTERED TO DESTINATION ENDPOINT.", color: "text-gold" }
+                        : { text: "ERROR // PACKET TRANSMISSION FAILED.", color: "text-red-500" };
+                    
+                    const p = document.createElement('p');
+                    p.className = `logger-line ${finalMsg.color}`;
+                    p.textContent = `Ø kushalraj@ide:~# ${finalMsg.text}`;
+                    loggerBox.appendChild(p);
+                    
+                    const p2 = document.createElement('p');
+                    p2.className = `logger-line text-gold`;
+                    p2.textContent = `Ø kushalraj@ide:~# TERMINAL CONNECTION DISCHARGED SECURELY. CLOSED.`;
+                    loggerBox.appendChild(p2);
+
+                    if (result.success) {
+                        setTimeout(() => {
+                            const formContainer = contactForm.parentElement;
+                            formContainer.innerHTML = `
+                                <div class="py-16 text-center space-y-4">
+                                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37] text-[#D4AF37] text-lg mb-4" style="box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);">✓</div>
+                                    <h3 class="text-3xl text-white font-normal uppercase font-bebas">PACKET DISPATCH SUCCESS</h3>
+                                    <p class="text-xs text-[#A8988B] font-light font-body tracking-wider mt-2">
+                                        Transmission registered successfully. Kushal Raj will respond to your channel soon.
+                                    </p>
+                                </div>
+                            `;
+                        }, 1000);
+                    }
+                } catch (error) {
+                    const p = document.createElement('p');
+                    p.className = "logger-line text-red-500";
+                    p.textContent = "Ø kushalraj@ide:~# CRITICAL ERROR: TRANSMISSION TIMEOUT.";
+                    loggerBox.appendChild(p);
+                    dispatchBtn.disabled = false;
+                    dispatchBtn.textContent = 'RETRY DISPATCH';
                 }
             }
 
