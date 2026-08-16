@@ -1,1373 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kushal | ML Engineer & Data Scientist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-        rel="stylesheet" />
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-
-        :root {
-            --bg: #080b10;
-            --bg2: #0d1117;
-            --bg3: #111820;
-            --teal: #00c9a7;
-            --teal2: #00e5c3;
-            --amber: #f59e0b;
-            --text: #e8edf5;
-            --muted: #6b7a94;
-            --border: #1c2535;
-            --card: #0f1824;
-        }
-
-        html {
-            scroll-behavior: smooth
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 16px;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 6vw;
-            background: rgba(8, 11, 16, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
-            color: var(--teal);
-            letter-spacing: 0.08em;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--muted);
-            font-size: 0.875rem;
-            letter-spacing: 0.04em;
-            transition: color .2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--teal)
-        }
-
-        /* HERO */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 6vw;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-grid {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(0, 201, 167, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 201, 167, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-        }
-
-        .hero-glow {
-            position: absolute;
-            top: -20%;
-            left: -10%;
-            width: 70%;
-            height: 80%;
-            background: radial-gradient(ellipse at center, rgba(0, 201, 167, 0.06) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 780px
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(0, 201, 167, 0.08);
-            border: 1px solid rgba(0, 201, 167, 0.2);
-            border-radius: 2rem;
-            padding: 0.35rem 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            color: var(--teal);
-            margin-bottom: 2rem;
-            letter-spacing: 0.06em;
-        }
-
-        .hero-tag::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--teal);
-            animation: blink 1.4s infinite
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: 0.2
-            }
-        }
-
-        h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.02em;
-            color: #fff;
-            margin-bottom: 1.25rem;
-        }
-
-        h1 span {
-            color: var(--teal)
-        }
-
-        .hero-sub {
-            font-size: 1.125rem;
-            color: var(--muted);
-            max-width: 520px;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.75rem;
-            border-radius: 0.375rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all .2s;
-            cursor: pointer;
-            border: none;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--teal);
-            color: #080b10;
-        }
-
-        .btn-primary:hover {
-            background: var(--teal2);
-            transform: translateY(-1px)
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--teal);
-            color: var(--teal)
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--muted);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 48px;
-            background: linear-gradient(to bottom, var(--teal), transparent);
-            animation: scrollDown 2s ease-in-out infinite;
-        }
-
-        @keyframes scrollDown {
-            0% {
-                transform: scaleY(0);
-                transform-origin: top
-            }
-
-            50% {
-                transform: scaleY(1);
-                transform-origin: top
-            }
-
-            51% {
-                transform: scaleY(1);
-                transform-origin: bottom
-            }
-
-            100% {
-                transform: scaleY(0);
-                transform-origin: bottom
-            }
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 7rem 6vw
-        }
-
-        .section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            color: var(--teal);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
-
-        /* ABOUT */
-        #about {
-            background: var(--bg2)
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: var(--muted);
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem
-        }
-
-        .about-text p strong {
-            color: var(--text)
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 1.25rem;
-        }
-
-        .stat-num {
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--teal);
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--muted);
-            letter-spacing: 0.04em
-        }
-
-        .about-image-wrap {
-            position: relative;
-        }
-
-        .profile-card {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1;
-            max-width: 380px;
-            margin: 0 auto;
-            border-radius: 1.25rem;
-            border: 1px solid var(--border);
-            background: var(--card);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(8, 11, 16, 0.85) 0%, rgba(8, 11, 16, 0.3) 40%, transparent 100%);
-            z-index: 2;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .profile-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .profile-badge {
-            position: relative;
-            z-index: 3;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--teal);
-            margin-bottom: 1.5rem;
-            background: rgba(8, 11, 16, 0.75);
-            backdrop-filter: blur(8px);
-            padding: 0.4rem 1rem;
-            border: 1px solid rgba(0, 201, 167, 0.2);
-            border-radius: 2rem;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 201, 167, 0.4);
-            box-shadow: 0 15px 35px -5px rgba(0, 201, 167, 0.15);
-        }
-
-        .profile-card:hover .profile-img {
-            transform: scale(1.05);
-        }
-
-        .profile-card:hover .profile-badge {
-            border-color: var(--teal);
-            color: #fff;
-            background: var(--teal);
-            box-shadow: 0 0 10px rgba(0, 201, 167, 0.3);
-        }
-
-        /* PROJECTS */
-        #projects {
-            background: var(--bg)
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 1.75rem;
-            position: relative;
-            overflow: hidden;
-            transition: border-color .25s, transform .25s;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            color: inherit;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--teal-var, var(--teal)), transparent);
-            opacity: 0;
-            transition: opacity .25s;
-        }
-
-        .project-card:hover {
-            border-color: rgba(0, 201, 167, 0.3);
-            transform: translateY(-3px)
-        }
-
-        .project-card:hover::before {
-            opacity: 1
-        }
-
-        .project-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            font-size: 1.25rem;
-        }
-
-        .project-tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1rem
-        }
-
-        .project-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 0.25rem;
-            background: rgba(0, 201, 167, 0.08);
-            color: var(--teal);
-            border: 1px solid rgba(0, 201, 167, 0.15);
-        }
-
-        .project-tag.amber {
-            background: rgba(245, 158, 11, 0.08);
-            color: var(--amber);
-            border-color: rgba(245, 158, 11, 0.15);
-        }
-
-        .project-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.6rem;
-            line-height: 1.3;
-        }
-
-        .project-desc {
-            font-size: 0.875rem;
-            color: var(--muted);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        .project-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid var(--border);
-            padding-top: 1rem;
-            font-size: 0.8rem;
-        }
-
-        .project-status {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--muted);
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%
-        }
-
-        .status-dot.live {
-            background: #22c55e;
-            box-shadow: 0 0 6px rgba(34, 197, 94, 0.5)
-        }
-
-        .status-dot.build {
-            background: var(--amber);
-            box-shadow: 0 0 6px rgba(245, 158, 11, 0.4)
-        }
-
-        .project-arrow {
-            color: var(--muted);
-            font-size: 1rem;
-            transition: color .2s, transform .2s;
-        }
-
-        .project-card:hover .project-arrow {
-            color: var(--teal);
-            transform: translateX(3px)
-        }
-
-        /* SKILLS */
-        #skills {
-            background: var(--bg2)
-        }
-
-        .skills-content {
-            margin-top: 3rem
-        }
-
-        .skill-group {
-            margin-bottom: 2.5rem
-        }
-
-        .skill-group-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--muted);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .skill-group-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .skill-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem
-        }
-
-        .pill {
-            font-size: 0.85rem;
-            padding: 0.45rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            transition: all .2s;
-            cursor: default;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .pill:hover {
-            border-color: var(--teal);
-            color: var(--teal)
-        }
-
-        .pill-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--teal);
-            opacity: 0.6
-        }
-
-        /* CONTACT */
-        #contact {
-            background: var(--bg);
-            position: relative;
-            overflow: hidden
-        }
-
-        .contact-glow {
-            position: absolute;
-            bottom: -20%;
-            right: -10%;
-            width: 60%;
-            height: 80%;
-            background: radial-gradient(ellipse at center, rgba(0, 201, 167, 0.05) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        .contact-inner {
-            max-width: 640px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-text {
-            color: var(--muted);
-            margin-bottom: 2.5rem;
-            font-size: 1.05rem
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.9rem;
-            transition: all .2s;
-            background: var(--card);
-        }
-
-        .contact-link:hover {
-            border-color: var(--teal);
-            color: var(--teal);
-            transform: translateY(-1px)
-        }
-
-        .contact-link svg {
-            width: 18px;
-            height: 18px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 1.5
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 2rem 6vw;
-            border-top: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        footer p {
-            font-size: 0.8rem;
-            color: var(--muted)
-        }
-
-        footer p span {
-            color: var(--teal)
-        }
-
-        /* ANIMATIONS */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: none
-        }
-
-        /* EXPERIENCE & EDUCATION */
-        #experience {
-            background: var(--bg2);
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .experience-list,
-        .education-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .experience-card,
-        .education-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 1.75rem;
-            transition: border-color .25s, transform .25s;
-        }
-
-        .experience-card:hover,
-        .education-card:hover {
-            border-color: rgba(0, 201, 167, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .exp-header,
-        .edu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            gap: 1rem;
-        }
-
-        .exp-title,
-        .edu-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .exp-company,
-        .edu-school {
-            font-size: 0.9rem;
-            color: var(--teal);
-            font-weight: 500;
-            margin-top: 0.25rem;
-        }
-
-        .exp-date,
-        .edu-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--muted);
-            white-space: nowrap;
-        }
-
-        .exp-bullets {
-            list-style: none;
-            padding-left: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .exp-bullets li {
-            font-size: 0.9rem;
-            color: var(--muted);
-            position: relative;
-            padding-left: 1.25rem;
-            line-height: 1.6;
-        }
-
-        .exp-bullets li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-        }
-
-        .edu-details {
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-top: 0.5rem;
-        }
-
-        /* CERTIFICATIONS & ACHIEVEMENTS */
-        #certifications {
-            background: var(--bg);
-        }
-
-        .certs-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 5rem;
-            margin-top: 3rem;
-        }
-
-        .certs-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .cert-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 1rem 1.25rem;
-            transition: border-color .2s;
-        }
-
-        .cert-item:hover {
-            border-color: rgba(0, 201, 167, 0.25);
-        }
-
-        .cert-icon {
-            font-size: 1.5rem;
-        }
-
-        .cert-name {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .cert-issuer {
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin-top: 0.15rem;
-        }
-
-        .achievement-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .achievement-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--teal);
-        }
-
-        .ach-badge {
-            display: inline-block;
-            background: rgba(0, 201, 167, 0.08);
-            border: 1px solid rgba(0, 201, 167, 0.2);
-            border-radius: 2rem;
-            padding: 0.25rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--teal);
-            margin-bottom: 1rem;
-        }
-
-        .ach-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.75rem;
-        }
-
-        .ach-desc {
-            font-size: 0.95rem;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width:992px) {
-
-            .experience-grid,
-            .certs-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-        }
-
-        @media(max-width:768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem
-            }
-
-            .profile-card {
-                max-width: 240px
-            }
-
-            .nav-links {
-                display: none
-            }
-        }
-
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian | Kushal Raj — Portfolio</title>
+    <meta name="description" content="Precision in Darkness — Computer vision, explainable AI, and full-stack systems by Kushal Raj."/>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700;800&family=DM+Sans:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+    
+    <!-- CSS stylesheet link -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
+    <link rel="icon" href="logo.png">
 </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col" data-mode="dev">
 
-<body>
+    <!-- ==========================================
+         HEADER / NAVIGATION
+         ========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black border-b border-[#262626] h-18">
+        <div class="header-container max-w-content">
+            <!-- Logo Ø OBSIDIAN -->
+            <a class="logo" href="#hero">
+                <div class="logo-box">
+                    <span>Ø</span>
+                    <div class="logo-crop-tl"></div>
+                    <div class="logo-crop-br"></div>
+                </div>
+                <span class="logo-text">OBSIDIAN</span>
+            </a>
 
-    <!-- NAV -->
-    <nav>
-        <a class="nav-logo" href="#hero">KS.dev</a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#certifications">Certificates</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
+            <!-- Actions (v1.0.1 badge, CTRL+M search indicator, Mode Selector) -->
+            <div class="header-actions">
+                <!-- Version Badge -->
+                <a class="badge-v" title="Changelog" href="#experience">
+                    <span class="material-symbols-outlined">history</span>
+                    <span>v1.0.1</span>
+                </a>
+                
+                <!-- Command Palette Shortcut Hint -->
+                <div class="badge-v ctrl-m-tip" id="palette-trigger" title="Press Ctrl + M to open the Command Palette" style="cursor: pointer;">
+                    <span class="material-symbols-outlined">terminal</span>
+                    <span>CTRL + M</span>
+                </div>
 
+                <!-- Mode Selector DEV/DESIGN Switch -->
+                <div class="mode-selector">
+                    <span class="mode-selector-label uppercase">MODE:</span>
+                    <button class="switch-btn" id="mode-switch-btn" role="switch" aria-checked="false" aria-label="Toggle developer/design mode">
+                        <div class="switch-labels">
+                            <span class="switch-label-dev">DEV</span>
+                            <span class="switch-label-design">DESIGN</span>
+                        </div>
+                        <div class="switch-slider">
+                            <span>ACTIVE</span>
+                        </div>
+                    </button>
+                </div>
 
-    <!-- HERO -->
-    <section id="hero">
-        <div class="hero-grid"></div>
-        <div class="hero-glow"></div>
-        <div class="hero-content">
-            <div class="hero-tag">
-                <span></span> Open to internships &amp; collaborations
-            </div>
-            <h1>
-                Building<br />
-                intelligent<br />
-                <span>systems.</span>
-            </h1>
-            <p class="hero-sub">
-                ML Engineer &amp; Data Scientist passionate about computer vision,
-                explainable AI, and deploying intelligent systems — from computer vision models to full-stack real-time
-                platforms.
-            </p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn btn-primary">View Projects ↓</a>
-                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                <!-- Mobile Hamburger Menu Button -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
+                    <span>MENU</span>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
             </div>
         </div>
-        <div class="hero-scroll">
-            <div class="scroll-line"></div>
-            scroll
-        </div>
-    </section>
+    </header>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="about-grid">
-            <div class="about-text reveal">
-                <p class="section-label">// About me</p>
-                <h2 class="section-title">ML student,<br />problem solver.</h2>
-                <p>I'm <strong>Kushal</strong>, a Computer Science student at Navkis College of Engineering, Hassan,
-                    specialising in machine learning and data science.</p>
-                <p>I build end-to-end applications — from machine learning pipelines to collaborative systems. My work
-                    spans
-                    <strong>computer vision</strong>, real-time collaboration, and full-stack development.
+    <!-- Drawer Backdrop -->
+    <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+
+    <!-- Mobile Drawer Side Menu -->
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <div>
+            <div class="drawer-header">
+                <span>NAVIGATION</span>
+                <button class="drawer-close" id="drawer-close" aria-label="Close navigation">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="drawer-nav">
+                <a href="#hero"><span class="material-symbols-outlined">home</span><span>Home</span></a>
+                <a href="#about"><span class="material-symbols-outlined">person</span><span>About</span></a>
+                <a href="#projects"><span class="material-symbols-outlined">folder_open</span><span>Projects</span></a>
+                <a href="#experience"><span class="material-symbols-outlined">timeline</span><span>Experience</span></a>
+                <a href="#certifications"><span class="material-symbols-outlined">verified</span><span>Certificates</span></a>
+                <a href="#skills"><span class="material-symbols-outlined">code</span><span>Skills</span></a>
+                <a href="#contact"><span class="material-symbols-outlined">mail</span><span>Contact</span></a>
+            </nav>
+        </div>
+        <div class="drawer-footer">
+            <div class="mode-selector" style="width: 100%; justify-content: space-between;">
+                <span class="mode-selector-label uppercase">MODE SELECTOR:</span>
+                <button class="switch-btn" role="switch" aria-checked="false">
+                    <div class="switch-labels">
+                        <span class="switch-label-dev">DEV</span>
+                        <span class="switch-label-design">DESIGN</span>
+                    </div>
+                    <div class="switch-slider">
+                        <span>ACTIVE</span>
+                    </div>
+                </button>
+            </div>
+            <p class="font-mono text-white" style="font-size: 9px; letter-spacing: 0.15em; color: var(--text-muted) !important;">OBSIDIAN PORTFOLIO v1.0.1</p>
+        </div>
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+         ========================================== -->
+    <main class="flex-1 pt-16 max-w-content">
+
+        <!-- ==========================================
+             HERO SECTION
+             ========================================== -->
+        <section id="hero" class="hero-section">
+            <div class="hero-left reveal">
+                <div class="hero-meta">
+                    <span class="hero-meta-label">ML ENGINEER + DATA SCIENTIST</span>
+                </div>
+                <h1 class="hero-title">Kushal Raj</h1>
+                
+                <div class="hero-summary">
+                    <div class="hero-summary-bar"></div>
+                    <p>I build computer vision applications, explainable AI workflows, and collaborative software IDE platforms. Model pipelines, real-time execution, and client UI dashboards handled end-to-end.</p>
+                </div>
+
+                <div class="hero-status">
+                    <span class="hero-status-dot"></span>
+                    <span class="hero-status-text">STATUS // ● OPEN TO INTERNSHIPS</span>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#about" class="btn btn-secondary">About Me</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                </div>
+
+                <div class="hero-buttons" style="margin-top: 0.25rem;">
+                    <!-- Resume Action Buttons -->
+                    <a href="#contact" class="btn btn-dark" style="padding-left: 1.25rem; padding-right: 1.25rem;">
+                        <span class="material-symbols-outlined text-accent" style="font-size: 16px; color: var(--accent);">visibility</span>
+                        View CV
+                    </a>
+                    <a href="#" class="btn btn-dark" style="padding-left: 1.25rem; padding-right: 1.25rem;">
+                        <span class="material-symbols-outlined text-accent" style="font-size: 16px; color: var(--accent);">download</span>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-right reveal delay-1">
+                <!-- Frame with Grayscale filter and Overlay -->
+                <div class="hero-image-frame crop-decor crop-decor-tl">
+                    <div class="bg-grid-pattern"></div>
+                    <img src="My photo.jpeg" alt="Kushal Raj - Machine Learning Engineer">
+                    <div class="hero-image-overlay">
+                        <span class="material-symbols-outlined">terminal</span>
+                        <span>SYSTEM_OK // USER: KUSHAL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SYSTEM MONITOR BANNER
+             ========================================== -->
+        <div class="system-monitor reveal">
+            <div class="absolute-decor top-0 left-0 w-8 h-px bg-[#e61e32]"></div>
+            <div class="absolute-decor top-0 left-0 w-px h-8 bg-[#e61e32]"></div>
+            <div class="monitor-grid">
+                <span class="monitor-sub">SYSTEM_MONITOR // ACTIVE_DEVELOPMENT</span>
+                <h2 class="monitor-title">CURRENTLY BUILDING // Road Damage Detection System</h2>
+                <p class="monitor-desc">Focus: Fine-tuning YOLOv8 on RDD2022 image datasets for real-time roadway degradation detection & geospatial Folium reporting maps.</p>
+            </div>
+            <div class="monitor-action">
+                <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank" class="btn btn-secondary" style="font-size: 10px; padding: 0.5rem 1rem;">
+                    Inspect Spec →
+                </a>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             FEATURED WORKS (PROJECTS)
+             ========================================== -->
+        <section id="projects" class="py-section-gap">
+            <div class="section-header-block reveal">
+                <div>
+                    <span class="section-label">01 // CORE_EVIDENCE</span>
+                    <h2 class="section-title">FEATURED WORKS</h2>
+                </div>
+                <a class="section-action-link" href="https://github.com/Kushalraj123" target="_blank">
+                    Explore all projects <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="projects-container">
+                <!-- Project 1: Road Damage Detection System (YOLOv8) -->
+                <div class="project-card card-span-7 reveal">
+                    <div>
+                        <div class="project-card-header">
+                            <span class="project-card-label">01 // COMPUTER_VISION</span>
+                            <span class="project-card-badge">ACTIVE</span>
+                        </div>
+                        <h3 class="project-card-title">Road Damage Detection System</h3>
+                        <p class="project-card-subtitle">Solo Developer &amp; ML Engineer · 2026</p>
+                        
+                        <p class="project-card-desc">
+                            Fine-tuned YOLOv8 neural network architectures on the RDD2022 dataset to detect and categorize road anomalies. Implemented custom spatial maps using Folium for real-time infrastructure maintenance dashboard alerts.
+                        </p>
+                        
+                        <!-- DEV MODE specific metrics -->
+                        <div class="project-stats-grid dev-metric">
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">Model</span>
+                                <span class="project-stat-value">YOLOv8</span>
+                            </div>
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">Frontend</span>
+                                <span class="project-stat-value">Streamlit</span>
+                            </div>
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">Geomapping</span>
+                                <span class="project-stat-value">Folium</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech stack tag rows -->
+                        <div class="project-tech-header">DEPLOYED_STACK</div>
+                        <div class="project-tech-pills">
+                            <span class="tech-pill">YOLOv8</span>
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">PyTorch</span>
+                            <span class="tech-pill">Streamlit</span>
+                            <span class="tech-pill">Folium</span>
+                            <span class="tech-pill">OpenCV</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card-footer">
+                        <div class="project-card-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">GitHub Live</span>
+                        </div>
+                        
+                        <div class="rating-stars dev-metric">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star_half</span>
+                            <span class="rating-num">4.8</span>
+                            <span class="rating-count">(3 reviews)</span>
+                        </div>
+
+                        <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank" class="project-link-action no-underline">
+                            Read code →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: DevSync - Collaborative IDE -->
+                <div class="project-card card-span-5 reveal delay-1">
+                    <div>
+                        <div class="project-card-header">
+                            <span class="project-card-label">02 // WEB_UTILITY</span>
+                            <span class="project-card-badge">COMPLETED</span>
+                        </div>
+                        <h3 class="project-card-title">DevSync IDE</h3>
+                        <p class="project-card-subtitle">Lead Architect &amp; Developer · 2025</p>
+                        
+                        <p class="project-card-desc">
+                            A browser collaborative code editor supporting multiple concurrent developer connections. Features sub-100ms CRDT document sync and sandboxed remote code compile environments using Judge0 REST API endpoints.
+                        </p>
+
+                        <!-- DEV MODE specific metrics -->
+                        <div class="project-stats-grid dev-metric">
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">Sync latency</span>
+                                <span class="project-stat-value">&lt;100ms</span>
+                            </div>
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">Sandbox</span>
+                                <span class="project-stat-value">Judge0 API</span>
+                            </div>
+                        </div>
+
+                        <div class="project-tech-header">DEPLOYED_STACK</div>
+                        <div class="project-tech-pills">
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">Yjs CRDTs</span>
+                            <span class="tech-pill">Socket.IO</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">Prisma</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card-footer">
+                        <div class="project-card-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">GitHub Live</span>
+                        </div>
+                        
+                        <div class="rating-stars dev-metric">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="rating-num">5.0</span>
+                            <span class="rating-count">(8 reviews)</span>
+                        </div>
+
+                        <a href="https://github.com/Kushalraj123/DevSync-Collaborative-IDE" target="_blank" class="project-link-action no-underline">
+                            Read code →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: E-Commerce Web Application -->
+                <div class="project-card card-span-12 reveal">
+                    <div>
+                        <div class="project-card-header">
+                            <span class="project-card-label">03 // FULL_STACK</span>
+                            <span class="project-card-badge">COMPLETED</span>
+                        </div>
+                        <h3 class="project-card-title">E-Commerce Web Application</h3>
+                        <p class="project-card-subtitle">Backend Systems Architect · 2025</p>
+                        
+                        <p class="project-card-desc">
+                            High-performance server stack featuring optimized Prisma database seed scripts for batch records. Instantly seeds 1,000+ relational model entries, reducing query execution lookup times by 40% and local setup time by 90%.
+                        </p>
+
+                        <!-- DEV MODE specific metrics -->
+                        <div class="project-stats-grid dev-metric" style="grid-template-columns: repeat(4, 1fr);">
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">Performance</span>
+                                <span class="project-stat-value">-40% Query</span>
+                            </div>
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">Records</span>
+                                <span class="project-stat-value">1,000+ Seed</span>
+                            </div>
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">ORM</span>
+                                <span class="project-stat-value">Prisma</span>
+                            </div>
+                            <div class="project-stat-box">
+                                <span class="project-stat-label">DB Engine</span>
+                                <span class="project-stat-value">SQLite</span>
+                            </div>
+                        </div>
+
+                        <div class="project-tech-header">DEPLOYED_STACK</div>
+                        <div class="project-tech-pills">
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">Prisma ORM</span>
+                            <span class="tech-pill">SQLite</span>
+                            <span class="tech-pill">REST APIs</span>
+                            <span class="tech-pill">Express</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card-footer">
+                        <div class="project-card-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">GitHub Live</span>
+                        </div>
+
+                        <a href="https://github.com/Kushalraj123/E-Commerce-Web-Application" target="_blank" class="project-link-action no-underline">
+                            Read code →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             GITHUB STATS SECTION
+             ========================================== -->
+        <section class="github-stats-section py-section-gap reveal">
+            <div class="github-box">
+                <div class="absolute-decor top-0 left-0 w-8 h-px bg-[#e61e32]"></div>
+                <div class="absolute-decor top-0 left-0 w-px h-8 bg-[#e61e32]"></div>
+                
+                <div class="github-box-header">
+                    <div>
+                        <span class="section-label">02 // COMMIT_METRICS &amp; AGENTS</span>
+                        <h2 class="section-title" style="font-size: 22px;">GITHUB STACKS</h2>
+                    </div>
+                    <span class="github-username">github.com/Kushalraj123</span>
+                </div>
+
+                <div class="github-grid">
+                    <!-- Stats Card 1 -->
+                    <div class="github-card">
+                        <span class="github-card-label">01 // OVERVIEW_STATS</span>
+                        <div class="github-img-wrapper">
+                            <img src="https://github-readme-stats.shion.dev/api?username=Kushalraj123&show_icons=true&theme=dark&title_color=e61e32&icon_color=e61e32&text_color=ffffff&bg_color=000000&hide_border=true" alt="Kushalraj123 GitHub Stats">
+                        </div>
+                    </div>
+
+                    <!-- Stats Card 2 -->
+                    <div class="github-card">
+                        <span class="github-card-label">02 // CONTRIB_STREAK</span>
+                        <div class="github-img-wrapper">
+                            <img src="https://streak-stats.demolab.com/?user=Kushalraj123&theme=dark&currStreakNum=e61e32&fire=e61e32&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&background=000000&hide_border=true" alt="Kushalraj123 GitHub Streak">
+                        </div>
+                    </div>
+
+                    <!-- Stats Card 3 -->
+                    <div class="github-card">
+                        <span class="github-card-label">03 // LANGUAGE_MATRIX</span>
+                        <div class="github-img-wrapper">
+                            <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=Kushalraj123&layout=compact&theme=dark&title_color=e61e32&text_color=ffffff&bg_color=000000&hide_border=true" alt="Kushalraj123 Languages Stats">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHRONOLOGY (EXPERIENCE & ACADEMICS)
+             ========================================== -->
+        <section id="experience" class="timeline-section py-section-gap">
+            <div class="section-header-block reveal">
+                <div>
+                    <span class="section-label">03 // CHRONOLOGICAL_EVIDENCE</span>
+                    <h2 class="section-title">EXPERIENCE &amp; PATHWAY</h2>
+                </div>
+            </div>
+
+            <div class="timeline-grid">
+                <!-- Column 1: Internships -->
+                <div class="timeline-column reveal">
+                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
+                        <h3 style="font-size: 18px; color: var(--text-primary);">01 // WORK_RECORD</h3>
+                    </div>
+
+                    <!-- Card 1 -->
+                    <div class="timeline-card">
+                        <div class="timeline-card-header">
+                            <div>
+                                <h4 class="timeline-card-title">Trainee Software Engineer</h4>
+                                <p class="timeline-card-subtitle">Inventeron Technologies LLP</p>
+                            </div>
+                            <span class="timeline-card-date">Feb 2026 – May 2026</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Developed 8+ responsive UI functional units utilizing React and REST integrations.</li>
+                            <li>Diagnosed and patched 20+ interface issues, enhancing cross-browser client alignment.</li>
+                            <li>Participated in sprint deliverables, executing 100% of tasks ahead of target cycles.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="timeline-card">
+                        <div class="timeline-card-header">
+                            <div>
+                                <h4 class="timeline-card-title">Data Science Intern</h4>
+                                <p class="timeline-card-subtitle">Codec Technologies Pvt. Ltd.</p>
+                            </div>
+                            <span class="timeline-card-date">Jan 2026 – Feb 2026</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Completed an AICTE and ICAC-certified Data internship, building Python predictive ML pipelines.</li>
+                            <li>Configured model frameworks with Pandas and scikit-learn, yielding over 90% test accuracy.</li>
+                            <li>Collaborated inside a 4-person unit compiling technical insight summaries.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 2: Education -->
+                <div class="timeline-column reveal delay-1">
+                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
+                        <h3 style="font-size: 18px; color: var(--text-primary);">02 // ACADEMICS</h3>
+                    </div>
+
+                    <!-- Card 1 -->
+                    <div class="timeline-card">
+                        <div class="timeline-card-header">
+                            <div>
+                                <h4 class="timeline-card-title">B.E. — Computer Science</h4>
+                                <p class="timeline-card-subtitle">Navkis College of Engineering, VTU</p>
+                            </div>
+                            <span class="timeline-card-date">2023 – 2027</span>
+                        </div>
+                        <p class="timeline-extra">CGPA Status: <strong>7.50 / 10</strong></p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="timeline-card">
+                        <div class="timeline-card-header">
+                            <div>
+                                <h4 class="timeline-card-title">Class XII (PUC)</h4>
+                                <p class="timeline-card-subtitle">Masters PU College, Hassan</p>
+                            </div>
+                            <span class="timeline-card-date">2021 – 2023</span>
+                        </div>
+                        <p class="timeline-extra">Assessment Score: <strong>82%</strong></p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="timeline-card">
+                        <div class="timeline-card-header">
+                            <div>
+                                <h4 class="timeline-card-title">Class X (SSLC)</h4>
+                                <p class="timeline-card-subtitle">United Academy, Hassan</p>
+                            </div>
+                            <span class="timeline-card-date">2021</span>
+                        </div>
+                        <p class="timeline-extra">Assessment Score: <strong>85%</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             QUALIFICATIONS & ACHIEVEMENTS
+             ========================================== -->
+        <section id="certifications" class="quals-section py-section-gap">
+            <div class="section-header-block reveal">
+                <div>
+                    <span class="section-label">04 // CREDENTIAL_EVIDENCE</span>
+                    <h2 class="section-title">QUALIFICATIONS &amp; MERIT</h2>
+                </div>
+            </div>
+
+            <div class="quals-grid">
+                <!-- Column 1: Certifications -->
+                <div class="timeline-column reveal">
+                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
+                        <h3 style="font-size: 16px; color: var(--text-primary);">01 // CERTIFICATIONS</h3>
+                    </div>
+
+                    <div class="quals-list">
+                        <div class="qual-item">
+                            <span class="qual-icon">🏆</span>
+                            <div>
+                                <h4 class="qual-name">Getting Started with Artificial Intelligence</h4>
+                                <p class="qual-issuer">IBM · 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="qual-item">
+                            <span class="qual-icon">💻</span>
+                            <div>
+                                <h4 class="qual-name">Introduction to Front-End Development</h4>
+                                <p class="qual-issuer">Simplilearn SkillUp · 2025</p>
+                            </div>
+                        </div>
+
+                        <div class="qual-item">
+                            <span class="qual-icon">📜</span>
+                            <div>
+                                <h4 class="qual-name">JavaScript Training</h4>
+                                <p class="qual-issuer">Spoken Tutorial, IIT Bombay · 2025</p>
+                            </div>
+                        </div>
+
+                        <div class="qual-item">
+                            <span class="qual-icon">🐍</span>
+                            <div>
+                                <h4 class="qual-name">Data Structures and Algorithms in Python</h4>
+                                <p class="qual-issuer">Infosys Springboard · 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Recognition -->
+                <div class="timeline-column reveal delay-1">
+                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
+                        <h3 style="font-size: 16px; color: var(--text-primary);">02 // RECOGNITIONS</h3>
+                    </div>
+
+                    <div class="recognition-card">
+                        <div class="rec-badge">🥈 2nd Place</div>
+                        <h3 class="rec-title">University Hackathon Winner</h3>
+                        <p class="rec-desc">Secured the second place ranking among 50 competing technical developer units for constructing <strong>DevSync Real-Time Collaborative IDE</strong>, showing advanced real-time networking structures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             TECH MATRIX (SKILLS)
+             ========================================== -->
+        <section id="skills" class="skills-section py-section-gap">
+            <div class="section-header-block reveal">
+                <div>
+                    <span class="section-label">05 // CAPABILITY_MATRIX</span>
+                    <h2 class="section-title">TECHNOLOGY CAPABILITY MATRIX</h2>
+                </div>
+            </div>
+
+            <div class="skills-wrapper reveal">
+                <!-- Row 1: Languages -->
+                <div class="skill-category">
+                    <span class="skill-category-label">Languages</span>
+                    <div class="skill-pills-row">
+                        <div class="skill-pill"><span class="skill-dot"></span>Python</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Java</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>C</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>SQL</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>HTML / CSS</div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Frameworks & Libraries -->
+                <div class="skill-category">
+                    <span class="skill-category-label">Frameworks &amp; Libraries</span>
+                    <div class="skill-pills-row">
+                        <div class="skill-pill"><span class="skill-dot"></span>PyTorch</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>OpenCV</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>React</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Flask</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Streamlit</div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Tools & Platforms -->
+                <div class="skill-category">
+                    <span class="skill-category-label">Tools &amp; Platforms</span>
+                    <div class="skill-pills-row">
+                        <div class="skill-pill"><span class="skill-dot"></span>Git</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Docker</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>VS Code</div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Concepts -->
+                <div class="skill-category">
+                    <span class="skill-category-label">Concepts</span>
+                    <div class="skill-pills-row">
+                        <div class="skill-pill"><span class="skill-dot"></span>Machine Learning</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Data Structures &amp; Algorithms</div>
+                    </div>
+                </div>
+
+                <!-- Row 5: Familiar with -->
+                <div class="skill-category">
+                    <span class="skill-category-label">Familiar With</span>
+                    <div class="skill-pills-row">
+                        <div class="skill-pill"><span class="skill-dot"></span>REST APIs</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Git / Version Control</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Debugging</div>
+                        <div class="skill-pill"><span class="skill-dot"></span>Agile Sprints</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             TRANSMISSION PORTAL (CONTACT)
+             ========================================== -->
+        <section id="contact" class="contact-section py-section-gap">
+            <div class="contact-glow"></div>
+            <div class="contact-container reveal">
+                <span class="section-label">06 // TRANSMISSION_PORTAL</span>
+                <h2 class="section-title" style="margin-bottom: 1rem;">Let's work together.</h2>
+                <p class="contact-desc">
+                    Seeking internship positions in Machine Learning, computer vision, data analysis, or full-stack software development. Open to project partnerships and research endeavors. Get in touch!
                 </p>
-                <p>I'm driven by projects that solve practical challenges: detecting road damage for better
-                    infrastructure,
-                    uncovering deepfakes, and building high-performance, real-time web applications.</p>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-num">4+</div>
-                        <div class="stat-label">deployed projects</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">3</div>
-                        <div class="stat-label">domains covered</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">HF</div>
-                        <div class="stat-label">spaces hosted</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">∞</div>
-                        <div class="stat-label">curiosity</div>
-                    </div>
+
+                <div class="contact-links-grid">
+                    <a href="mailto:kushalrajm856@email.com" class="contact-link-card">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <polyline points="2,4 12,13 22,4" />
+                        </svg>
+                        <span>Email me</span>
+                    </a>
+                    
+                    <a href="https://github.com/Kushalraj123" target="_blank" class="contact-link-card">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank" class="contact-link-card">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a href="#" class="contact-link-card">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
+                            <line x1="12" y1="22.08" x2="12" y2="12" />
+                        </svg>
+                        <span>Hugging Face</span>
+                    </a>
                 </div>
             </div>
-            <div class="about-image-wrap reveal" style="transition-delay:.15s">
-                <div class="profile-card">
-                    <img src="My photo.jpeg" alt="Kushal - ML Engineer" class="profile-img" />
-                    <div class="profile-badge">// kushal · ml engineer</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <p class="section-label reveal">// Projects</p>
-        <h2 class="section-title reveal">What I've built.</h2>
-        <div class="projects-grid">
+    </main>
 
-            <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank" class="project-card reveal">
-                <div class="project-icon" style="background:rgba(0,201,167,0.1)">🛣️</div>
-                <div class="project-tag-row">
-                    <span class="project-tag">YOLOv8</span>
-                    <span class="project-tag">Streamlit</span>
-                    <span class="project-tag">Folium</span>
-                    <span class="project-tag amber">Computer Vision</span>
-                </div>
-                <h3 class="project-title">Road Damage Detection System</h3>
-                <p class="project-desc">Fine-tuned YOLOv8 on the RDD2022 dataset to detect and classify road damage in
-                    real time. Features a Streamlit frontend with Folium map visualization for geospatial reporting.</p>
-                <div class="project-footer">
-                    <div class="project-status">
-                        <div class="status-dot live"></div>
-                        <span>GitHub Repo</span>
-                    </div>
-                    <span class="project-arrow">→</span>
-                </div>
-            </a>
-
-            <a href="https://github.com/Kushalraj123/DevSync-Collaborative-IDE" target="_blank"
-                class="project-card reveal" style="transition-delay:.1s">
-                <div class="project-icon" style="background:rgba(99,102,241,0.1)">💻</div>
-                <div class="project-tag-row">
-                    <span class="project-tag">React</span>
-                    <span class="project-tag">Yjs CRDTs</span>
-                    <span class="project-tag">Socket.IO</span>
-                    <span class="project-tag">Judge0 API</span>
-                    <span class="project-tag amber">Collaborative IDE</span>
-                </div>
-                <h3 class="project-title">DevSync — Real-Time Collaborative IDE</h3>
-                <p class="project-desc">A browser-based collaborative IDE supporting 10+ simultaneous users per session
-                    with real-time, low-latency synchronization using Yjs CRDTs, achieving sub-100ms update propagation.
-                    Integrates Judge0 API for secure, sandboxed code execution across 5+ languages.</p>
-                <div class="project-footer">
-                    <div class="project-status">
-                        <div class="status-dot live"></div>
-                        <span>GitHub Repo</span>
-                    </div>
-                    <span class="project-arrow">→</span>
-                </div>
-            </a>
-
-            <a href="https://github.com/Kushalraj123/E-Commerce-Web-Application" target="_blank"
-                class="project-card reveal" style="transition-delay:.2s">
-                <div class="project-icon" style="background:rgba(16,185,129,0.1)">🛒</div>
-                <div class="project-tag-row">
-                    <span class="project-tag">React</span>
-                    <span class="project-tag">Node.js</span>
-                    <span class="project-tag">Prisma</span>
-                    <span class="project-tag">SQLite</span>
-                    <span class="project-tag amber">Full-Stack App</span>
-                </div>
-                <h3 class="project-title">E-Commerce Web Application</h3>
-                <p class="project-desc">A full-stack e-commerce application featuring an optimized database seeding
-                    pipeline using Prisma's batch insertion. Generates 1,000+ realistic product records, cutting query
-                    execution times by ~40% and reducing setup time from minutes to seconds.</p>
-                <div class="project-footer">
-                    <div class="project-status">
-                        <div class="status-dot live"></div>
-                        <span>GitHub Repo</span>
-                    </div>
-                    <span class="project-arrow">→</span>
-                </div>
-            </a>
-
-        </div>
-    </section>
-
-    <!-- EXPERIENCE & EDUCATION -->
-    <section id="experience">
-        <div class="experience-grid">
-            <div class="experience-list reveal">
-                <p class="section-label">// Experience</p>
-                <h2 class="section-title">Internships &amp; Training.</h2>
-
-                <div class="experience-card">
-                    <div class="exp-header">
-                        <div>
-                            <h3 class="exp-title">Trainee Software Engineer</h3>
-                            <p class="exp-company">Inventeron Technologies and Business Solutions LLP</p>
-                        </div>
-                        <span class="exp-date">Feb 2026 – May 2026</span>
-                    </div>
-                    <ul class="exp-bullets">
-                        <li>Completed an industry internship, developing 8+ responsive UI modules for client-facing web
-                            applications using React and REST APIs.</li>
-                        <li>Debugged and resolved 20+ front-end issues, improving application cross-browser
-                            compatibility and layout consistency.</li>
-                        <li>Collaborated with a cross-functional team in Agile/Scrum sprints, delivering 100% of
-                            assigned software features ahead of schedule.</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
-                    <div class="exp-header">
-                        <div>
-                            <h3 class="exp-title">Data Science Intern</h3>
-                            <p class="exp-company">Codec Technologies Pvt. Ltd.</p>
-                        </div>
-                        <span class="exp-date">Jan 2026 – Feb 2026</span>
-                    </div>
-                    <ul class="exp-bullets">
-                        <li>Completed an AICTE and ICAC-approved Data Science internship, analyzing 5+ real-world
-                            datasets and building end-to-end Python machine learning pipelines.</li>
-                        <li>Engineered predictive models using Python, scikit-learn, and Pandas, achieving over 90%
-                            accuracy on evaluation data.</li>
-                        <li>Collaborated in a 4-member team to deliver comprehensive data insight reports to senior
-                            stakeholders on schedule.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="education-list reveal" style="transition-delay:.15s">
-                <p class="section-label">// Academic Path</p>
-                <h2 class="section-title">Education.</h2>
-
-                <div class="education-card">
-                    <div class="edu-header">
-                        <div>
-                            <h3 class="edu-title">B.E. — Computer Science</h3>
-                            <p class="edu-school">Navkis College of Engineering, VTU</p>
-                        </div>
-                        <span class="edu-date">2023 – 2027</span>
-                    </div>
-                    <p class="edu-details">CGPA: <strong>7.50 / 10</strong></p>
-                </div>
-
-                <div class="education-card">
-                    <div class="edu-header">
-                        <div>
-                            <h3 class="edu-title">Class XII (PUC)</h3>
-                            <p class="edu-school">Masters PU College, Hassan</p>
-                        </div>
-                        <span class="edu-date">2021 – 2023</span>
-                    </div>
-                    <p class="edu-details">Score: <strong>82%</strong></p>
-                </div>
-
-                <div class="education-card">
-                    <div class="edu-header">
-                        <div>
-                            <h3 class="edu-title">Class X (SSLC)</h3>
-                            <p class="edu-school">United Academy, Hassan</p>
-                        </div>
-                        <span class="edu-date">2021</span>
-                    </div>
-                    <p class="edu-details">Score: <strong>85%</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CERTIFICATIONS & ACHIEVEMENTS -->
-    <section id="certifications">
-        <div class="certs-grid">
-            <div class="certs-col reveal">
-                <p class="section-label">// Qualifications</p>
-                <h2 class="section-title">Certifications.</h2>
-                <div class="certs-list">
-                    <div class="cert-item">
-                        <div class="cert-icon">🏆</div>
-                        <div>
-                            <h4 class="cert-name">Getting Started with Artificial Intelligence</h4>
-                            <p class="cert-issuer">IBM · 2026</p>
-                        </div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-icon">💻</div>
-                        <div>
-                            <h4 class="cert-name">Introduction to Front-End Development</h4>
-                            <p class="cert-issuer">Simplilearn SkillUp · 2025</p>
-                        </div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-icon">📜</div>
-                        <div>
-                            <h4 class="cert-name">JavaScript Training</h4>
-                            <p class="cert-issuer">Spoken Tutorial, IIT Bombay · 2025</p>
-                        </div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-icon">🐍</div>
-                        <div>
-                            <h4 class="cert-name">Data Structures and Algorithms in Python</h4>
-                            <p class="cert-issuer">Infosys Springboard · 2024</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="achievements-col reveal" style="transition-delay:.15s">
-                <p class="section-label">// Recognition</p>
-                <h2 class="section-title">Achievements.</h2>
-                <div class="achievement-card">
-                    <div class="ach-badge">🥈 2nd Place</div>
-                    <h3 class="ach-title">University Hackathon Winner</h3>
-                    <p class="ach-desc">Secured 2nd place among 50 competing teams for the development of
-                        <strong>DevSync Real-Time Collaborative IDE</strong>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-        <p class="section-label reveal">// Tech Stack</p>
-        <h2 class="section-title reveal">Tools of the trade.</h2>
-        <div class="skills-content reveal">
-
-            <div class="skill-group">
-                <div class="skill-group-label">Languages</div>
-                <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>Python</div>
-                    <div class="pill"><span class="pill-dot"></span>Java</div>
-                    <div class="pill"><span class="pill-dot"></span>C</div>
-                    <div class="pill"><span class="pill-dot"></span>SQL</div>
-                    <div class="pill"><span class="pill-dot"></span>HTML / CSS</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-label">Frameworks &amp; Libraries</div>
-                <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>PyTorch</div>
-                    <div class="pill"><span class="pill-dot"></span>OpenCV</div>
-                    <div class="pill"><span class="pill-dot"></span>React</div>
-                    <div class="pill"><span class="pill-dot"></span>Flask</div>
-                    <div class="pill"><span class="pill-dot"></span>Streamlit</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-label">Tools &amp; Platforms</div>
-                <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>Git</div>
-                    <div class="pill"><span class="pill-dot"></span>Docker</div>
-                    <div class="pill"><span class="pill-dot"></span>VS Code</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-label">Concepts</div>
-                <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>Machine Learning</div>
-                    <div class="pill"><span class="pill-dot"></span>Data Structures &amp; Algorithms</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-label">Soft Skills</div>
-                <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>Communication</div>
-                    <div class="pill"><span class="pill-dot"></span>Teamwork</div>
-                    <div class="pill"><span class="pill-dot"></span>Time Management</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-label">Familiar With</div>
-                <div class="skill-pills">
-                    <div class="pill"><span class="pill-dot"></span>REST APIs</div>
-                    <div class="pill"><span class="pill-dot"></span>Git / Version Control</div>
-                    <div class="pill"><span class="pill-dot"></span>Debugging</div>
-                    <div class="pill"><span class="pill-dot"></span>Agile Basics</div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="contact-glow"></div>
-        <div class="contact-inner">
-            <p class="section-label reveal">// Contact</p>
-            <h2 class="section-title reveal">Let's work together.</h2>
-            <p class="contact-text reveal">
-                Looking for internship opportunities in ML, data science, or full-stack AI.
-                Open to project collaborations and research discussions. Drop me a message!
-            </p>
-            <div class="contact-links reveal">
-                <a href="mailto:kushalrajm856@email.com" class="contact-link">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="2" y="4" width="20" height="16" rx="2" />
-                        <polyline points="2,4 12,13 22,4" />
-                    </svg>
-                    Email me
-                </a>
-                <a href="https://github.com/Kushalraj123" target="_blank" class="contact-link">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                    GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank" class="contact-link">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                        <rect x="2" y="9" width="4" height="12" />
-                        <circle cx="4" cy="4" r="2" />
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="#" class="contact-link">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                        <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
-                        <line x1="12" y1="22.08" x2="12" y2="12" />
-                    </svg>
-                    Hugging Face
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
     <footer>
-        <p>© 2026 <span>Kushal Raj</span> · Navkis College of Engineering, Hassan</p>
-        <p>Built with <span>HTML · CSS · JS</span></p>
+        <div class="footer-container max-w-content">
+            <div class="footer-top">
+                <p class="footer-copy">© 2026 Kushal Raj. Navkis College of Engineering, Hassan</p>
+                <div class="footer-links">
+                    <a href="#experience">Changelog</a>
+                    <div class="footer-divider"></div>
+                    <a href="#about" class="highlight">About Portfolio v1.0.1</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://github.com/Kushalraj123" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        reveals.forEach(el => observer.observe(el));
+    <!-- ==========================================
+         COMMAND PALETTE MODAL (CTRL + M)
+         ========================================== -->
+    <div class="palette-overlay" id="command-palette" aria-label="Command Palette" role="dialog" aria-modal="true">
+        <div class="palette-container">
+            <div class="palette-header">
+                <span class="material-symbols-outlined palette-icon">terminal</span>
+                <input type="text" class="palette-input" id="palette-input" placeholder="Type a command to execute or navigate..." aria-label="Command Input">
+                <span class="palette-esc">ESC</span>
+            </div>
+            <ul class="palette-results" id="palette-list">
+                <!-- Dynamically rendered items -->
+            </ul>
+        </div>
+    </div>
 
+    <!-- JS script link -->
+    <script src="script.js"></script>
 
-    </script>
 </body>
-
 </html>
