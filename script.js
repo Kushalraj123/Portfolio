@@ -1,287 +1,329 @@
-/* ==========================================
-   OBSIDIAN INTERACTIVE SCRIPTS
-   ========================================== */
+/* ==========================================================================
+   PORTFOLIO INTERACTIVE SCRIPTS
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Current Mode State: 'dev' or 'design'
-    let currentMode = 'dev';
-    document.body.setAttribute('data-mode', currentMode);
 
-    // Elements
-    const modeSwitchBtn = document.getElementById('mode-switch-btn');
-    const bodyEl = document.body;
-    
-    // Toggle Mode Function
-    function toggleMode() {
-        currentMode = currentMode === 'dev' ? 'design' : 'dev';
-        bodyEl.setAttribute('data-mode', currentMode);
+    /* ==========================================
+       1. SPRING CURSOR PHYSICS
+       ========================================== */
+    const cursor = document.getElementById('custom-cursor');
+    let mouseX = -100;
+    let mouseY = -100;
+    let cursorX = -100;
+    let cursorY = -100;
+    const springSpeed = 0.16; // Interpolation speed
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+        if (cursorX === -100 && mouseX !== -100) {
+            cursorX = mouseX;
+            cursorY = mouseY;
+        }
+
+        const dx = mouseX - cursorX;
+        const dy = mouseY - cursorY;
         
-        // Synchronize all mode switch button states (desktop + mobile)
-        const sliders = document.querySelectorAll('.switch-slider');
-        const devLabels = document.querySelectorAll('.switch-label-dev');
-        const designLabels = document.querySelectorAll('.switch-label-design');
+        cursorX += dx * springSpeed;
+        cursorY += dy * springSpeed;
+
+        if (cursor) {
+            cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+        }
+        requestAnimationFrame(animateCursor);
+    }
+    requestAnimationFrame(animateCursor);
+
+    // Expand cursor hover behavior on links, buttons and bento cards
+    const hoverElements = document.querySelectorAll('a, button, input, textarea, .bento-card, #portrait-3d-card, .scroll-stack-card');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (cursor) cursor.classList.add('hovered');
+        });
+        el.addEventListener('mouseleave', () => {
+            if (cursor) cursor.classList.remove('hovered');
+        });
+    });
+
+
+    /* ==========================================
+       2. LENIS SMOOTH SCROLLER INITIALIZATION
+       ========================================== */
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // standard expo easing
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        infinite: false
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+
+    /* ==========================================
+       3. SCROLL-STACKING PROJECT CARDS
+       ========================================== */
+    const cards = Array.from(document.querySelectorAll('.scroll-stack-card'));
+    let initialTops = [];
+
+    // Record static natural tops of cards on load
+    function calculateInitialTops() {
+        initialTops = cards.map(card => {
+            // Temporarily reset transforms to read natural top coordinates
+            const originalTransform = card.style.transform;
+            card.style.transform = 'none';
+            const rect = card.getBoundingClientRect();
+            const top = rect.top + window.scrollY;
+            card.style.transform = originalTransform;
+            return top;
+        });
+    }
+
+    // Set card styles once at load
+    cards.forEach((card, i) => {
+        card.style.zIndex = `${i + 1}`;
+        card.style.willChange = 'transform, filter';
+        card.style.transformOrigin = 'top center';
+    });
+
+    // Main scroll handler loop
+    function updateCardTransforms(scrollTop) {
+        if (!initialTops.length) return;
+
+        const containerHeight = window.innerHeight;
+        const stackPositionPx = 0.15 * containerHeight; // pin at 15% top
+        const scaleEndPositionPx = 0.06 * containerHeight; // shrink till 6% top
         
-        if (currentMode === 'design') {
-            sliders.forEach(s => s.style.transform = 'translateX(60px)');
-            devLabels.forEach(l => l.style.color = 'var(--text-muted)');
-            designLabels.forEach(l => l.style.color = 'var(--accent)');
-        } else {
-            sliders.forEach(s => s.style.transform = 'translateX(0)');
-            devLabels.forEach(l => l.style.color = 'var(--accent)');
-            designLabels.forEach(l => l.style.color = 'var(--text-muted)');
-        }
-    }
+        const itemStackDistance = 28; // px between cards
+        const baseScale = 0.88;
+        const itemScale = 0.035;
+        const blurAmountMultiplier = 2.0; // px of blur per underlying card depth
 
-    // Bind click events on all mode switch buttons
-    const allSwitchBtns = document.querySelectorAll('.switch-btn');
-    allSwitchBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleMode();
-        });
-    });
+        const endElement = document.querySelector('.scroll-stack-end');
+        const endElementTop = endElement ? endElement.getBoundingClientRect().top + window.scrollY : 0;
+        const pinEnd = endElementTop - containerHeight / 2;
 
-    /* ==========================================
-       MOBILE DRAWER NAVIGATION
-       ========================================== */
-    const menuToggle = document.getElementById('menu-toggle');
-    const drawer = document.getElementById('drawer');
-    const drawerBackdrop = document.getElementById('drawer-backdrop');
-    const drawerClose = document.getElementById('drawer-close');
-    const drawerLinks = document.querySelectorAll('.drawer-nav a');
+        cards.forEach((card, i) => {
+            const cardTop = initialTops[i] || 0;
+            const triggerStart = cardTop - stackPositionPx - itemStackDistance * i;
+            const triggerEnd = cardTop - scaleEndPositionPx;
+            const pinStart = cardTop - stackPositionPx - itemStackDistance * i;
 
-    function openDrawer() {
-        drawer.classList.add('active');
-        drawerBackdrop.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Lock background scroll
-    }
-
-    function closeDrawer() {
-        drawer.classList.remove('active');
-        drawerBackdrop.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    if (menuToggle) menuToggle.addEventListener('click', openDrawer);
-    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
-    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-
-    drawerLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            closeDrawer();
-        });
-    });
-
-    /* ==========================================
-       SCROLL REVEAL OBSERVER
-       ========================================== */
-    const reveals = document.querySelectorAll('.reveal');
-    const observerOptions = {
-        root: null,
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    reveals.forEach(el => revealObserver.observe(el));
-
-    // Active Section Link Tracker
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-
-    window.addEventListener('scroll', () => {
-        let currentSec = '';
-        const scrollPosition = window.scrollY + 100;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSec = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSec}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    /* ==========================================
-       COMMAND PALETTE (CTRL + M)
-       ========================================== */
-    const palette = document.getElementById('command-palette');
-    const paletteInput = document.getElementById('palette-input');
-    const paletteList = document.getElementById('palette-list');
-    const paletteTrigger = document.getElementById('palette-trigger');
-
-    const commands = [
-        { title: 'Go to Home / Hero', icon: 'home', action: () => scrollToSection('hero') },
-        { title: 'Go to About Me', icon: 'person', action: () => scrollToSection('about') },
-        { title: 'Go to Featured Projects', icon: 'folder_open', action: () => scrollToSection('projects') },
-        { title: 'Go to Internships & Education', icon: 'timeline', action: () => scrollToSection('experience') },
-        { title: 'Go to Qualifications & Certs', icon: 'verified', action: () => scrollToSection('certifications') },
-        { title: 'Go to Technical Skills Matrix', icon: 'code', action: () => scrollToSection('skills') },
-        { title: 'Go to Contact Portal', icon: 'mail', action: () => scrollToSection('contact') },
-        { title: 'Toggle DEV / DESIGN View Mode', icon: 'terminal', shortcut: 'M', action: () => toggleMode() },
-        { title: 'Download Resume (PDF)', icon: 'download', shortcut: 'D', action: () => downloadResume() },
-        { title: 'Open GitHub Profile', icon: 'link', action: () => window.open('https://github.com/Kushalraj123', '_blank') },
-        { title: 'Open LinkedIn Profile', icon: 'link', action: () => window.open('https://www.linkedin.com/in/kushalrajm/', '_blank') }
-    ];
-
-    let selectedIndex = 0;
-    let filteredCommands = [...commands];
-
-    function scrollToSection(id) {
-        const sec = document.getElementById(id);
-        if (sec) {
-            sec.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    function downloadResume() {
-        const link = document.createElement('a');
-        link.href = '#'; // Put Kushal's resume URL here
-        link.download = 'Kushal_Raj_Resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    function togglePalette() {
-        if (palette.classList.contains('active')) {
-            closePalette();
-        } else {
-            openPalette();
-        }
-    }
-
-    function openPalette() {
-        palette.classList.add('active');
-        paletteInput.value = '';
-        renderResults();
-        setTimeout(() => paletteInput.focus(), 50);
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closePalette() {
-        palette.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Render results in palette
-    function renderResults() {
-        paletteList.innerHTML = '';
-        if (filteredCommands.length === 0) {
-            paletteList.innerHTML = `<div style="padding: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">No commands matched your query</div>`;
-            return;
-        }
-
-        filteredCommands.forEach((cmd, idx) => {
-            const li = document.createElement('li');
-            li.className = `palette-item ${idx === selectedIndex ? 'selected' : ''}`;
-            
-            let shortcutHtml = cmd.shortcut ? `<span class="palette-item-shortcut">${cmd.shortcut}</span>` : '';
-            
-            li.innerHTML = `
-                <div class="palette-item-left">
-                    <span class="material-symbols-outlined palette-item-icon">${cmd.icon}</span>
-                    <span class="palette-item-title">${cmd.title}</span>
-                </div>
-                ${shortcutHtml}
-            `;
-            
-            li.addEventListener('click', () => {
-                cmd.action();
-                closePalette();
-            });
-
-            // Hover updates active selection
-            li.addEventListener('mouseenter', () => {
-                selectedIndex = idx;
-                updateSelection();
-            });
-
-            paletteList.appendChild(li);
-        });
-
-        // Ensure active item is scrolled into view
-        const activeItem = paletteList.querySelector('.selected');
-        if (activeItem) {
-            activeItem.scrollIntoView({ block: 'nearest' });
-        }
-    }
-
-    function updateSelection() {
-        const items = paletteList.querySelectorAll('.palette-item');
-        items.forEach((item, idx) => {
-            if (idx === selectedIndex) {
-                item.classList.add('selected');
+            // 1. Calculate scale progress
+            let scaleProgress = 0;
+            if (scrollTop < triggerStart) {
+                scaleProgress = 0;
+            } else if (scrollTop > triggerEnd) {
+                scaleProgress = 1;
             } else {
-                item.classList.remove('selected');
+                scaleProgress = (scrollTop - triggerStart) / (triggerEnd - triggerStart);
+            }
+
+            const targetScale = baseScale + i * itemScale;
+            const scale = 1 - scaleProgress * (1 - targetScale);
+
+            // 2. Calculate blur depth based on top card stacked index
+            let topCardIndex = 0;
+            for (let j = 0; j < cards.length; j++) {
+                const jCardTop = initialTops[j] || 0;
+                const jTriggerStart = jCardTop - stackPositionPx - itemStackDistance * j;
+                if (scrollTop >= jTriggerStart) {
+                    topCardIndex = j;
+                }
+            }
+
+            let blur = 0;
+            if (i < topCardIndex) {
+                const depthInStack = topCardIndex - i;
+                blur = Math.max(0, depthInStack * blurAmountMultiplier);
+            }
+
+            // 3. Translate pinning calculation
+            let translateY = 0;
+            const isPinned = scrollTop >= pinStart && scrollTop <= pinEnd;
+
+            if (isPinned) {
+                translateY = scrollTop - cardTop + stackPositionPx + itemStackDistance * i;
+            } else if (scrollTop > pinEnd) {
+                translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
+            }
+
+            // Apply transforms and styles
+            card.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+            card.style.filter = blur > 0 ? `blur(${blur}px)` : 'none';
+        });
+    }
+
+    // Bind layout changes
+    window.addEventListener('load', () => {
+        calculateInitialTops();
+        updateCardTransforms(window.scrollY);
+    });
+
+    window.addEventListener('resize', () => {
+        calculateInitialTops();
+        updateCardTransforms(window.scrollY);
+    });
+
+    // Run stack update on smooth scrolling scroll tick
+    lenis.on('scroll', (e) => {
+        updateCardTransforms(e.scroll);
+    });
+
+
+    /* ==========================================
+       4. 3D PORTRAIT PARALLAX TILT & GLARE EFFECT
+       ========================================== */
+    const portraitCard = document.getElementById('portrait-3d-card');
+    const glowRing = document.querySelector('.glow-ring');
+    const laserSweep = document.querySelector('.laser-sweep');
+
+    if (portraitCard) {
+        portraitCard.addEventListener('mousemove', (e) => {
+            const rect = portraitCard.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5; // [-0.5, 0.5]
+            const y = (e.clientY - rect.top) / rect.height - 0.5; // [-0.5, 0.5]
+
+            // Calculate card tilt angle
+            const rotateX = -y * 22; // max tilt 22 deg
+            const rotateY = x * 22;
+
+            portraitCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            // Holographic spotlight sweeping glare gradient
+            const glareX = e.clientX - rect.left;
+            const glareY = e.clientY - rect.top;
+            portraitCard.style.background = `radial-gradient(circle 220px at ${glareX}px ${glareY}px, rgba(255, 255, 255, 0.22), rgba(212, 175, 55, 0.08), transparent 85%), #120F0C`;
+
+            // Drift backglow ring
+            if (glowRing) {
+                glowRing.style.transform = `scale(1.1) rotate(${x * 40}deg) translate(${x * 15}px, ${y * 15}px)`;
+                glowRing.style.opacity = '0.35';
+            }
+        });
+
+        portraitCard.addEventListener('mouseleave', () => {
+            // Reset to defaults
+            portraitCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            portraitCard.style.background = '#120F0C';
+            if (glowRing) {
+                glowRing.style.transform = 'scale(1) rotate(0deg)';
+                glowRing.style.opacity = '0.15';
             }
         });
     }
 
-    // Keyboard trigger listener (Ctrl + M)
-    window.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'm') {
-            e.preventDefault();
-            togglePalette();
-        }
-        
-        if (e.key === 'Escape' && palette.classList.contains('active')) {
-            closePalette();
-        }
-    });
 
-    if (paletteTrigger) {
-        paletteTrigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openPalette();
+    /* ==========================================
+       5. EXPERIENCE TIMELINE PROGRESS LINE
+       ========================================== */
+    const timeline = document.getElementById('experience-timeline');
+    const progressBar = document.getElementById('timeline-progress-bar');
+
+    function updateTimelineProgress() {
+        if (!timeline || !progressBar) return;
+
+        const rect = timeline.getBoundingClientRect();
+        const startOffset = rect.top + window.scrollY - window.innerHeight * 0.7;
+        const endOffset = rect.bottom + window.scrollY - window.innerHeight * 0.9;
+        const scrollTop = window.scrollY;
+
+        let progress = (scrollTop - startOffset) / (endOffset - startOffset);
+        progress = Math.max(0, Math.min(1, progress));
+
+        progressBar.style.height = `${progress * 100}%`;
+    }
+
+    lenis.on('scroll', () => {
+        updateTimelineProgress();
+    });
+    window.addEventListener('resize', updateTimelineProgress);
+    updateTimelineProgress();
+
+
+    /* ==========================================
+       6. SIMULATED RETRO-TERMINAL CONTACT SENDER
+       ========================================== */
+    const contactForm = document.getElementById('terminal-contact-form');
+    const loggerBox = document.getElementById('terminal-logger');
+    const dispatchBtn = document.getElementById('dispatch-btn');
+
+    if (contactForm && loggerBox && dispatchBtn) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+
+            // Make logger visible and clear previous text
+            loggerBox.classList.remove('hidden');
+            loggerBox.innerHTML = '';
+            dispatchBtn.disabled = true;
+            dispatchBtn.textContent = 'TRANSMITTING...';
+
+            const logSequence = [
+                { text: "INITIALIZING TRANSMISSION PROTOCOL...", color: "text-muted" },
+                { text: "SECURE SOCKET CREATED [PORT 443] -> SSH CONNECTION INITIATED.", color: "text-secondary" },
+                { text: "SENDER IDENTIFIER RESOLVED: name='" + name + "'", color: "text-secondary" },
+                { text: "TUNNELLING CHANNEL ESTABLISHED: source='" + email + "'", color: "text-secondary" },
+                { text: "ENCRYPTING DATA CORRIDOR [AES-256 BIT KEY GENERATED]...", color: "text-muted" },
+                { text: "PACKET SIZE CALCULATION: " + Math.ceil(message.length * 1.25) + " Bytes payload.", color: "text-secondary" },
+                { text: "DISPATCHING ENCRYPTED STRINGS...", color: "text-muted" },
+                { text: "LOG: transmitting envelope payload data segment blocks...", color: "text-muted" },
+                { text: "SUCCESS // PACKET TRANSMITTED AND REGISTERED TO DESTINATION ENDPOINT.", color: "text-gold" },
+                { text: "TERMINAL CONNECTION DISCHARGED SECURELY. CLOSED.", color: "text-gold" }
+            ];
+
+            let lineIndex = 0;
+
+            function printNextLine() {
+                if (lineIndex < logSequence.length) {
+                    const lineData = logSequence[lineIndex];
+                    const p = document.createElement('p');
+                    p.className = `logger-line ${lineData.color}`;
+                    p.textContent = `Ø kushalraj@ide:~# ${lineData.text}`;
+                    loggerBox.appendChild(p);
+
+                    // Auto scroll logger box to bottom
+                    loggerBox.scrollTop = loggerBox.scrollHeight;
+
+                    lineIndex++;
+                    setTimeout(printNextLine, 500); // 500ms delay per console line
+                } else {
+                    // Sequence done, show final successful block
+                    setTimeout(() => {
+                        const formContainer = contactForm.parentElement;
+                        formContainer.innerHTML = `
+                            <div class="py-16 text-center space-y-4">
+                                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37] text-[#D4AF37] text-lg mb-4" style="box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);">✓</div>
+                                <h3 class="text-3xl text-white font-normal uppercase font-bebas">PACKET DISPATCH SUCCESS</h3>
+                                <p class="text-xs text-[#A8988B] font-light font-body tracking-wider mt-2">
+                                    Transmission registered successfully. Kushal Raj will respond to your channel soon.
+                                </p>
+                            </div>
+                        `;
+                    }, 400);
+                }
+            }
+
+            setTimeout(printNextLine, 200);
         });
     }
 
-    // Search filtering input handler
-    paletteInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        if (query === '') {
-            filteredCommands = [...commands];
-        } else {
-            filteredCommands = commands.filter(cmd => 
-                cmd.title.toLowerCase().includes(query)
-            );
-        }
-        selectedIndex = 0;
-        renderResults();
-    });
+    // Set initial calculate offsets
+    setTimeout(() => {
+        calculateInitialTops();
+        updateCardTransforms(window.scrollY);
+    }, 500);
 
-    // Keyboard navigation within list
-    paletteInput.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            selectedIndex = (selectedIndex + 1) % filteredCommands.length;
-            renderResults();
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            selectedIndex = (selectedIndex - 1 + filteredCommands.length) % filteredCommands.length;
-            renderResults();
-        } else if (e.key === 'Enter') {
-            e.preventDefault();
-            if (filteredCommands[selectedIndex]) {
-                filteredCommands[selectedIndex].action();
-                closePalette();
-            }
-        }
-    });
 });

@@ -1,805 +1,998 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian | Kushal Raj — Portfolio</title>
-    <meta name="description"
-        content="Precision in Darkness — Computer vision, explainable AI, and full-stack systems by Kushal Raj." />
+    <title>Kushal Raj — Cinematic Portfolio</title>
+    <meta name="description" content="Precision in Darkness — Computer vision, explainable AI, and full-stack systems by Kushal Raj." />
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700;800&family=DM+Sans:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Herr+Von+Muellerhoff&family=Allura&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'bebas': ['Bebas Neue', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'cormorant': ['Cormorant Garamond', 'serif'],
+                        'signature': ['Herr Von Muellerhoff', 'Allura', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- CSS stylesheet link -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Lenis Smooth Scrolling CDN -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
     <!-- Icons -->
     <link rel="icon" href="logo.png">
+    
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </head>
-
-<body class="bg-background text-on-surface min-h-screen flex flex-col" data-mode="dev">
+<body class="bg-black text-[#E8DFD8] selection:bg-[#cbb59d] selection:text-black min-h-screen overflow-x-hidden" style="cursor: none;">
 
     <!-- ==========================================
-         HEADER / NAVIGATION
+         CUSTOM CURSOR
          ========================================== -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black border-b border-[#262626] h-18">
-        <div class="header-container max-w-content">
-            <!-- Logo Ø OBSIDIAN -->
-            <a class="logo" href="#hero">
-                <div class="logo-box">
-                    <span>Ø</span>
-                    <div class="logo-crop-tl"></div>
-                    <div class="logo-crop-br"></div>
-                </div>
-                <span class="logo-text">OBSIDIAN</span>
+    <div id="custom-cursor" class="pointer-events-none"></div>
+
+    <!-- ==========================================
+         NAVIGATION / HEADER
+         ========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 sm:px-12 lg:px-16 py-6 transition-all duration-300">
+        <a href="#" class="logo text-xs sm:text-sm font-semibold tracking-[0.35em] uppercase text-[#EAD8C7] hover:opacity-75 transition-opacity">
+            KUSHAL.
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden md:flex items-center space-x-8 lg:space-x-10 text-[11px] tracking-[0.28em] font-light uppercase text-[#C4B5A5]">
+            <a href="#about" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
+                ABOUT
+                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
             </a>
+            <a href="#projects" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
+                PROJECTS
+                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#skills" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
+                SKILLS
+                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#experience" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
+                EXPERIENCE
+                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="nav-link relative group py-1 transition-colors duration-300 hover:text-[#FFF5EB]">
+                CONTACT
+                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#D4AF37]/50 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#certifications">Certificates</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
-            <!-- Actions (v1.0.1 badge, CTRL+M search indicator, Mode Selector) -->
-            <div class="header-actions">
-                <!-- Version Badge -->
-                <a class="badge-v" title="Changelog" href="#experience">
-                    <span class="material-symbols-outlined">history</span>
-                    <span>v1.0.1</span>
-                </a>
-
-                <!-- Command Palette Shortcut Hint -->
-                <div class="badge-v ctrl-m-tip" id="palette-trigger" title="Press Ctrl + M to open the Command Palette"
-                    style="cursor: pointer;">
-                    <span class="material-symbols-outlined">terminal</span>
-                    <span>CTRL + M</span>
-                </div>
-
-                <!-- Mode Selector DEV/DESIGN Switch -->
-                <div class="mode-selector">
-                    <span class="mode-selector-label uppercase">MODE:</span>
-                    <button class="switch-btn" id="mode-switch-btn" role="switch" aria-checked="false"
-                        aria-label="Toggle developer/design mode">
-                        <div class="switch-labels">
-                            <span class="switch-label-dev">DEV</span>
-                            <span class="switch-label-design">DESIGN</span>
-                        </div>
-                        <div class="switch-slider">
-                            <span>ACTIVE</span>
-                        </div>
-                    </button>
-                </div>
-
-                <!-- Mobile Hamburger Menu Button -->
-                <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
-                    <span>MENU</span>
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </button>
-            </div>
-        </div>
+        <!-- Right Action Button -->
+        <a href="#contact" class="group flex items-center space-x-2 text-[11px] tracking-[0.24em] font-light uppercase py-2.5 px-5 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300 backdrop-blur-sm">
+            <span>LET'S TALK</span>
+            <span class="transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-xs">↗</span>
+        </a>
     </header>
 
-    <!-- Drawer Backdrop -->
-    <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
-
-    <!-- Mobile Drawer Side Menu -->
-    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-        <div>
-            <div class="drawer-header">
-                <span>NAVIGATION</span>
-                <button class="drawer-close" id="drawer-close" aria-label="Close navigation">
-                    <span class="material-symbols-outlined">close</span>
-                </button>
-            </div>
-            <nav class="drawer-nav">
-                <a href="#hero"><span class="material-symbols-outlined">home</span><span>Home</span></a>
-                <a href="#about"><span class="material-symbols-outlined">person</span><span>About</span></a>
-                <a href="#projects"><span class="material-symbols-outlined">folder_open</span><span>Projects</span></a>
-                <a href="#experience"><span class="material-symbols-outlined">timeline</span><span>Experience</span></a>
-                <a href="#certifications"><span
-                        class="material-symbols-outlined">verified</span><span>Certificates</span></a>
-                <a href="#skills"><span class="material-symbols-outlined">code</span><span>Skills</span></a>
-                <a href="#contact"><span class="material-symbols-outlined">mail</span><span>Contact</span></a>
-            </nav>
-        </div>
-        <div class="drawer-footer">
-            <div class="mode-selector" style="width: 100%; justify-content: space-between;">
-                <span class="mode-selector-label uppercase">MODE SELECTOR:</span>
-                <button class="switch-btn" role="switch" aria-checked="false">
-                    <div class="switch-labels">
-                        <span class="switch-label-dev">DEV</span>
-                        <span class="switch-label-design">DESIGN</span>
-                    </div>
-                    <div class="switch-slider">
-                        <span>ACTIVE</span>
-                    </div>
-                </button>
-            </div>
-            <p class="font-mono text-white"
-                style="font-size: 9px; letter-spacing: 0.15em; color: var(--text-muted) !important;">OBSIDIAN PORTFOLIO
-                v1.0.1</p>
-        </div>
-    </aside>
-
     <!-- ==========================================
-         MAIN CONTENT AREA
+         HERO SECTION
          ========================================== -->
-    <main class="flex-1 pt-16 max-w-content">
+    <section id="hero" class="relative w-screen h-screen overflow-hidden flex flex-col justify-between px-6 sm:px-12 lg:px-16 pt-32 pb-12">
+        <!-- FIXED VIDEO / GRADIENT LAYER -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-black flex items-center justify-end">
+            <!-- Subtle dark nodes/network cinematic video background -->
+            <video autoPlay muted loop playsInline class="h-full w-full object-cover opacity-35 filter brightness-50 contrast-125">
+                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054273b18570685d513e9a544c7b823&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+            </video>
+            <!-- Left Gradient Overlay Blend -->
+            <div class="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none"></div>
+            <!-- Bottom Dark Blend -->
+            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+        </div>
 
-        <!-- ==========================================
-             HERO SECTION
-             ========================================== -->
-        <section id="hero" class="hero-section">
-            <div class="hero-left reveal">
-                <div class="hero-meta">
-                    <span class="hero-meta-label">ML ENGINEER + DATA SCIENTIST</span>
+        <!-- ROTATING INSIGNIA / WATERMARK EMBLEM (Center-right floating badge) -->
+        <div class="absolute bottom-12 right-12 lg:bottom-20 lg:right-20 pointer-events-none flex items-center justify-center z-10">
+            <div class="relative flex items-center justify-center logo-emblem">
+                <div class="absolute w-44 h-44 bg-black/80 rounded-full blur-xl"></div>
+                <div class="insignia-ring relative flex items-center justify-center w-36 h-36">
+                    <!-- Stylized SVG monogram Ø badge inside a rotating outer circle -->
+                    <svg class="w-full h-full text-[#D4AF37]/20 absolute animate-spin-slow" viewBox="0 0 100 100">
+                        <path id="textPath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                        <text class="text-[7.5px] tracking-[0.24em] font-mono fill-[#D4AF37]">
+                            <textPath href="#textPath" startOffset="0%">• KUSHAL RAJ • SYSTEMS & DATA INTELLIGENCE </textPath>
+                        </text>
+                    </svg>
+                    <!-- Center Logo letter -->
+                    <div class="text-3xl font-light text-[#D4AF37] z-20 drop-shadow-[0_0_12px_rgba(212,175,55,0.4)]">Ø</div>
                 </div>
-                <h1 class="hero-title">Kushal Raj</h1>
-
-                <div class="hero-summary">
-                    <div class="hero-summary-bar"></div>
-                    <p>I build computer vision applications, explainable AI workflows, and collaborative software IDE
-                        platforms. Model pipelines, real-time execution, and client UI dashboards handled end-to-end.
-                    </p>
-                </div>
-
-                <div class="hero-status">
-                    <span class="hero-status-dot"></span>
-                    <span class="hero-status-text">STATUS // ● OPEN TO INTERNSHIPS</span>
-                </div>
-
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#about" class="btn btn-secondary">About Me</a>
-                    <a href="#contact" class="btn btn-secondary">Contact</a>
-                </div>
-
-                <div class="hero-buttons" style="margin-top: 0.25rem;">
-                    <!-- Resume Action Buttons -->
-                    <a href="#contact" class="btn btn-dark" style="padding-left: 1.25rem; padding-right: 1.25rem;">
-                        <span class="material-symbols-outlined text-accent"
-                            style="font-size: 16px; color: var(--accent);">visibility</span>
-                        View CV
-                    </a>
-                    <a href="#" class="btn btn-dark" style="padding-left: 1.25rem; padding-right: 1.25rem;">
-                        <span class="material-symbols-outlined text-accent"
-                            style="font-size: 16px; color: var(--accent);">download</span>
-                        Download Resume
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-right reveal delay-1">
-                <!-- Frame with Grayscale filter and Overlay -->
-                <div class="hero-image-frame crop-decor crop-decor-tl">
-                    <div class="bg-grid-pattern"></div>
-                    <img src="formal photo.jpeg" alt="Kushal Raj - Machine Learning Engineer">
-                    <div class="hero-image-overlay">
-                        <span class="material-symbols-outlined">terminal</span>
-                        <span>SYSTEM_OK // USER: KUSHAL</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SYSTEM MONITOR BANNER
-             ========================================== -->
-        <div class="system-monitor reveal">
-            <div class="absolute-decor top-0 left-0 w-8 h-px bg-[#e61e32]"></div>
-            <div class="absolute-decor top-0 left-0 w-px h-8 bg-[#e61e32]"></div>
-            <div class="monitor-grid">
-                <span class="monitor-sub">SYSTEM_MONITOR // ACTIVE_DEVELOPMENT</span>
-                <h2 class="monitor-title">CURRENTLY BUILDING // Road Damage Detection System</h2>
-                <p class="monitor-desc">Focus: Fine-tuning YOLOv8 on RDD2022 image datasets for real-time roadway
-                    degradation detection & geospatial Folium reporting maps.</p>
-            </div>
-            <div class="monitor-action">
-                <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank" class="btn btn-secondary"
-                    style="font-size: 10px; padding: 0.5rem 1rem;">
-                    Inspect Spec →
-                </a>
             </div>
         </div>
 
-        <!-- ==========================================
-             FEATURED WORKS (PROJECTS)
-             ========================================== -->
-        <section id="projects" class="py-section-gap">
-            <div class="section-header-block reveal">
-                <div>
-                    <span class="section-label">01 // CORE_EVIDENCE</span>
-                    <h2 class="section-title">FEATURED WORKS</h2>
+        <!-- MAIN HERO CONTENT -->
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between w-full my-auto">
+            <!-- Left Side: Condensed Headline & Details -->
+            <div class="max-w-lg lg:max-w-2xl text-left hero-text-block">
+                <div class="hero-eyebrow mb-4 opacity-0">
+                    <span class="text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-[#D4AF37]">ML ENGINEER • DATA SCIENTIST</span>
                 </div>
-                <a class="section-action-link" href="https://github.com/Kushalraj123" target="_blank">
-                    Explore all projects <span class="material-symbols-outlined">arrow_forward</span>
-                </a>
-            </div>
-
-            <div class="projects-container">
-                <!-- Project 1: Road Damage Detection System (YOLOv8) -->
-                <div class="project-card card-span-7 reveal">
-                    <div>
-                        <div class="project-card-header">
-                            <span class="project-card-label">01 // COMPUTER_VISION</span>
-                            <span class="project-card-badge">ACTIVE</span>
-                        </div>
-                        <h3 class="project-card-title">Road Damage Detection System</h3>
-                        <p class="project-card-subtitle">Solo Developer &amp; ML Engineer · 2026</p>
-
-                        <p class="project-card-desc">
-                            Fine-tuned YOLOv8 neural network architectures on the RDD2022 dataset to detect and
-                            categorize road anomalies. Implemented custom spatial maps using Folium for real-time
-                            infrastructure maintenance dashboard alerts.
-                        </p>
-
-                        <!-- DEV MODE specific metrics -->
-                        <div class="project-stats-grid dev-metric">
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">Model</span>
-                                <span class="project-stat-value">YOLOv8</span>
-                            </div>
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">Frontend</span>
-                                <span class="project-stat-value">Streamlit</span>
-                            </div>
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">Geomapping</span>
-                                <span class="project-stat-value">Folium</span>
-                            </div>
-                        </div>
-
-                        <!-- Tech stack tag rows -->
-                        <div class="project-tech-header">DEPLOYED_STACK</div>
-                        <div class="project-tech-pills">
-                            <span class="tech-pill">YOLOv8</span>
-                            <span class="tech-pill">Python</span>
-                            <span class="tech-pill">PyTorch</span>
-                            <span class="tech-pill">Streamlit</span>
-                            <span class="tech-pill">Folium</span>
-                            <span class="tech-pill">OpenCV</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card-footer">
-                        <div class="project-card-status">
-                            <div class="status-indicator"></div>
-                            <span class="status-text">GitHub Live</span>
-                        </div>
-
-                        <div class="rating-stars dev-metric">
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star_half</span>
-                            <span class="rating-num">4.8</span>
-                            <span class="rating-count">(3 reviews)</span>
-                        </div>
-
-                        <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank"
-                            class="project-link-action no-underline">
-                            Read code →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2: DevSync - Collaborative IDE -->
-                <div class="project-card card-span-5 reveal delay-1">
-                    <div>
-                        <div class="project-card-header">
-                            <span class="project-card-label">02 // WEB_UTILITY</span>
-                            <span class="project-card-badge">COMPLETED</span>
-                        </div>
-                        <h3 class="project-card-title">DevSync IDE</h3>
-                        <p class="project-card-subtitle">Lead Architect &amp; Developer · 2025</p>
-
-                        <p class="project-card-desc">
-                            A browser collaborative code editor supporting multiple concurrent developer connections.
-                            Features sub-100ms CRDT document sync and sandboxed remote code compile environments using
-                            Judge0 REST API endpoints.
-                        </p>
-
-                        <!-- DEV MODE specific metrics -->
-                        <div class="project-stats-grid dev-metric">
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">Sync latency</span>
-                                <span class="project-stat-value">&lt;100ms</span>
-                            </div>
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">Sandbox</span>
-                                <span class="project-stat-value">Judge0 API</span>
-                            </div>
-                        </div>
-
-                        <div class="project-tech-header">DEPLOYED_STACK</div>
-                        <div class="project-tech-pills">
-                            <span class="tech-pill">React</span>
-                            <span class="tech-pill">Yjs CRDTs</span>
-                            <span class="tech-pill">Socket.IO</span>
-                            <span class="tech-pill">Node.js</span>
-                            <span class="tech-pill">Prisma</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card-footer">
-                        <div class="project-card-status">
-                            <div class="status-indicator"></div>
-                            <span class="status-text">GitHub Live</span>
-                        </div>
-
-                        <div class="rating-stars dev-metric">
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="material-symbols-outlined">star</span>
-                            <span class="rating-num">5.0</span>
-                            <span class="rating-count">(8 reviews)</span>
-                        </div>
-
-                        <a href="https://github.com/Kushalraj123/DevSync-Collaborative-IDE" target="_blank"
-                            class="project-link-action no-underline">
-                            Read code →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3: E-Commerce Web Application -->
-                <div class="project-card card-span-12 reveal">
-                    <div>
-                        <div class="project-card-header">
-                            <span class="project-card-label">03 // FULL_STACK</span>
-                            <span class="project-card-badge">COMPLETED</span>
-                        </div>
-                        <h3 class="project-card-title">E-Commerce Web Application</h3>
-                        <p class="project-card-subtitle">Backend Systems Architect · 2025</p>
-
-                        <p class="project-card-desc">
-                            High-performance server stack featuring optimized Prisma database seed scripts for batch
-                            records. Instantly seeds 1,000+ relational model entries, reducing query execution lookup
-                            times by 40% and local setup time by 90%.
-                        </p>
-
-                        <!-- DEV MODE specific metrics -->
-                        <div class="project-stats-grid dev-metric" style="grid-template-columns: repeat(4, 1fr);">
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">Performance</span>
-                                <span class="project-stat-value">-40% Query</span>
-                            </div>
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">Records</span>
-                                <span class="project-stat-value">1,000+ Seed</span>
-                            </div>
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">ORM</span>
-                                <span class="project-stat-value">Prisma</span>
-                            </div>
-                            <div class="project-stat-box">
-                                <span class="project-stat-label">DB Engine</span>
-                                <span class="project-stat-value">SQLite</span>
-                            </div>
-                        </div>
-
-                        <div class="project-tech-header">DEPLOYED_STACK</div>
-                        <div class="project-tech-pills">
-                            <span class="tech-pill">React</span>
-                            <span class="tech-pill">Node.js</span>
-                            <span class="tech-pill">Prisma ORM</span>
-                            <span class="tech-pill">SQLite</span>
-                            <span class="tech-pill">REST APIs</span>
-                            <span class="tech-pill">Express</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card-footer">
-                        <div class="project-card-status">
-                            <div class="status-indicator"></div>
-                            <span class="status-text">GitHub Live</span>
-                        </div>
-
-                        <a href="https://github.com/Kushalraj123/E-Commerce-Web-Application" target="_blank"
-                            class="project-link-action no-underline">
-                            Read code →
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ==========================================
-             GITHUB STATS SECTION
-             ========================================== -->
-        <section class="github-stats-section py-section-gap reveal">
-            <div class="github-box">
-                <div class="absolute-decor top-0 left-0 w-8 h-px bg-[#e61e32]"></div>
-                <div class="absolute-decor top-0 left-0 w-px h-8 bg-[#e61e32]"></div>
-
-                <div class="github-box-header">
-                    <div>
-                        <span class="section-label">02 // COMMIT_METRICS &amp; AGENTS</span>
-                        <h2 class="section-title" style="font-size: 22px;">GITHUB STACKS</h2>
-                    </div>
-                    <span class="github-username">github.com/Kushalraj123</span>
-                </div>
-
-                <div class="github-grid">
-                    <!-- Stats Card 1 -->
-                    <div class="github-card">
-                        <span class="github-card-label">01 // OVERVIEW_STATS</span>
-                        <div class="github-img-wrapper">
-                            <img src="https://github-readme-stats.shion.dev/api?username=Kushalraj123&show_icons=true&theme=dark&title_color=e61e32&icon_color=e61e32&text_color=ffffff&bg_color=000000&hide_border=true"
-                                alt="Kushalraj123 GitHub Stats">
-                        </div>
-                    </div>
-
-                    <!-- Stats Card 2 -->
-                    <div class="github-card">
-                        <span class="github-card-label">02 // CONTRIB_STREAK</span>
-                        <div class="github-img-wrapper">
-                            <img src="https://streak-stats.demolab.com/?user=Kushalraj123&theme=dark&currStreakNum=e61e32&fire=e61e32&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&background=000000&hide_border=true"
-                                alt="Kushalraj123 GitHub Streak">
-                        </div>
-                    </div>
-
-                    <!-- Stats Card 3 -->
-                    <div class="github-card">
-                        <span class="github-card-label">03 // LANGUAGE_MATRIX</span>
-                        <div class="github-img-wrapper">
-                            <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=Kushalraj123&layout=compact&theme=dark&title_color=e61e32&text_color=ffffff&bg_color=000000&hide_border=true"
-                                alt="Kushalraj123 Languages Stats">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             CHRONOLOGY (EXPERIENCE & ACADEMICS)
-             ========================================== -->
-        <section id="experience" class="timeline-section py-section-gap">
-            <div class="section-header-block reveal">
-                <div>
-                    <span class="section-label">03 // CHRONOLOGICAL_EVIDENCE</span>
-                    <h2 class="section-title">EXPERIENCE &amp; PATHWAY</h2>
-                </div>
-            </div>
-
-            <div class="timeline-grid">
-                <!-- Column 1: Internships -->
-                <div class="timeline-column reveal">
-                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
-                        <h3 style="font-size: 18px; color: var(--text-primary);">01 // WORK_RECORD</h3>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="timeline-card">
-                        <div class="timeline-card-header">
-                            <div>
-                                <h4 class="timeline-card-title">Trainee Software Engineer</h4>
-                                <p class="timeline-card-subtitle">Inventeron Technologies LLP</p>
-                            </div>
-                            <span class="timeline-card-date">Feb 2026 – May 2026</span>
-                        </div>
-                        <ul class="timeline-bullets">
-                            <li>Developed 8+ responsive UI functional units utilizing React and REST integrations.</li>
-                            <li>Diagnosed and patched 20+ interface issues, enhancing cross-browser client alignment.
-                            </li>
-                            <li>Participated in sprint deliverables, executing 100% of tasks ahead of target cycles.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="timeline-card">
-                        <div class="timeline-card-header">
-                            <div>
-                                <h4 class="timeline-card-title">Data Science Intern</h4>
-                                <p class="timeline-card-subtitle">Codec Technologies Pvt. Ltd.</p>
-                            </div>
-                            <span class="timeline-card-date">Jan 2026 – Feb 2026</span>
-                        </div>
-                        <ul class="timeline-bullets">
-                            <li>Completed an AICTE and ICAC-certified Data internship, building Python predictive ML
-                                pipelines.</li>
-                            <li>Configured model frameworks with Pandas and scikit-learn, yielding over 90% test
-                                accuracy.</li>
-                            <li>Collaborated inside a 4-person unit compiling technical insight summaries.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 2: Education -->
-                <div class="timeline-column reveal delay-1">
-                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
-                        <h3 style="font-size: 18px; color: var(--text-primary);">02 // ACADEMICS</h3>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="timeline-card">
-                        <div class="timeline-card-header">
-                            <div>
-                                <h4 class="timeline-card-title">B.E. — Computer Science</h4>
-                                <p class="timeline-card-subtitle">Navkis College of Engineering, VTU</p>
-                            </div>
-                            <span class="timeline-card-date">2023 – 2027</span>
-                        </div>
-                        <p class="timeline-extra">CGPA Status: <strong>7.50 / 10</strong></p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="timeline-card">
-                        <div class="timeline-card-header">
-                            <div>
-                                <h4 class="timeline-card-title">Class XII (PUC)</h4>
-                                <p class="timeline-card-subtitle">Masters PU College, Hassan</p>
-                            </div>
-                            <span class="timeline-card-date">2021 – 2023</span>
-                        </div>
-                        <p class="timeline-extra">Assessment Score: <strong>82%</strong></p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="timeline-card">
-                        <div class="timeline-card-header">
-                            <div>
-                                <h4 class="timeline-card-title">Class X (SSLC)</h4>
-                                <p class="timeline-card-subtitle">United Academy, Hassan</p>
-                            </div>
-                            <span class="timeline-card-date">2021</span>
-                        </div>
-                        <p class="timeline-extra">Assessment Score: <strong>85%</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             QUALIFICATIONS & ACHIEVEMENTS
-             ========================================== -->
-        <section id="certifications" class="quals-section py-section-gap">
-            <div class="section-header-block reveal">
-                <div>
-                    <span class="section-label">04 // CREDENTIAL_EVIDENCE</span>
-                    <h2 class="section-title">QUALIFICATIONS &amp; MERIT</h2>
-                </div>
-            </div>
-
-            <div class="quals-grid">
-                <!-- Column 1: Certifications -->
-                <div class="timeline-column reveal">
-                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
-                        <h3 style="font-size: 16px; color: var(--text-primary);">01 // CERTIFICATIONS</h3>
-                    </div>
-
-                    <div class="quals-list">
-                        <div class="qual-item">
-                            <span class="qual-icon">🏆</span>
-                            <div>
-                                <h4 class="qual-name">Getting Started with Artificial Intelligence</h4>
-                                <p class="qual-issuer">IBM · 2026</p>
-                            </div>
-                        </div>
-
-                        <div class="qual-item">
-                            <span class="qual-icon">💻</span>
-                            <div>
-                                <h4 class="qual-name">Introduction to Front-End Development</h4>
-                                <p class="qual-issuer">Simplilearn SkillUp · 2025</p>
-                            </div>
-                        </div>
-
-                        <div class="qual-item">
-                            <span class="qual-icon">📜</span>
-                            <div>
-                                <h4 class="qual-name">JavaScript Training</h4>
-                                <p class="qual-issuer">Spoken Tutorial, IIT Bombay · 2025</p>
-                            </div>
-                        </div>
-
-                        <div class="qual-item">
-                            <span class="qual-icon">🐍</span>
-                            <div>
-                                <h4 class="qual-name">Data Structures and Algorithms in Python</h4>
-                                <p class="qual-issuer">Infosys Springboard · 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Column 2: Recognition -->
-                <div class="timeline-column reveal delay-1">
-                    <div class="section-header-block" style="border: none; padding: 0; margin: 0 0 1rem 0;">
-                        <h3 style="font-size: 16px; color: var(--text-primary);">02 // RECOGNITIONS</h3>
-                    </div>
-
-                    <div class="recognition-card">
-                        <div class="rec-badge">🥈 2nd Place</div>
-                        <h3 class="rec-title">University Hackathon Winner</h3>
-                        <p class="rec-desc">Secured the second place ranking among 50 competing technical developer
-                            units for constructing <strong>DevSync Real-Time Collaborative IDE</strong>, showing
-                            advanced real-time networking structures.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             TECH MATRIX (SKILLS)
-             ========================================== -->
-        <section id="skills" class="skills-section py-section-gap">
-            <div class="section-header-block reveal">
-                <div>
-                    <span class="section-label">05 // CAPABILITY_MATRIX</span>
-                    <h2 class="section-title">TECHNOLOGY CAPABILITY MATRIX</h2>
-                </div>
-            </div>
-
-            <div class="skills-wrapper reveal">
-                <!-- Row 1: Languages -->
-                <div class="skill-category">
-                    <span class="skill-category-label">Languages</span>
-                    <div class="skill-pills-row">
-                        <div class="skill-pill"><span class="skill-dot"></span>Python</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Java</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>C</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>SQL</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>HTML / CSS</div>
-                    </div>
-                </div>
-
-                <!-- Row 2: Frameworks & Libraries -->
-                <div class="skill-category">
-                    <span class="skill-category-label">Frameworks &amp; Libraries</span>
-                    <div class="skill-pills-row">
-                        <div class="skill-pill"><span class="skill-dot"></span>PyTorch</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>OpenCV</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>React</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Flask</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Streamlit</div>
-                    </div>
-                </div>
-
-                <!-- Row 3: Tools & Platforms -->
-                <div class="skill-category">
-                    <span class="skill-category-label">Tools &amp; Platforms</span>
-                    <div class="skill-pills-row">
-                        <div class="skill-pill"><span class="skill-dot"></span>Git</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Docker</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>VS Code</div>
-                    </div>
-                </div>
-
-                <!-- Row 4: Concepts -->
-                <div class="skill-category">
-                    <span class="skill-category-label">Concepts</span>
-                    <div class="skill-pills-row">
-                        <div class="skill-pill"><span class="skill-dot"></span>Machine Learning</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Data Structures &amp; Algorithms</div>
-                    </div>
-                </div>
-
-                <!-- Row 5: Familiar with -->
-                <div class="skill-category">
-                    <span class="skill-category-label">Familiar With</span>
-                    <div class="skill-pills-row">
-                        <div class="skill-pill"><span class="skill-dot"></span>REST APIs</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Git / Version Control</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Debugging</div>
-                        <div class="skill-pill"><span class="skill-dot"></span>Agile Sprints</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             TRANSMISSION PORTAL (CONTACT)
-             ========================================== -->
-        <section id="contact" class="contact-section py-section-gap">
-            <div class="contact-glow"></div>
-            <div class="contact-container reveal">
-                <span class="section-label">06 // TRANSMISSION_PORTAL</span>
-                <h2 class="section-title" style="margin-bottom: 1rem;">Let's work together.</h2>
-                <p class="contact-desc">
-                    Seeking internship positions in Machine Learning, computer vision, data analysis, or full-stack
-                    software development. Open to project partnerships and research endeavors. Get in touch!
+                <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.83] mb-6 hero-title select-none font-bebas">
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">I DESIGN</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">INTELLIGENT</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#DFBE8A] via-[#9B7640] to-[#342410] drop-shadow-[0_10px_30px_rgba(155,118,64,0.4)]">SYSTEMS</span>
+                </h1>
+                
+                <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#A8988B] leading-[1.8] tracking-wide max-w-lg mb-8 hero-desc">
+                    I turn complex datasets into real-time visual intelligence and high-performance full-stack architectures. Where computer vision meets predictive models, and clean engineering drives impact.
                 </p>
 
-                <div class="contact-links-grid">
-                    <a href="mailto:kushalrajm856@email.com" class="contact-link-card">
-                        <svg viewBox="0 0 24 24">
-                            <rect x="2" y="4" width="20" height="16" rx="2" />
-                            <polyline points="2,4 12,13 22,4" />
-                        </svg>
-                        <span>Email me</span>
-                    </a>
+                <!-- Status indicator -->
+                <div class="flex items-center space-x-3 mb-8 hero-status">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse shadow-[0_0_8px_#D4AF37]"></span>
+                    <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-[#C4B29E]">STATUS // ● OPEN TO INTERNSHIPS</span>
+                </div>
 
-                    <a href="https://github.com/Kushalraj123" target="_blank" class="contact-link-card">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                        </svg>
-                        <span>GitHub</span>
+                <!-- CTA buttons -->
+                <div class="flex flex-row items-center gap-4 sm:gap-6 hero-ctas">
+                    <a href="#projects" class="relative inline-flex items-center space-x-3 px-6 sm:px-7 py-3.5 border border-[#8C6D4F] bg-[#120F0C]/80 hover:border-[#D4AF37] text-[#EAD8C7] hover:text-[#FFF5EB] text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.18)]">
+                        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#E8D7C5]/40 to-transparent pointer-events-none"></div>
+                        <span>EXPLORE MY WORK</span>
+                        <span class="text-xs">↗</span>
                     </a>
-
-                    <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank" class="contact-link-card">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                            <rect x="2" y="9" width="4" height="12" />
-                            <circle cx="4" cy="4" r="2" />
-                        </svg>
-                        <span>LinkedIn</span>
-                    </a>
-
-                    <a href="#" class="contact-link-card">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                            <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
-                            <line x1="12" y1="22.08" x2="12" y2="12" />
-                        </svg>
-                        <span>Hugging Face</span>
+                    <a href="#" class="relative inline-flex items-center space-x-2 px-6 sm:px-7 py-3.5 border border-[#8C6D4F]/40 hover:border-[#8C6D4F] text-[#BFA895] hover:text-[#EAD8C7] text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300">
+                        <span>DOWNLOAD RESUME</span>
+                        <span class="text-xs">↓</span>
                     </a>
                 </div>
             </div>
-        </section>
 
-    </main>
+            <!-- Right Side: Floating Statement & Signature -->
+            <div class="hidden lg:flex flex-col items-start pr-12 xl:pr-24 mr-4 select-none hero-signature-block">
+                <span class="text-xl text-[#C99E5D] leading-none font-serif mb-2">“</span>
+                <div class="text-[9.5px] font-medium tracking-[0.24em] uppercase text-[#E0D3C5] space-y-1 mb-3">
+                    <p>CODE IS MY CRAFT.</p>
+                    <p>IMPACT IS MY GOAL.</p>
+                </div>
+                <div class="w-28 h-[1px] bg-gradient-to-r from-[#D4AF37] via-[#E8D7C5]/70 to-transparent shadow-[0_0_8px_rgba(212,175,55,0.4)] mb-2"></div>
+                <div class="text-[2.2rem] text-[#D8AB64] leading-none -ml-0.5 font-signature">
+                    Kushal Raj
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="flex flex-col items-center justify-center w-full z-10">
+            <span class="text-[9px] tracking-[0.3em] font-mono text-[#8C6D4F] uppercase">SCROLL DOWN TO UNFOLD</span>
+            <div class="w-[1px] h-10 bg-gradient-to-b from-[#8C6D4F]/40 to-transparent mt-2"></div>
+        </div>
+    </section>
 
     <!-- ==========================================
-         FOOTER
+         ABOUT ME SECTION
          ========================================== -->
-    <footer>
-        <div class="footer-container max-w-content">
-            <div class="footer-top">
-                <p class="footer-copy">© 2026 Kushal Raj. Navkis College of Engineering, Hassan</p>
-                <div class="footer-links">
-                    <a href="#experience">Changelog</a>
-                    <div class="footer-divider"></div>
-                    <a href="#about" class="highlight">About Portfolio v1.0.1</a>
+    <section id="about" class="relative w-screen min-h-screen py-24 lg:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden flex items-center">
+        <!-- Ambient glows -->
+        <div class="absolute top-1/4 left-10 w-[32rem] h-[32rem] bg-[#D4AF37]/5 rounded-full blur-[160px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[#8C6D4F]/5 rounded-full blur-[170px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto w-full relative z-10">
+            <!-- Eyebrow Header -->
+            <div class="flex items-center space-x-4 mb-10 section-eyebrow-block">
+                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">01 / ABOUT ME</span>
+                <div class="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <!-- Left Bio Description (7 Cols) -->
+                <div class="lg:col-span-7 flex flex-col justify-center text-left about-content-block">
+                    <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] tracking-tight uppercase leading-[0.88] mb-6 select-none font-bebas">
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_10px_rgba(0,0,0,0.85)]">I DON'T JUST RUN MODELS.</span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.3)]">I ARCHITECT THE FUTURE.</span>
+                    </h2>
+                    
+                    <p class="text-xs sm:text-sm md:text-[14.5px] font-light text-[#B3A497] leading-[1.85] tracking-wide mb-10 max-w-xl">
+                        I'm <span class="text-[#F3DBB3] font-medium">Kushal Raj</span>, a Computer Science & Engineering student specializing in Computer Vision, Explainable AI workflows, and scalable full-stack software architectures. With a strong engineering focus, I build real-time vision pipelines and secure IDE integrations that turn mathematical designs into concrete value.
+                    </p>
+
+                    <!-- Achievements Metrics Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 pb-2 border-t border-[#8C6D4F]/25">
+                        <div class="flex flex-col">
+                            <span class="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bebas">8+ Deployed</span>
+                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">UI Systems</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bebas">90%+ Acc.</span>
+                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Model Testing</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bebas">100% On-Time</span>
+                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Sprint Cycles</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bebas">2nd Place</span>
+                            <span class="text-[10px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5">Hackathon Win</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://github.com/Kushalraj123" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank">LinkedIn</a>
+
+                <!-- Right 3D Portrait Frame (5 Cols) -->
+                <div class="lg:col-span-5 flex items-center justify-center relative card-3d-perspective-container">
+                    <!-- Subtle Glow Ring Behind Frame -->
+                    <div class="absolute -inset-6 bg-[conic-gradient(from_0deg,#D4AF37_0%,#8C6D4F_30%,transparent_60%,#D4AF37_100%)] blur-2xl rounded-3xl opacity-15 pointer-events-none glow-ring"></div>
+
+                    <!-- Holographic 3D Portrait Card -->
+                    <div id="portrait-3d-card" class="relative p-3.5 border border-[#8C6D4F]/40 rounded-sm bg-[#120F0C]/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] cursor-pointer transition-colors duration-500 hover:border-[#D4AF37]/80 group">
+                        
+                        <!-- Laser sweep reflect border light -->
+                        <div class="absolute inset-0 rounded-sm pointer-events-none overflow-hidden laser-sweep-box">
+                            <div class="w-1/2 h-full bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent skew-x-12 absolute -left-full transition-all duration-[2.2s] ease-in-out laser-sweep"></div>
+                        </div>
+
+                        <!-- Golden Corner Accents -->
+                        <div class="pointer-events-none">
+                            <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#D4AF37] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
+                            <div class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#D4AF37] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
+                            <div class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#D4AF37] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
+                            <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#D4AF37] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:translate-y-0.5 shadow-[0_0_10px_rgba(212,175,55,0.4)]"></div>
+                        </div>
+
+                        <!-- Canvas Image -->
+                        <div class="relative overflow-hidden w-full max-w-[390px] aspect-[4/5] bg-black rounded-sm">
+                            <img src="formal photo.jpeg" alt="Kushal Raj portrait" class="w-full h-full object-cover filter brightness-[0.92] contrast-[1.06] saturate-[1.02] group-hover:brightness-[1.02] group-hover:contrast-[1.12] transition-all duration-700 ease-out" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
+                            
+                            <!-- Signature floating monogram inside image -->
+                            <div class="absolute bottom-4 right-4 z-20 select-none">
+                                <span class="text-3xl text-[#F2D8A7] drop-shadow-[0_0_12px_rgba(242,216,167,0.5)] transition-colors duration-300 group-hover:text-white font-signature">
+                                    Kushal
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FEATURED PROJECTS SECTION (Lenis Stacking Deck)
+         ========================================== -->
+    <section id="projects" class="relative w-full bg-black py-20 pb-32 px-6 sm:px-12 lg:px-20">
+        <!-- Ambient glow maps -->
+        <div class="absolute top-1/4 left-1/3 w-[36rem] h-[36rem] bg-[#D4AF37]/5 rounded-full blur-[180px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-[#8C6D4F]/5 rounded-full blur-[170px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto w-full relative z-10">
+            <!-- Eyebrow Header -->
+            <div class="flex items-center space-x-4 mb-5 section-eyebrow-block">
+                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">02 / FEATURED WORK</span>
+                <div class="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
+            </div>
+
+            <!-- Section Headline -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 header-desc-block">
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">SELECTED WORKS.</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">ENGINEERED VALUE.</span>
+                </h2>
+                <p class="text-xs sm:text-sm font-light text-[#A8988B] max-w-sm mt-4 md:mt-0 leading-relaxed">
+                    Scroll down to unfold the system architecture cards. Each platform was built to solve complex operational challenges.
+                </p>
+            </div>
+
+            <!-- Stacking Deck Scroller Container -->
+            <div class="scroll-stack-scroller">
+                <div class="scroll-stack-inner">
+                    
+                    <!-- CARD 1: Road Damage Detection System -->
+                    <div class="scroll-stack-card">
+                        <div class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
+                            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
+                            
+                            <!-- Card bracket corners -->
+                            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+
+                            <!-- Large watermark background number -->
+                            <span class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">01</span>
+
+                            <!-- Grid contents -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 text-left">
+                                <!-- Left Section: Desc & stack -->
+                                <div class="lg:col-span-7 flex flex-col justify-between h-full">
+                                    <div>
+                                        <div class="flex items-center space-x-3 mb-4">
+                                            <span class="text-xs font-mono font-bold text-[#D4AF37]">01 //</span>
+                                            <span class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">COMPUTER VISION / ML PIPELINE</span>
+                                        </div>
+                                        <h3 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
+                                            Road Damage Detection System
+                                        </h3>
+                                        <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
+                                            Fine-tuned YOLOv8 neural network architectures on the RDD2022 dataset to detect and categorize road anomalies. Implemented custom spatial mapping outputs using Folium for real-time infrastructure maintenance dashboard alerts.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-6 border-t border-[#8C6D4F]/25">
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">YOLOv8</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Python</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">PyTorch</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Streamlit</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Folium</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">OpenCV</span>
+                                    </div>
+                                </div>
+                                <!-- Right Section: Metrics & Action link -->
+                                <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
+                                    <div class="space-y-3 w-full">
+                                        <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">// CORE DEPLOYED SPEC</span>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">NEURAL NETWORK</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">YOLOv8 Classifiers</span>
+                                        </div>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">GEOMAPPING</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Folium Maps</span>
+                                        </div>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">FRONTEND</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Streamlit Dashboard</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://github.com/Kushalraj123/RoadDamageDetector" target="_blank" class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
+                                        <span>VIEW ON GITHUB</span>
+                                        <span class="text-xs">↗</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: DevSync - Collaborative IDE -->
+                    <div class="scroll-stack-card">
+                        <div class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
+                            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
+                            
+                            <!-- Card bracket corners -->
+                            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+
+                            <!-- Large watermark background number -->
+                            <span class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">02</span>
+
+                            <!-- Grid contents -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 text-left">
+                                <!-- Left Section: Desc & stack -->
+                                <div class="lg:col-span-7 flex flex-col justify-between h-full">
+                                    <div>
+                                        <div class="flex items-center space-x-3 mb-4">
+                                            <span class="text-xs font-mono font-bold text-[#D4AF37]">02 //</span>
+                                            <span class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">REAL-TIME UTILITY / SYNCHRONIZATION</span>
+                                        </div>
+                                        <h3 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
+                                            DevSync Collaborative IDE
+                                        </h3>
+                                        <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
+                                            A browser collaborative code editor supporting multiple concurrent developer connections. Features sub-100ms CRDT document sync and sandboxed remote code compile environments using Judge0 REST API endpoints.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-6 border-t border-[#8C6D4F]/25">
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">React</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Yjs CRDTs</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Socket.IO</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Node.js</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Prisma ORM</span>
+                                    </div>
+                                </div>
+                                <!-- Right Section: Metrics & Action link -->
+                                <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
+                                    <div class="space-y-3 w-full">
+                                        <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">// CORE DEPLOYED SPEC</span>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">LATENCY</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">&lt; 100ms sync</span>
+                                        </div>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">COMPILER</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">Judge0 REST sandbox</span>
+                                        </div>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">RECOGNITION</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">2nd Place Hackathon</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://github.com/Kushalraj123/DevSync-Collaborative-IDE" target="_blank" class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
+                                        <span>VIEW ON GITHUB</span>
+                                        <span class="text-xs">↗</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: E-Commerce Web Application -->
+                    <div class="scroll-stack-card">
+                        <div class="relative w-full rounded-2xl border border-[#8C6D4F]/50 bg-[#0E0C0A] p-8 sm:p-12 shadow-[0_25px_70px_rgba(0,0,0,0.98)] group overflow-hidden transition-colors duration-500 hover:border-[#D4AF37] project-card-3d">
+                            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
+                            
+                            <!-- Card bracket corners -->
+                            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+                            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors"></div>
+
+                            <!-- Large watermark background number -->
+                            <span class="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[#EAD8C7]/5 select-none pointer-events-none leading-none font-bebas">03</span>
+
+                            <!-- Grid contents -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10 text-left">
+                                <!-- Left Section: Desc & stack -->
+                                <div class="lg:col-span-7 flex flex-col justify-between h-full">
+                                    <div>
+                                        <div class="flex items-center space-x-3 mb-4">
+                                            <span class="text-xs font-mono font-bold text-[#D4AF37]">03 //</span>
+                                            <span class="text-[10.5px] font-mono tracking-[0.25em] uppercase text-[#A8988B]">FULL-STACK PLATFORM / ORM OPTIMIZATION</span>
+                                        </div>
+                                        <h3 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9] font-bebas">
+                                            E-Commerce Web Application
+                                        </h3>
+                                        <p class="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8">
+                                            High-performance server stack featuring optimized Prisma database seed scripts for batch records. Instantly seeds 1,000+ relational model entries, reducing query execution lookup times by 40% and local setup time by 90%.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-6 border-t border-[#8C6D4F]/25">
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">React</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Node.js</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">Prisma ORM</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">SQLite</span>
+                                        <span class="px-3 py-1 text-[10px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/40 bg-[#16120E] text-[#E8D7C5]">REST APIs</span>
+                                    </div>
+                                </div>
+                                <!-- Right Section: Metrics & Action link -->
+                                <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6 lg:pl-6 lg:border-l lg:border-[#8C6D4F]/25">
+                                    <div class="space-y-3 w-full">
+                                        <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-2">// CORE DEPLOYED SPEC</span>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">SEEDED RECORDS</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">1,000+ relational</span>
+                                        </div>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">LOCAL SETUP TIME</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">-90% reduced</span>
+                                        </div>
+                                        <div class="p-3.5 rounded-sm border border-[#8C6D4F]/25 bg-[#050403] flex items-center justify-between">
+                                            <span class="text-[10px] font-mono text-[#A8988B]">QUERY OPTIMIZATION</span>
+                                            <span class="text-[11px] font-mono font-medium text-[#F7E7C4]">-40% latency</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://github.com/Kushalraj123/E-Commerce-Web-Application" target="_blank" class="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 w-full">
+                                        <span>VIEW ON GITHUB</span>
+                                        <span class="text-xs">↗</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Marker to Anchor Height -->
+                    <div class="scroll-stack-end"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SKILLS SECTION (Bento Grid)
+         ========================================== -->
+    <section id="skills" class="relative w-screen bg-black pt-8 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden">
+        <div class="absolute top-1/3 left-1/4 w-[34rem] h-[34rem] bg-[#D4AF37]/5 rounded-full blur-[170px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-1/4 w-[28rem] h-[28rem] bg-[#8C6D4F]/5 rounded-full blur-[160px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto w-full relative z-10">
+            <!-- Eyebrow Header -->
+            <div class="flex items-center space-x-4 mb-7 section-eyebrow-block">
+                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">03 / TECH MATRIX</span>
+                <div class="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
+            </div>
+
+            <!-- Section Header -->
+            <div class="mb-12 header-desc-block">
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">ARCHITECTURAL MASTERY.</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">PRECISION APPLIED.</span>
+                </h2>
+            </div>
+
+            <!-- Bento Grid Wrapper -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bento-grid">
+                <!-- Box 1 (7 Cols) -->
+                <div class="lg:col-span-7 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">LANGUAGES MATRIX</span>
+                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">5+ CORE</span>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">SOFTWARE DIALECTS</h3>
+                    <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7 max-w-xl">
+                        Fluency across procedural, object-oriented, and relational data structures. Implemented algorithms and system pipelines using optimal mathematical dialects.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Python</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Java</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">C</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">SQL</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">HTML5 / CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Box 2 (5 Cols) -->
+                <div class="lg:col-span-5 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">FRAMEWORKS</span>
+                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">HIGH PERF</span>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">LIBRARIES & DEPLOYMENT</h3>
+                    <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7">
+                        Constructing real-time models and dynamic reactive user layouts. Specialized in computer vision tracking and client dashboards.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">PyTorch</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">OpenCV</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">React</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Flask</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Streamlit</span>
+                    </div>
+                </div>
+
+                <!-- Box 3 (5 Cols) -->
+                <div class="lg:col-span-5 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">INFRASTRUCTURE</span>
+                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">SANDBOX</span>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">TOOLS & PLATFORMS</h3>
+                    <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7">
+                        Automating environments and code delivery channels. Experience configuring distributed files and container networks.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Git</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Docker</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">VS Code</span>
+                    </div>
+                </div>
+
+                <!-- Box 4 (7 Cols) -->
+                <div class="lg:col-span-7 relative p-8 sm:p-9 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_16px_45px_rgba(212,175,55,0.14)] cursor-pointer group bento-card">
+                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors"></div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">ENGINEERING CONCEPTS</span>
+                        <span class="text-[10px] font-mono px-2.5 py-0.5 border border-[#8C6D4F]/40 text-[#C4B5A5] bg-[#17130F]">RESEARCH SPECIALIZATION</span>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-normal tracking-wide text-white mb-3 font-bebas group-hover:text-[#F7E7C4] transition-colors">DATA INTELLIGENCE & DESIGN</h3>
+                    <p class="text-xs sm:text-sm text-[#A8988B] font-light leading-relaxed mb-7 max-w-xl">
+                        Strong mathematical foundation in data processing systems, neural configurations, explainable algorithms, REST integrations, and clean code optimization workflows.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-[#8C6D4F]/20">
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Machine Learning</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">Explainable AI</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">DSA</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">REST APIs</span>
+                        <span class="px-3.5 py-1.5 text-[10.5px] font-medium tracking-[0.16em] uppercase rounded-sm border border-[#8C6D4F]/35 bg-[#171310] text-[#E8D7C5]">System Debugging</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         GITHUB STATS BANNER
+         ========================================== -->
+    <section class="py-12 px-6 sm:px-12 lg:px-20 reveal">
+        <div class="max-w-7xl mx-auto w-full relative z-10 border border-[#8C6D4F]/30 bg-[#070605] p-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
+            <div class="absolute top-0 left-0 w-8 h-px bg-[#D4AF37]"></div>
+            <div class="absolute top-0 left-0 w-px h-8 bg-[#D4AF37]"></div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-[#8C6D4F]/15 pb-6 mb-8 text-left">
+                <div>
+                    <span class="text-[9.5px] font-mono tracking-[0.25em] uppercase text-[#D4AF37]">// COMMIT METRICS</span>
+                    <h2 class="text-3xl text-white font-bebas leading-none mt-2 uppercase">GitHub Development Stacks</h2>
+                </div>
+                <span class="text-[10px] font-mono text-[#8C6D4F] mt-2 md:mt-0">github.com/Kushalraj123</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="bg-black/50 p-4 border border-[#8C6D4F]/15 flex justify-center items-center">
+                    <img class="max-w-full" src="https://github-readme-stats.shion.dev/api?username=Kushalraj123&show_icons=true&theme=dark&title_color=D4AF37&icon_color=D4AF37&text_color=E8DFD8&bg_color=000000&hide_border=true" alt="GitHub Stats">
+                </div>
+                <div class="bg-black/50 p-4 border border-[#8C6D4F]/15 flex justify-center items-center">
+                    <img class="max-w-full" src="https://streak-stats.demolab.com/?user=Kushalraj123&theme=dark&currStreakNum=D4AF37&fire=D4AF37&sideNums=E8DFD8&sideLabels=E8DFD8&dates=E8DFD8&background=000000&hide_border=true" alt="Contribution Streak">
+                </div>
+                <div class="bg-black/50 p-4 border border-[#8C6D4F]/15 flex justify-center items-center">
+                    <img class="max-w-full" src="https://github-readme-stats.shion.dev/api/top-langs/?username=Kushalraj123&layout=compact&theme=dark&title_color=D4AF37&text_color=E8DFD8&bg_color=000000&hide_border=true" alt="Language Matrix">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         EXPERIENCE SECTION (Vertical Timeline)
+         ========================================== -->
+    <section id="experience" class="relative w-full bg-black pt-4 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-[#D4AF37]/[0.02] rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto w-full relative z-10">
+            <!-- Eyebrow Header -->
+            <div class="flex items-center space-x-4 mb-7 section-eyebrow-block">
+                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">04 / CHRONOLOGY</span>
+                <div class="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
+            </div>
+
+            <!-- Section Headline -->
+            <div class="mb-16 text-left">
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">EXPERIENCE &</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">PATHWAY.</span>
+                </h2>
+            </div>
+
+            <!-- Timeline Scroller -->
+            <div id="experience-timeline" class="relative w-full text-left">
+                <!-- Background static track line -->
+                <div class="absolute left-[19px] md:left-[140px] top-4 bottom-8 w-[1px] bg-[#8C6D4F]/20"></div>
+                <!-- Animated gold scroll-progress track line -->
+                <div id="timeline-progress-bar" class="absolute left-[19px] md:left-[140px] top-4 w-[2px] bg-gradient-to-b from-[#D4AF37] via-[#C99E5D] to-[#8C6D4F]/10 shadow-[0_0_10px_#D4AF37] origin-top h-0"></div>
+
+                <div class="space-y-12">
+                    <!-- Stop 1 -->
+                    <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
+                        <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
+                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">Feb - May 2026</span>
+                        </div>
+                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        </div>
+                        <div class="ml-14 md:ml-12 pl-2">
+                            <div class="md:hidden mb-1.5">
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">Feb - May 2026</span>
+                            </div>
+                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Trainee Software Engineer</h3>
+                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Inventeron Technologies LLP</span>
+                            <ul class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg space-y-1 list-disc pl-4">
+                                <li>Developed 8+ responsive UI functional units utilizing React and REST integrations.</li>
+                                <li>Diagnosed and patched 20+ interface issues, enhancing cross-browser client alignment.</li>
+                                <li>Participated in sprint deliverables, executing 100% of tasks ahead of target cycles.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stop 2 -->
+                    <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
+                        <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
+                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">Jan - Feb 2026</span>
+                        </div>
+                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        </div>
+                        <div class="ml-14 md:ml-12 pl-2">
+                            <div class="md:hidden mb-1.5">
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">Jan - Feb 2026</span>
+                            </div>
+                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Data Science Intern</h3>
+                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Codec Technologies Pvt. Ltd.</span>
+                            <ul class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg space-y-1 list-disc pl-4">
+                                <li>Completed an AICTE and ICAC-certified Data internship, building Python predictive ML pipelines.</li>
+                                <li>Configured model frameworks with Pandas and scikit-learn, yielding over 90% test accuracy.</li>
+                                <li>Collaborated inside a 4-person unit compiling technical insight summaries.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stop 3 -->
+                    <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
+                        <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
+                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2023 - 2027</span>
+                        </div>
+                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        </div>
+                        <div class="ml-14 md:ml-12 pl-2">
+                            <div class="md:hidden mb-1.5">
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">2023 - 2027</span>
+                            </div>
+                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">B.E. — Computer Science</h3>
+                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Navkis College of Engineering, VTU</span>
+                            <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg mb-2">
+                                Specializing in machine learning and data pipelines. Maintained VtU department aggregate standard excellence.
+                            </p>
+                            <span class="text-xs font-mono font-medium text-[#F7E7C4]">CGPA Status: 7.50 / 10</span>
+                        </div>
+                    </div>
+
+                    <!-- Stop 4 -->
+                    <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
+                        <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
+                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2021 - 2023</span>
+                        </div>
+                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        </div>
+                        <div class="ml-14 md:ml-12 pl-2">
+                            <div class="md:hidden mb-1.5">
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">2021 - 2023</span>
+                            </div>
+                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Class XII (PUC)</h3>
+                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">Masters PU College, Hassan</span>
+                            <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg mb-2">
+                                Completed specialized pre-university coursework in Mathematics, Physics, and Chemistry (MPC).
+                            </p>
+                            <span class="text-xs font-mono font-medium text-[#F7E7C4]">Assessment Score: 82%</span>
+                        </div>
+                    </div>
+
+                    <!-- Stop 5 -->
+                    <div class="relative flex flex-col md:flex-row items-start group timeline-stop">
+                        <div class="hidden md:block w-[140px] shrink-0 pr-8 pt-0.5 text-right">
+                            <span class="text-[10px] font-mono tracking-[0.2em] text-[#8C6D4F] group-hover:text-[#D4AF37] transition-colors">2021 Completion</span>
+                        </div>
+                        <div class="absolute left-[19px] md:left-[140px] top-1.5 -translate-x-1/2 flex items-center justify-center node-container">
+                            <div class="absolute w-6 h-6 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/40 group-hover:scale-150 transition-all duration-700 ease-out outer-node"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#120F0C] border border-[#8C6D4F] group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_12px_#D4AF37] transition-colors duration-300 inner-node"></div>
+                        </div>
+                        <div class="ml-14 md:ml-12 pl-2">
+                            <div class="md:hidden mb-1.5">
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-[#D4AF37]">2021 Completion</span>
+                            </div>
+                            <h3 class="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none font-bebas">Class X (SSLC)</h3>
+                            <span class="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2 font-mono">United Academy, Hassan</span>
+                            <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg mb-2">
+                                Completed general secondary education coursework.
+                            </p>
+                            <span class="text-xs font-mono font-medium text-[#F7E7C4]">Assessment Score: 85%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         QUALIFICATIONS & MERIT SECTION
+         ========================================== -->
+    <section id="certifications" class="relative w-full bg-black py-16 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full relative z-10">
+            <!-- Eyebrow Header -->
+            <div class="flex items-center space-x-4 mb-7 section-eyebrow-block">
+                <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">05 / CREDENTIAL_EVIDENCE</span>
+                <div class="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
+            </div>
+
+            <!-- Section Headline -->
+            <div class="mb-12 text-left">
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">QUALIFICATIONS &</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">MERIT.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left">
+                <!-- Column 1: Certifications (7 Cols) -->
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-4">// PROFESSIONAL ACCREDITATIONS</span>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Cert 1 -->
+                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                            <span class="text-2xl text-[#D4AF37]">🏆</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">Getting Started with Artificial Intelligence</h4>
+                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">IBM • 2026</span>
+                            </div>
+                        </div>
+                        <!-- Cert 2 -->
+                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                            <span class="text-2xl text-[#D4AF37]">💻</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">Introduction to Front-End Development</h4>
+                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Simplilearn SkillUp • 2025</span>
+                            </div>
+                        </div>
+                        <!-- Cert 3 -->
+                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                            <span class="text-2xl text-[#D4AF37]">📜</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">JavaScript Training Cert</h4>
+                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Spoken Tutorial, IIT Bombay • 2025</span>
+                            </div>
+                        </div>
+                        <!-- Cert 4 -->
+                        <div class="p-5 rounded-sm border border-[#8C6D4F]/30 bg-[#0E0C0A] flex items-start space-x-4 transition-all duration-300 hover:border-[#D4AF37]/60 group">
+                            <span class="text-2xl text-[#D4AF37]">🐍</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white group-hover:text-[#F7E7C4] transition-colors leading-tight">DSA in Python</h4>
+                                <span class="block text-[10px] font-mono text-[#8C6D4F] mt-1">Infosys Springboard • 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Hackathon Award (5 Cols) -->
+                <div class="lg:col-span-5 flex flex-col justify-center">
+                    <span class="text-[10px] font-mono tracking-[0.25em] uppercase text-[#8C6D4F] block mb-4">// DISTINGUISHED AWARDS</span>
+                    
+                    <div class="relative p-8 rounded-sm border border-[#D4AF37]/60 bg-[#120F0C]/80 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden text-center group">
+                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"></div>
+                        <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]"></div>
+                        <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]"></div>
+
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-500">🥈</div>
+                        <span class="inline-block px-3 py-1 text-[9px] font-mono tracking-widest uppercase border border-[#D4AF37]/50 text-[#D4AF37] mb-4">2ND PLACE WINNER</span>
+                        <h3 class="text-2xl text-white font-bebas uppercase leading-tight group-hover:text-[#F7E7C4] transition-colors">University Hackathon Champion</h3>
+                        <p class="text-xs text-[#A8988B] font-light leading-relaxed mt-4 max-w-sm mx-auto">
+                            Secured the second place ranking among 50 competing technical developer units for constructing the <strong>DevSync Real-Time Collaborative IDE</strong>, showing advanced architectural synchronization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACT SECTION & SIMULATED TERMINAL
+         ========================================== -->
+    <footer id="contact" class="relative w-full bg-black pt-16 pb-16 px-6 sm:px-12 lg:px-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full relative z-10">
+            
+            <!-- Split Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start text-left">
+                <!-- Left Details (5 Cols) -->
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                        <!-- Eyebrow Header -->
+                        <div class="flex items-center space-x-4 mb-5 section-eyebrow-block">
+                            <span class="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]">06 / CONTACT</span>
+                            <div class="w-16 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent"></div>
+                        </div>
+
+                        <!-- Headline -->
+                        <div class="mb-8">
+                            <h2 class="text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase leading-[0.85] select-none font-bebas">
+                                <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">INITIALIZE</span>
+                                <span class="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">TRANSMISSION.</span>
+                            </h2>
+                        </div>
+                        <p class="text-xs sm:text-[13px] font-light text-[#A8988B] leading-relaxed max-w-md">
+                            Seeking internship positions in Machine Learning, computer vision, data analysis, or full-stack software development. Open to project partnerships and research endeavors. Get in touch!
+                        </p>
+
+                        <!-- Contact quick items -->
+                        <div class="mt-8 space-y-4">
+                            <a href="mailto:kushalrajm856@email.com" class="flex items-center space-x-3 text-xs tracking-wider text-[#EAD8C7] hover:text-[#D4AF37] transition-colors font-mono">
+                                <span class="text-[#D4AF37]">EMAIL:</span>
+                                <span>kushalrajm856@email.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Monolith Terminal Form (7 Cols) -->
+                <div class="lg:col-span-7 relative w-full rounded-sm border border-[#8C6D4F]/40 bg-[#0A0806] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent"></div>
+                    
+                    <!-- Corner Brackets -->
+                    <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/60"></div>
+                    <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#D4AF37]/60"></div>
+                    <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#D4AF37]/60"></div>
+                    <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/60"></div>
+
+                    <!-- Contact Form -->
+                    <form id="terminal-contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <span class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">// SENDER IDENTITY</span>
+                                <input type="text" id="contact-name" required placeholder="Enter name" class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 px-4 py-3 outline-none rounded-sm transition-colors font-mono" />
+                            </div>
+                            <div>
+                                <span class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">// TRANSMISSION CHANNEL</span>
+                                <input type="email" id="contact-email" required placeholder="Enter email" class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 px-4 py-3 outline-none rounded-sm transition-colors font-mono" />
+                            </div>
+                        </div>
+                        <div>
+                            <span class="block text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#8C6D4F] mb-2">// DATA ENCRYPTED PAYLOAD</span>
+                            <textarea id="contact-message" required rows="4" placeholder="Enter transmission message details..." class="w-full bg-[#120F0C] border border-[#8C6D4F]/30 focus:border-[#D4AF37] text-xs text-white placeholder-[#8C6D4F]/50 p-4 outline-none rounded-sm transition-colors resize-none font-mono"></textarea>
+                        </div>
+                        
+                        <!-- Terminal Dispatch Simulated Logger Box -->
+                        <div id="terminal-logger" class="hidden border border-[#8C6D4F]/20 bg-[#050403] p-4 font-mono text-[10px] text-[#A8988B] space-y-1 text-left rounded-sm max-h-40 overflow-y-auto">
+                            <!-- Lines will be written here via javascript dynamically -->
+                        </div>
+
+                        <button type="submit" id="dispatch-btn" class="w-full py-3.5 border border-[#8C6D4F]/50 bg-[#14100D] hover:border-[#D4AF37] hover:bg-[#1A1510] text-[#E8DFD8] hover:text-[#F7E7C4] text-xs font-medium tracking-[0.25em] uppercase transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] font-mono">
+                            EXECUTE DISPATCH ↗
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Social Links Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-[#8C6D4F]/15">
+                <a href="mailto:kushalrajm856@email.com" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                    <span>EMAIL DIRECT ↗</span>
+                </a>
+                <a href="https://github.com/Kushalraj123" target="_blank" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                    <span>GITHUB PRO ↗</span>
+                </a>
+                <a href="https://www.linkedin.com/in/kushalrajm/" target="_blank" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                    <span>LINKEDIN NET ↗</span>
+                </a>
+                <a href="#" class="p-4 border border-[#8C6D4F]/25 bg-[#0A0806] hover:border-[#D4AF37] text-[#A8988B] hover:text-[#FFF5EB] transition-all duration-300 text-center font-mono text-xs">
+                    <span>HUGGING FACE ↗</span>
+                </a>
+            </div>
+
+            <!-- Footer Details -->
+            <div class="mt-16 pt-8 border-t border-[#8C6D4F]/10 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4">
+                <span class="text-[10px] font-mono tracking-widest text-[#8C6D4F] uppercase">PORTFOLIO // EDITION 2026</span>
+                <span class="text-[10px] font-mono text-[#8C6D4F]">
+                    © 2026 KUSHAL RAJ • NAVKIS COLLEGE OF ENGINEERING • HASSAN
+                </span>
+            </div>
+
         </div>
     </footer>
 
-    <!-- ==========================================
-         COMMAND PALETTE MODAL (CTRL + M)
-         ========================================== -->
-    <div class="palette-overlay" id="command-palette" aria-label="Command Palette" role="dialog" aria-modal="true">
-        <div class="palette-container">
-            <div class="palette-header">
-                <span class="material-symbols-outlined palette-icon">terminal</span>
-                <input type="text" class="palette-input" id="palette-input"
-                    placeholder="Type a command to execute or navigate..." aria-label="Command Input">
-                <span class="palette-esc">ESC</span>
-            </div>
-            <ul class="palette-results" id="palette-list">
-                <!-- Dynamically rendered items -->
-            </ul>
-        </div>
-    </div>
-
-    <!-- JS script link -->
+    <!-- Scripts -->
+    <script>
+        // Header scroll class toggle
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
     <script src="script.js"></script>
-
 </body>
-
 </html>
